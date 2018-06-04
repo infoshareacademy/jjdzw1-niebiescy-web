@@ -1,2 +1,2 @@
-# jjdzw1-niebiescy-app
+# jjdzw1-niebiescy-web
 Projekt: 
