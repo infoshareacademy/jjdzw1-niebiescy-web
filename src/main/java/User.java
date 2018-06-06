@@ -1,41 +1,44 @@
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Getter
 @Setter
+@Entity
+@Table(name = "users")
 
-public class User
+class User
+
 
 {
-
+    @Column(name = "id_user")
     String userId;
+
+    @Column(name = "login")
+    String Login;
+
+    @Column(name = "password")
+    String Password;
+
+    @Column(name = "name")
     String userName;
-    String userSecondName;
+
+    @Column(name = "surname")
+    String userSurname;
+
+    @Column(name = "email")
     String userEmail;
+
+    @Column(name = "phone")
     String userPhoneNumber;
-    String userType;
-    String userActiveFlag;
-    Date userDateCreated;
-    Date userDateModified;
-    Date userDateRemoved;
 
-    public void reserveEvent() {
-        // reserve Event method implementation
-    }
+    @Column(name = "type")
+    Enum<UserType> userType;
 
-    public void unreserveEvent() {
-        // unreserve Event method implementation
-    }
-
-    public void searchForEvent() {
-        // search for Event method implementation
-    }
-
-    public void confirmEventParticipation() {
-
-    }
-
-
+    @Column(name = "isactive")
+    String userIsActive;
 }
