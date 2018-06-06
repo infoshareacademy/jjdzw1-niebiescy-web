@@ -19,27 +19,27 @@ class User
     @Column(name = "id_user")
     String userId;
 
-    @Column(name = "login")
+    @Column(name = "login", nullable = false)
     String Login;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     String Password;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     String userName;
 
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false)
     String userSurname;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     String userEmail;
 
     @Column(name = "phone")
     String userPhoneNumber;
 
-    @Column(name = "type")
+    @Column(name = "type", nullable = false)
     Enum<UserType> userType;
 
-    @Column(name = "isactive")
+    @Column(name = "isactive", nullable = false)
     String userIsActive;
 }
