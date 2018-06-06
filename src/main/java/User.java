@@ -8,6 +8,7 @@ import java.util.Date;
 
 @Getter
 @Setter
+
 @Entity
 @Table(name = "users")
 
