@@ -37,7 +37,7 @@
             <version>4.1.0</version>
         </dependency>
 
-        <!-- valodator -->
+        <!-- validator -->
 
         <dependency>
             <groupId>org.hibernate</groupId>
