@@ -1,3 +1,5 @@
+DROP DATABASE niebiescy;
+
 CREATE DATABASE niebiescy;
 
 CREATE TABLE users
