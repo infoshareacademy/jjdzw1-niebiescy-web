@@ -3,6 +3,7 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -11,11 +12,10 @@ import java.util.Date;
 
 @Entity
 @Table(name = "users")
+class User {
 
-class User
 
-
-{
+    @Id
     @Column(name = "id_user")
     String userId;
 
@@ -42,4 +42,9 @@ class User
 
     @Column(name = "isactive", nullable = false)
     String userIsActive;
+
+
+    public User() {
+    }
+
 }
