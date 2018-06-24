@@ -1,3 +1,7 @@
+package pl.findevent.domain;
+
+import pl.findevent.domain.Event;
+
 import java.util.ArrayList;
 import java.util.List;
 

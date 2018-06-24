@@ -204,7 +204,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        Main
+                                        pl.findevent.Main
                                     </mainClass>
                                 </manifest>
                             </archive>

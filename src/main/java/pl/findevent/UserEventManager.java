@@ -1,5 +1,8 @@
+package pl.findevent;
+
 import lombok.Getter;
 import lombok.Setter;
+import pl.findevent.domain.User;
 
 @Getter
 @Setter

@@ -1,3 +1,7 @@
+package pl.findevent;
+
+import pl.findevent.domain.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
