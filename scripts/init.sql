@@ -2,6 +2,8 @@ DROP DATABASE niebiescy;
 
 CREATE DATABASE niebiescy;
 
+USE niebiescy;
+
 CREATE TABLE users
 (
     id_iser int PRIMARY KEY NOT NULL AUTO_INCREMENT,
