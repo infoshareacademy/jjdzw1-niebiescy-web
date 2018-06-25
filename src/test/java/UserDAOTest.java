@@ -4,12 +4,16 @@ import pl.findevent.dao.UserDAO;
 import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
 
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class UserDAOTest {
 
     @Test
     @DisplayName("Add user to database.")
-    void add() {
+    void shouldAddUserToDatabase() {
 
 
         // given
@@ -33,6 +37,30 @@ class UserDAOTest {
 
 
         //then
+
+    }
+
+
+
+    @Test
+    @DisplayName("Read user from database.")
+    void shouldReadUserFromDatabase(){
+
+        // given
+
+        User user;
+        UserDAO userDAO = new UserDAO();
+
+
+        // when
+
+        user = userDAO.read(3);
+
+        assertEquals("UserLogin",user.getLogin());
+
+
+
+
 
     }
 

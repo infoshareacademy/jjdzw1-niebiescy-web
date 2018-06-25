@@ -6,6 +6,7 @@ import pl.findevent.domain.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.Optional;
 
 
 public class UserDAO {
@@ -36,10 +37,10 @@ public class UserDAO {
     }
 
 
-    public User get(int id) {
+    public User read(int id) {
 
+        return entityManager.find(User.class, id);
 
-        return null;
     }
 
 
