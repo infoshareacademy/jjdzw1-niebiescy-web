@@ -1,51 +1,121 @@
 package pl.findevent.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+
+import org.hibernate.annotations.Table;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Getter
-@Setter
 
 @Entity
-@Table(name = "users")
+@Table(appliesTo = "users")
 public class User {
 
 
     @Id
+    @GeneratedValue
     @Column(name = "id_user")
-    String userId;
+    private String Id;
 
     @Column(name = "login", nullable = false)
-    String Login;
+    private String Login;
 
     @Column(name = "password", nullable = false)
-    String Password;
+    private String Password;
 
     @Column(name = "name", nullable = false)
-    String userName;
+    private String name;
 
     @Column(name = "surname", nullable = false)
-    String userSurname;
+    private String surname;
 
     @Column(name = "email", nullable = false)
-    String userEmail;
+    private String email;
 
     @Column(name = "phone")
-    String userPhoneNumber;
+    private String phoneNumber;
 
     @Column(name = "type", nullable = false)
-    Enum<UserType> userType;
+    private Enum<UserType> userType;
 
     @Column(name = "isactive", nullable = false)
-    String userIsActive;
+    private String isActive;
 
 
     public User() {
     }
 
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String userId) {
+        this.Id = userId;
+    }
+
+    public String getLogin() {
+        return Login;
+    }
+
+    public void setLogin(String login) {
+        Login = login;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String userName) {
+        this.name = userName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String userSurname) {
+        this.surname = userSurname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String userEmail) {
+        this.email = userEmail;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String userPhoneNumber) {
+        this.phoneNumber = userPhoneNumber;
+    }
+
+    public Enum<UserType> getUserType() {
+        return userType;
+    }
+
+    public void setUserType(Enum<UserType> userType) {
+        this.userType = userType;
+    }
+
+    public String getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(String userIsActive) {
+        this.isActive = userIsActive;
+    }
 }
