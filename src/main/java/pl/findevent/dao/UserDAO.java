@@ -8,6 +8,16 @@ import pl.findevent.domain.User;
 class UserDAO {
 
 
+    void get(int id) {
+
+
+
+
+
+    }
+
+
+
     Boolean remove(int id){
 
 
@@ -17,6 +27,10 @@ class UserDAO {
 
 
     Boolean add(User user){
+
+
+
+
 
 
         return true;
