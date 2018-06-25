@@ -3,41 +3,50 @@ package pl.findevent.dao;
 
 import pl.findevent.domain.User;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 
-class UserDAO {
+public class UserDAO {
 
 
-    void get(int id) {
+    private EntityManager entityManager =
+            Persistence.createEntityManagerFactory("primary").createEntityManager();
+
+    public User save(User user) {
+
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        transaction.begin();
+
+        User result = user;
+
+        if (user.getId() > 0) {
+            result = entityManager.merge(user);
+        } else {
+            entityManager.persist(user);
+
+        }
 
 
-
-
+        transaction.commit();
+        return result;
 
     }
 
 
-
-    Boolean remove(int id){
-
+    public User get(int id) {
 
 
-        return true;
+        return null;
     }
 
 
-    Boolean add(User user){
+    public void remove(int id) {
 
 
-
-
-
-
-        return true;
     }
-
-
-
 
 
 }

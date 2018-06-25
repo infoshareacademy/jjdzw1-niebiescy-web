@@ -1,4 +1,5 @@
 package pl.findevent.domain;
+
 import javax.persistence.*;
 
 
@@ -10,13 +11,13 @@ public class User {
     @Id
     @GeneratedValue
     @Column(name = "id_user")
-    private String Id;
+    private int Id;
 
     @Column(name = "login", nullable = false)
-    private String Login;
+    private String login;
 
     @Column(name = "password", nullable = false)
-    private String Password;
+    private String password;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -31,38 +32,49 @@ public class User {
     private String phoneNumber;
 
     @Column(name = "type", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Enum<UserType> userType;
 
     @Column(name = "isactive", nullable = false)
-    private String isActive;
+    private boolean isActive;
 
 
     public User() {
     }
 
+    public User(String login, String password, String name, String surname, String email, String phoneNumber, Enum<UserType> userType, boolean isActive) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.userType = userType;
+        this.isActive = isActive;
+    }
 
-    public String getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(String userId) {
+    public void setId(int userId) {
         this.Id = userId;
     }
 
     public String getLogin() {
-        return Login;
+        return login;
     }
 
     public void setLogin(String login) {
-        Login = login;
+        this.login = login;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getName() {
@@ -101,15 +113,15 @@ public class User {
         return userType;
     }
 
-    public void setUserType(Enum<UserType> userType) {
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
 
-    public String getIsActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(String userIsActive) {
+    public void setIsActive(boolean userIsActive) {
         this.isActive = userIsActive;
     }
 }

@@ -4,6 +4,7 @@ import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class UserTest {
 
@@ -23,7 +24,7 @@ class UserTest {
         user.setSurname("User Surname");
         user.setPhoneNumber("223456789");
         user.setEmail("user@wp.pl");
-        user.setIsActive("1");
+        user.setIsActive(true);
         user.setUserType(UserType.NORMAL);
 
         // then
@@ -34,7 +35,7 @@ class UserTest {
         assertEquals("User Surname", user.getSurname(), "User surname - fail");
         assertEquals("223456789", user.getPhoneNumber(), "Phone number - fail");
         assertEquals("user@wp.pl", user.getEmail(), "Email - fail");
-        assertEquals("1", user.getIsActive(),"Is active - fail");
+        assertTrue(user.getIsActive(),"Is active - fail");
         assertEquals(UserType.NORMAL, user.getUserType(),"User type - fail");
 
 

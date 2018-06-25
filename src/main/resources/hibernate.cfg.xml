@@ -22,6 +22,6 @@
         <!-- Będzie nam ładnie logować SQL w konsoli -->
         <property name="show_sql">true</property>
         <!-- Definicje mapowania -->
-        <!-- <mapping resource="isa.hbm.xml"></mapping> -->
+        <mapping class="pl.findevent.domain.User" />
     </session-factory>
 </hibernate-configuration>
