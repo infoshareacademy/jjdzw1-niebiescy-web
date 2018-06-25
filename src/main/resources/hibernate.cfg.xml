@@ -9,7 +9,7 @@
             com.mysql.cj.jdbc.Driver
         </property>
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost:3306/isa?serverTimezone=UTC
+            jdbc:mysql://localhost:3306/niebiescy?serverTimezone=UTC
         </property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">password</property>
@@ -22,6 +22,6 @@
         <!-- Będzie nam ładnie logować SQL w konsoli -->
         <property name="show_sql">true</property>
         <!-- Definicje mapowania -->
-        <mapping resource="isa.hbm.xml"></mapping>
+        <!-- <mapping resource="isa.hbm.xml"></mapping> -->
     </session-factory>
 </hibernate-configuration>

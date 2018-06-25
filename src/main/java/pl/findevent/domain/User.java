@@ -1,15 +1,9 @@
 package pl.findevent.domain;
+import javax.persistence.*;
 
-
-import org.hibernate.annotations.Table;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
-@Table(appliesTo = "users")
+@Table(name = "users")
 public class User {
 
 
