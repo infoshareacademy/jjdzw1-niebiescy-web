@@ -1,4 +1,4 @@
-package pl.findevent;
+package pl.findevent.domain;
 
 import pl.findevent.domain.User;
 
