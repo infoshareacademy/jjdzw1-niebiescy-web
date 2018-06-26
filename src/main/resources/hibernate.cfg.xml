@@ -23,5 +23,6 @@
         <property name="show_sql">true</property>
         <!-- Definicje mapowania -->
         <mapping class="pl.findevent.domain.User" />
+        <mapping class="pl.findevent.domain.Event" />
     </session-factory>
 </hibernate-configuration>

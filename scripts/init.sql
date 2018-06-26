@@ -16,3 +16,19 @@ CREATE TABLE IF NOT EXISTS users
     CONSTRAINT PK_User PRIMARY KEY (id_user)
 );
 
+CREATE TABLE IF NOT EXISTS events
+(
+
+  id_event int NOT NULL AUTO_INCREMENT,
+  name varchar(255) NOT NULL,
+  description VARCHAR(2000),
+  start_date date NOT NULL,
+  finish_date date NOT NULL,
+  address varchar(1024) NOT NULL,
+  googlemaps varchar(1024),
+  organizer int not null,
+  price double not null,
+  tickets int not null,
+  constraint PK_Event primary key (id_event)
+);
+
