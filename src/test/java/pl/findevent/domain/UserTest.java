@@ -1,3 +1,5 @@
+package pl.findevent.domain;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pl.findevent.domain.User;

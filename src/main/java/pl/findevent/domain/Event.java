@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "events")
-class Event {
+public class Event {
 
     @Id
     @Column(name = "id_event")

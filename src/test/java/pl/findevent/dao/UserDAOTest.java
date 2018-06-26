@@ -1,3 +1,5 @@
+package pl.findevent.dao;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pl.findevent.dao.UserDAO;
@@ -21,7 +23,6 @@ class UserDAOTest {
         User user = new User();
         UserDAO userDAO = new UserDAO();
 
-
         // when
 
         user.setLogin("UserLogin");
@@ -33,18 +34,16 @@ class UserDAOTest {
         user.setIsActive(true);
         user.setUserType(UserType.NORMAL);
 
-        userDAO.save(user);
-
-
         //then
+
+        userDAO.save(user);
 
     }
 
 
-
     @Test
     @DisplayName("Read user from database.")
-    void shouldReadUserFromDatabase(){
+    void shouldReadUserByIdFromDatabase() {
 
         // given
 
@@ -56,16 +55,10 @@ class UserDAOTest {
 
         user = userDAO.read(3);
 
-        assertEquals("UserLogin",user.getLogin());
-
-
-
+        assertEquals("UserLogin", user.getLogin());
 
 
     }
-
-
-
 
 
 }
