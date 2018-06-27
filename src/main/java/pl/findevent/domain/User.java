@@ -9,23 +9,23 @@ public class User {
 
 
     @Id
-    @Column(name = "id_user", unique = true, nullable = false )
+    @Column(name = "id_user", unique = true, nullable = false)
     private int id;
 
     @Column(name = "login", nullable = false)
     private String login;
 
     @Column(name = "password", nullable = false)
-    private String password ;
+    private String password;
 
     @Column(name = "name", nullable = false)
-    private String name ;
+    private String name;
 
     @Column(name = "surname", nullable = false)
-    private String surname ;
+    private String surname;
 
     @Column(name = "email", nullable = false)
-    private String email ;
+    private String email;
 
     @Column(name = "phone")
     private String phoneNumber;
