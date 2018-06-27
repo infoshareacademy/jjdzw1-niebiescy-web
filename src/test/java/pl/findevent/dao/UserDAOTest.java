@@ -25,14 +25,14 @@ class UserDAOTest {
 
         // when
 
-        user.setLogin("UserLogin");
+        user.setLogin("AdminLogin");
         user.setPassword("UserPassword");
         user.setName("User Name");
         user.setSurname("User Surname");
         user.setPhoneNumber("223456789");
         user.setEmail("user@wp.pl");
         user.setIsActive(true);
-        user.setUserType(UserType.NORMAL);
+        user.setUserType(UserType.ADMIN);
 
         //then
 
@@ -53,7 +53,7 @@ class UserDAOTest {
 
         // when
 
-        user = userDAO.read(3);
+        user =  userDAO.read(1);
 
         assertEquals("UserLogin", user.getLogin());
 

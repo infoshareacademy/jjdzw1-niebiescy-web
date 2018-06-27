@@ -14,35 +14,36 @@ public class User {
     private int id;
 
     @Column(name = "login", nullable = false)
-    private String login;
+    private String login = "";
 
     @Column(name = "password", nullable = false)
-    private String password;
+    private String password = "";
 
     @Column(name = "name", nullable = false)
-    private String name;
+    private String name = "";
 
     @Column(name = "surname", nullable = false)
-    private String surname;
+    private String surname = "";
 
     @Column(name = "email", nullable = false)
-    private String email;
+    private String email = "";
 
     @Column(name = "phone")
-    private String phoneNumber;
+    private String phoneNumber = "";
 
     @Column(name = "type", nullable = false)
     @Enumerated(EnumType.STRING)
-    private Enum<UserType> userType;
+    private Enum<UserType> userType = UserType.NORMAL;
 
     @Column(name = "isactive", nullable = false)
-    private boolean isActive;
+    private boolean isActive = true;
 
 
     public User() {
     }
 
-    public User(String login, String password, String name, String surname, String email, String phoneNumber, Enum<UserType> userType, boolean isActive) {
+    public User(String temp, String login, String password, String name, String surname, String email, String phoneNumber, Enum<UserType> userType, boolean isActive) {
+
         this.login = login;
         this.password = password;
         this.name = name;

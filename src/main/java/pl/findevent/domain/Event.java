@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -30,7 +31,7 @@ public class Event {
     private String address;
 
     @Column(name = "googlemaps")
-    private String googlemaps;
+    private String googleMaps;
 
     @Column(name = "organizer")
     private int organizer;
@@ -94,12 +95,12 @@ public class Event {
         this.address = address;
     }
 
-    public String getGooglemaps() {
-        return googlemaps;
+    public String getGoogleMaps() {
+        return googleMaps;
     }
 
-    public void setGooglemaps(String googlemaps) {
-        this.googlemaps = googlemaps;
+    public void setGoogleMaps(String googlemaps) {
+        this.googleMaps = googlemaps;
     }
 
     public int getOrganizer() {
