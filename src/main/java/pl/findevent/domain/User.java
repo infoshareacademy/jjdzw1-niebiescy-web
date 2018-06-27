@@ -9,34 +9,33 @@ public class User {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_user")
+    @Column(name = "id_user", unique = true, nullable = false )
     private int id;
 
     @Column(name = "login", nullable = false)
-    private String login = "";
+    private String login;
 
     @Column(name = "password", nullable = false)
-    private String password = "";
+    private String password ;
 
     @Column(name = "name", nullable = false)
-    private String name = "";
+    private String name ;
 
     @Column(name = "surname", nullable = false)
-    private String surname = "";
+    private String surname ;
 
     @Column(name = "email", nullable = false)
-    private String email = "";
+    private String email ;
 
     @Column(name = "phone")
-    private String phoneNumber = "";
+    private String phoneNumber;
 
     @Column(name = "type", nullable = false)
     @Enumerated(EnumType.STRING)
-    private Enum<UserType> userType = UserType.NORMAL;
+    private Enum<UserType> userType;
 
     @Column(name = "isactive", nullable = false)
-    private boolean isActive = true;
+    private boolean isActive;
 
 
     public User() {
