@@ -9,7 +9,7 @@ public class User {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_user")
     private int id;
 
@@ -42,7 +42,7 @@ public class User {
     public User() {
     }
 
-    public User(String temp, String login, String password, String name, String surname, String email, String phoneNumber, Enum<UserType> userType, boolean isActive) {
+    public User(String login, String password, String name, String surname, String email, String phoneNumber, Enum<UserType> userType, boolean isActive) {
 
         this.login = login;
         this.password = password;

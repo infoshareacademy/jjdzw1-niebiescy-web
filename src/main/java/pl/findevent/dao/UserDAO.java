@@ -6,7 +6,6 @@ import pl.findevent.domain.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.Optional;
 
 
 public class UserDAO {
