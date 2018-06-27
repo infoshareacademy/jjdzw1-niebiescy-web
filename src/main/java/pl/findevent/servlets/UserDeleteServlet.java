@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-@WebServlet("/user-add")
-class UserAddServlet extends HttpServlet {
+@WebServlet("/user-delete")
+class UserDeleteServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
 
