@@ -32,7 +32,7 @@ public class User {
 
     @Column(name = "type", nullable = false)
     @Enumerated(EnumType.STRING)
-    private Enum<UserType> userType;
+    private UserType userType;
 
     @Column(name = "isactive", nullable = false)
     private boolean isActive;
@@ -41,17 +41,7 @@ public class User {
     public User() {
     }
 
-    public User(String login, String password, String name, String surname, String email, String phoneNumber, Enum<UserType> userType, boolean isActive) {
 
-        this.login = login;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.userType = userType;
-        this.isActive = isActive;
-    }
 
     public int getId() {
         return id;

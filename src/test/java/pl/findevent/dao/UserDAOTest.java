@@ -2,11 +2,8 @@ package pl.findevent.dao;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pl.findevent.dao.UserDAO;
 import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
-
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -53,12 +50,16 @@ class UserDAOTest {
 
         // when
 
-        user =  userDAO.read(1);
+        user =  userDAO.read(100);
 
         assertEquals("UserLogin", user.getLogin());
 
 
     }
+
+
+
+
 
 
 }
