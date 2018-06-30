@@ -9,10 +9,10 @@
             com.mysql.cj.jdbc.Driver
         </property>
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost:3306/niebiescy?serverTimezone=UTC
+            jdbc:mysql://mysql0.mydevil.net:3306/m14695_niebiescy?serverTimezone=UTC
         </property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.connection.username">m14695_niebiescy</property>
+        <property name="hibernate.connection.password">HYan73XUbQWEOusaZucK</property>
         <!-- Co robić z bazą przy wstawianiu? create-drop by np. "resetowało" -->
         <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- Ustawić w zależności od bazy i wersji, Hibernate tu optymalizuje -->
