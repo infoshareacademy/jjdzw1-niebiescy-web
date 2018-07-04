@@ -32,6 +32,15 @@ CREATE TABLE IF NOT EXISTS events
 );
 
 
+CREATE TABLE IF NOT EXISTS statistics
+(
+  id_stat int int NOT NULL AUTO_INCREMENT,
+  stat_string VARCHAR (200),
+  stat_counter int default 0,
+  constraint PK_Stat primary key (id_stat)
+)
+
+
 
 
 
