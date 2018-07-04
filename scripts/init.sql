@@ -32,6 +32,13 @@ CREATE TABLE IF NOT EXISTS events
 );
 
 
+CREATE TABLE IF NOT EXISTS statistics
+(
+  stat_string VARCHAR (200),
+  stat_counter double default 0
+)
+
+
 
 
 
