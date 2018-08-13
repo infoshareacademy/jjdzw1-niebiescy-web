@@ -31,6 +31,9 @@ CREATE TABLE IF NOT EXISTS events
   constraint PK_Event primary key (id_event)
 );
 
+commit
+
+select * from niebiescy.users
 
 
 

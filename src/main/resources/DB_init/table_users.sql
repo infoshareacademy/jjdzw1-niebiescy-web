@@ -997,4 +997,7 @@ INSERT INTO niebiescy.users (id_user, login, password, name, surname, email, pho
 INSERT INTO niebiescy.users (id_user, login, password, name, surname, email, phone, type, isactive) VALUES (997, 'leliaelstob', '66eCks', 'Lelia', 'Elstob', 'lelstobro@ask.com', '351-431-2036', 'ADMIN', 1);
 INSERT INTO niebiescy.users (id_user, login, password, name, surname, email, phone, type, isactive) VALUES (998, 'elvinwoan', 'dh4rohz', 'Elvin', 'Woan', 'ewoanrp@webs.com', '631-194-5303', 'NORMAL', 1);
 INSERT INTO niebiescy.users (id_user, login, password, name, surname, email, phone, type, isactive) VALUES (999, 'jermaynegillian', 'qTQB5aYJu', 'Jermayne', 'Gillian', 'jgillianrq@1688.com', '558-530-8936', 'ADMIN', 1);
-INSERT INTO niebiescy.users (id_user, login, password, name, surname, email, phone, type, isactive) VALUES (1000, 'humfriedsellstrom', 'F0KENoHXeTd', 'Humfried', 'Sellstrom', 'hsellstromrr@reuters.com', '997-649-7942', 'ADMIN', 1);
+INSERT INTO niebiescy.users (id_user, login, password, name, surname, email, phone,
+type, isactive) VALUES (1000, 'humfriedsellstrom', 'F0KENoHXeTd', 'Humfried', 'Sellstrom', 'hsellstromrr@reuters.com', '997-649-7942', 'ADMIN', 1);
+
+commit
