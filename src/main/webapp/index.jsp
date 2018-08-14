@@ -25,7 +25,7 @@
 					<li><a href="#">Contact</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Sign Up <i class="fas fa-user"></i></a></li>
+					<li><a href="AddUser.jsp">Sign Up <i class="fas fa-user"></i></a></li>
 					<li><a href="#">Login <i class="fas fa-user-plus"></i></a></li>
 				</ul>
 			</div>		

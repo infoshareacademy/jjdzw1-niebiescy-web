@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS events
 
 commit
 
-select * from niebiescy.users
+select * from niebiescy.users order by id_user desc
 
 
 

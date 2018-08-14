@@ -8,7 +8,7 @@ import pl.findevent.domain.UserType;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-class UserDAOTest {
+class UsersDaoBeanTest {
 
     @Test
     @DisplayName("Add user to database.")
@@ -18,7 +18,7 @@ class UserDAOTest {
         // given
 
         User user = new User();
-        UserDAO userDAO = new UserDAO();
+        UsersDaoBean usersDaoBean = new UsersDaoBean();
 
         // when
 
@@ -33,7 +33,7 @@ class UserDAOTest {
 
         //then
 
-        userDAO.save(user);
+        usersDaoBean.saveUserToDb(user);
 
     }
 
@@ -45,12 +45,12 @@ class UserDAOTest {
         // given
 
         User user;
-        UserDAO userDAO = new UserDAO();
+        UsersDaoBean usersDaoBean = new UsersDaoBean();
 
 
         // when
 
-        user =  userDAO.read(100);
+        user =  usersDaoBean.read(100);
 
         assertEquals("UserLogin", user.getLogin());
 
