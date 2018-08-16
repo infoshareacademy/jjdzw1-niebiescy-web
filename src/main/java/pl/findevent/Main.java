@@ -1,21 +1,19 @@
 package pl.findevent;
 
-import pl.findevent.dao.UserDAO;
+import pl.findevent.dao.UsersDaoBean;
 import pl.findevent.domain.User;
-
-import java.awt.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
 
-        UserDAO userDAO = new UserDAO();
+        UsersDaoBean usersDaoBean = new UsersDaoBean();
 
         User user = new User();
 
 
-        user = userDAO.read(1);
+        user = usersDaoBean.read(1);
 
 
 
