@@ -5,7 +5,7 @@ USE niebiescy;
 CREATE TABLE IF NOT EXISTS users
 (
     id_user int NOT NULL AUTO_INCREMENT,
-    login varchar(30) NOT NULL,
+    login varchar(30) NOT NULL unique ,
     password varchar(255) NOT NULL,
     name varchar(100) NOT NULL,
     surname varchar(100) NOT NULL,
