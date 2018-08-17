@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE>
 <html>
 <head>
@@ -25,7 +28,8 @@
 					<li><a href="#">Contact</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="AddUser.jsp">Sign Up <i class="fas fa-user"></i></a></li>
+                    <li><a href="AdminPanelLinks.jsp">Admin panel<i class="fas fa-user"></i></a></li>
+                    <li><a href="AddUser.jsp">Sign Up <i class="fas fa-user"></i></a></li>
 					<li><a href="#">Login <i class="fas fa-user-plus"></i></a></li>
 				</ul>
 			</div>		
@@ -54,6 +58,10 @@
 				</div>
 			</div>
 		</div>
+
+
+				<c:forEach items="${listOfEventsMainPage}" var="eventLoop">
+
 			<div class="col-lg-4 col-sm-6">
 				<div class="thumbnail">
 					<div class="row">
@@ -61,95 +69,23 @@
 							<div class="image image1"></div>
 						</div>
 						<div class="col-lg-6">
-							<div>Data:</div>
-							<h2>Event Pierwszy</h2>
-							<div>Organizator:</div>
-							<div>Grupa:</div>
-							<div>Miejsce:</div>
+							<div>Start Date: ${eventLoop.getStartDate()}</div>
+							<h2>Event no. ${eventLoop.getId()}</h2>
+							<div>Name: ${eventLoop.getName()}</div>
+							<div>Description: ${eventLoop.getDescription()}</div>
+							<div>Address: ${eventLoop.getAddress()}</div>
+							<div>Google Maps: ${eventLoop.getGoogleMaps()}</div>
+							<div>Organizer: ${eventLoop.getOrganizer()}</div>
+							<div>Price: ${eventLoop.getPrice()}</div>
+							<div>Tickets: ${eventLoop.getTickets()}</div>
+							<div>Finish date: ${eventLoop.getFinishDate()}</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="thumbnail">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="image image2"></div>
-						</div>
-						<div class="col-lg-6">
-							<div>Data:</div>
-							<h2>Event Drugi</h2>
-							<div>Organizator:</div>
-							<div>Grupa:</div>
-							<div>Miejsce:</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="thumbnail">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="image image3"></div>
-						</div>
-						<div class="col-lg-6">
-							<div>Data:</div>
-							<h2>Event Trzeci</h2>
-							<div>Organizator:</div>
-							<div>Grupa:</div>
-							<div>Miejsce:</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="thumbnail">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="image image4"></div>
-						</div>
-						<div class="col-lg-6">
-							<div>Data:</div>
-							<h2>Event Czwarty</h2>
-							<div>Organizator:</div>
-							<div>Grupa:</div>
-							<div>Miejsce:</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="thumbnail">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="image image5"></div>
-						</div>
-						<div class="col-lg-6">
-							<div>Data:</div>
-							<h2>Event Piąty</h2>
-							<div>Organizator:</div>
-							<div>Grupa:</div>
-							<div>Miejsce:</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="thumbnail">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="image image6"></div>
-						</div>
-						<div class="col-lg-6">
-							<div>Data:</div>
-							<h2>Event Szósty</h2>
-							<div>Organizator:</div>
-							<div>Grupa:</div>
-							<div>Miejsce:</div>
-						</div>
-					</div>
-				</div>
-			</div>
+
+				</c:forEach>
+
 		</div> 
 	</div>
 	

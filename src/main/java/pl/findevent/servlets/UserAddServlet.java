@@ -1,6 +1,7 @@
 package pl.findevent.servlets;
 
 
+import pl.findevent.dao.UsersDao;
 import pl.findevent.dao.UsersDaoBean;
 import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
@@ -20,8 +21,8 @@ class UserAddServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
 
-  //  @Inject
-  //  UsersDaoBean usersDaoBean;
+    @Inject
+    UsersDao usersDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -52,8 +53,6 @@ class UserAddServlet extends HttpServlet {
             isactiveTranslate = false;
         }
 
-        UsersDaoBean usersDaoBean = new UsersDaoBean();
-
         User user = new User();
         user.setLogin(login);
         user.setPassword(password);
@@ -64,7 +63,8 @@ class UserAddServlet extends HttpServlet {
         user.setUserType(UserType.valueOf(type));
         user.setIsActive(isactiveTranslate);
 
-        usersDaoBean.saveUserToDb(user);
+        usersDao.saveUserToDb(user);
+
 
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
         rd.forward(req, resp);
