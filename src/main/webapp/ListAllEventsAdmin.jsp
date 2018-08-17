@@ -47,6 +47,8 @@
                             <th>Organizer</th>
                             <th>Price</th>
                             <th>Ticekts</th>
+                            <th>Category</th>
+                            <th>Promote</th>
 
 
                             <th><em class="fa fa-cog"></em></th>
@@ -85,6 +87,12 @@
                                 </td>
                                 <td>
                                         ${eventLoop.getTickets()}
+                                </td>
+                                <td>
+                                        ${eventLoop.getCategory()}
+                                </td>
+                                <td>
+                                        ${eventLoop.isPromote()}
                                 </td>
 
 

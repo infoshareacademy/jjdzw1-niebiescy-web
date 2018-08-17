@@ -24,6 +24,12 @@ Add new event<br/><br/>
     Organizer: <input type="number" name="organizer"/><br/><br/>
     Price: <input type="number" name="price"/><br/><br/>
     Tickets: <input type="number" name="tickets"/><br/><br/>
+    Category: <input type="number" name="category"/><br/><br/>
+    Promote?:
+    <select name="promote">
+        <option>YES</option>
+        <option>NO</option>
+    </select> <br/><br/>
     <input type="submit" name="save" value="Add event"/><br/><br/>
 </form>
 

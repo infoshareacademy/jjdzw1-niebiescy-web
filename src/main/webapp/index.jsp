@@ -79,6 +79,9 @@
 							<div>Price: ${eventLoop.getPrice()}</div>
 							<div>Tickets: ${eventLoop.getTickets()}</div>
 							<div>Finish date: ${eventLoop.getFinishDate()}</div>
+							<div>Category: ${eventLoop.getCategory()}</div>
+							<div>Promote?: ${eventLoop.isPromote()}</div>
+
 						</div>
 					</div>
 				</div>

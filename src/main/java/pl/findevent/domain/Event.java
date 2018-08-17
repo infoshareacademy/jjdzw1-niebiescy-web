@@ -43,10 +43,10 @@ public class Event {
     private int tickets;
 
     @Column(name = "category")
-    private int category;
+    private Integer category;
 
     @Column(name = "promote")
-    private boolean promote;
+    private Boolean promote;
 
 
     public Event() {
@@ -133,19 +133,19 @@ public class Event {
         this.tickets = tickets;
     }
 
-    public int getCategory() {
+    public Integer getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(Integer category) {
         this.category = category;
     }
 
-    public boolean isPromote() {
+    public Boolean isPromote() {
         return promote;
     }
 
-    public void setPromote(boolean promote) {
+    public void setPromote(Boolean promote) {
         this.promote = promote;
     }
 }

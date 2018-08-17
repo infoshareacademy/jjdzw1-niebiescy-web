@@ -1,12 +1,14 @@
 package pl.findevent.servlets;
 
 
+import pl.findevent.dao.EventsDao;
 import pl.findevent.dao.EventsDaoBean;
 import pl.findevent.dao.UsersDaoBean;
 import pl.findevent.domain.Event;
 import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,8 +28,8 @@ class EventAddServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
 
-    //  @Inject
-    //  UsersDaoBean usersDaoBean;
+    @Inject
+    EventsDao eventsDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -49,9 +51,11 @@ class EventAddServlet extends HttpServlet {
         String organizer = req.getParameter("organizer");
         String price = req.getParameter("price");
         String tickets = req.getParameter("tickets");
+        String category = req.getParameter("category");
+        String promote = req.getParameter("promote");
 
-        System.out.println("Start date podana: "+start_date);
-        System.out.println("Finish date podana: "+finish_date);
+        System.out.println("Start date podana: " + start_date);
+        System.out.println("Finish date podana: " + finish_date);
 
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = null;
@@ -67,16 +71,22 @@ class EventAddServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        System.out.println("Start date nowa: "+startDate);
-        System.out.println("Finish date nowa: "+finishDate);
+        System.out.println("Start date nowa: " + startDate);
+        System.out.println("Finish date nowa: " + finishDate);
 
+        boolean promoteTranslate;
 
-        EventsDaoBean eventsDaoBean = new EventsDaoBean();
+        if (promote.equals("YES")) {
+            promoteTranslate = true;
+        } else {
+            promoteTranslate = false;
+        }
+
+        //  EventsDaoBean eventsDao = new EventsDaoBean();
 
         Event event = new Event();
         event.setName(name);
         event.setDescription(description);
-
         event.setStartDate(startDate);
         event.setFinishDate(finishDate);
         event.setAddress(address);
@@ -84,8 +94,10 @@ class EventAddServlet extends HttpServlet {
         event.setOrganizer(Integer.parseInt(organizer));
         event.setPrice(Double.valueOf(price));
         event.setTickets(Integer.parseInt(tickets));
+        event.setCategory(Integer.parseInt(category));
+        event.setPromote(promoteTranslate);
 
-        eventsDaoBean.saveEventToDb(event);
+        eventsDao.saveEventToDb(event);
 
 
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
