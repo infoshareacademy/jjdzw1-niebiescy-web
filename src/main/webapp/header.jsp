@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -522,8 +524,15 @@
                             <a class="nav-link color-yellow-hover" href="blog-category-05.html"><i class="fa fa-play-circle-o"></i> Vlogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link color-grey-hover" href="blog-category-06.html">Zaloguj się/Dodaj konto</a>
+                            <a class="nav-link color-grey-hover" href="/UserAdd">Zaloguj się/Dodaj konto</a>
+                            <a class="nav-link color-grey-hover" href="/UserAdd">Moje konto</a>
                         </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link color-grey-hover" href="/Logout">Wyloguj się</a>
+                        </li>
+
                     </ul>
                 </div>
             </nav>

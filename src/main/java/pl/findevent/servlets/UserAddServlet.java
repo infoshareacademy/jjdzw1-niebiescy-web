@@ -26,6 +26,7 @@ class UserAddServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        req.setCharacterEncoding("UTF-8");
         RequestDispatcher rd = req.getRequestDispatcher("/user.jsp");
         rd.forward(req, resp);
 
@@ -33,6 +34,8 @@ class UserAddServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        req.setCharacterEncoding("UTF-8");
 
         String login = req.getParameter("login");
         String password = req.getParameter("password");
@@ -65,6 +68,8 @@ class UserAddServlet extends HttpServlet {
         user.setIsActive(isactiveTranslate);
 
         usersDaoBean.saveUserToDb(user);
+        logger.info("Dodano usera:".concat(login));
+
 
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
         rd.forward(req, resp);
