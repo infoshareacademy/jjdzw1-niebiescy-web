@@ -15,6 +15,6 @@ public interface EventsDao {
     void saveEventToDb (Event event);
     Event read(int id);
     public void remove(int id);
-   // List<MeteoStation> getMeteoCollection ();
+    List<MeteoStation> getMeteoCollection ();
    // MeteoStation getWheatherFormCity(String city);
 }

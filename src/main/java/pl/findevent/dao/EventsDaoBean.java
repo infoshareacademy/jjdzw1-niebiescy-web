@@ -63,12 +63,12 @@ public class EventsDaoBean implements EventsDao {
 
     }
 
-//    @Override
-//    public  List<MeteoStation> getMeteoCollection() {
- //       MeteoDataWriter writer = new MeteoDataWriter();
- //       List<MeteoStation> meteoStation1 = writer.MeteoCollection(writer.jsonWriter());
-//       return meteoStation1;
-//    }
+    @Override
+    public  List<MeteoStation> getMeteoCollection() {
+        MeteoDataWriter writer = new MeteoDataWriter();
+        List<MeteoStation> meteoStation1 = writer.MeteoCollection(writer.jsonWriter());
+       return meteoStation1;
+    }
 
  //   @Override
  //   public MeteoStation getWheatherFormCity(String city) {
