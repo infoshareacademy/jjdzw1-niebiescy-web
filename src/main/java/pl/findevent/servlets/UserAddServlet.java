@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-@WebServlet("/UserAddServlet")
+@WebServlet("/UserAdd")
 class UserAddServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
@@ -26,7 +26,7 @@ class UserAddServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        RequestDispatcher rd = req.getRequestDispatcher("/user-add.html");
+        RequestDispatcher rd = req.getRequestDispatcher("/user.jsp");
         rd.forward(req, resp);
 
     }
