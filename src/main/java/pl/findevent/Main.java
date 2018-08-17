@@ -1,7 +1,12 @@
 package pl.findevent;
 
+import niebiescyapp.MeteoDataWriter;
+import niebiescyapp.MeteoStation;
 import pl.findevent.dao.UsersDaoBean;
 import pl.findevent.domain.User;
+
+
+import javax.inject.Inject;
 
 public class Main {
 
@@ -16,6 +21,9 @@ public class Main {
         user = usersDaoBean.read(1);
 
 
+        MeteoDataWriter meteoDataWriter = new MeteoDataWriter();
+        MeteoStation meteoStation = meteoDataWriter.getWeatherByCity("Hel");
+        System.out.println("Pogoda dla miasta: "+meteoStation.getStation()+" temperatura: "+meteoStation.getTemperature());
 
 
     }

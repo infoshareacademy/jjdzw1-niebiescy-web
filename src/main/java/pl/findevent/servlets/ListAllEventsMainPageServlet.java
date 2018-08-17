@@ -1,6 +1,7 @@
 package pl.findevent.servlets;
 
 
+import niebiescyapp.MeteoStation;
 import pl.findevent.dao.EventsDao;
 import pl.findevent.domain.Event;
 
@@ -30,9 +31,11 @@ public class ListAllEventsMainPageServlet extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         List<Event> listOfEventsMainPage = eventsDao.getEventsListFromDB();
+     //   List<MeteoStation> listOfMeteoStation = eventsDao.getMeteoCollection();
         System.out.println("Pierwszy adres: "+listOfEventsMainPage.get(1).getAddress());
      //   System.out.println("Age: "+listOfUsers.get(1).getAge());
         request.setAttribute("listOfEventsMainPage", listOfEventsMainPage);
+     //   request.setAttribute("listOfMeteoStation", listOfMeteoStation);
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);
 

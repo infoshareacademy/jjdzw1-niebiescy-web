@@ -14,8 +14,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <junit.jupiter.version>5.1.1</junit.jupiter.version>
         <junit.platform.version>1.1.1</junit.platform.version>
         <mockito.version>2.18.0</mockito.version>
@@ -25,6 +25,7 @@
         <log4j.version>2.11.0</log4j.version>
 
     </properties>
+
 
 
     <dependencies>
@@ -219,7 +220,38 @@
             <version>1.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>edu.jjdzw1-niebiescy-app</groupId>
+            <artifactId>community</artifactId>
+            <scope>system</scope>
+            <version>1</version>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/jjdzw1-niebiescy-app-1.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
     </dependencies>
+
+
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.0.0</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>index</report>
+                            <report>licenses</report>
+                            <report>dependency-info</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+
+
 
 
     <build>
@@ -291,6 +323,16 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
+
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+
         </plugins>
     </build>
 

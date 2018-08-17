@@ -1,5 +1,7 @@
 package pl.findevent.dao;
 
+import niebiescyapp.MeteoDataWriter;
+import niebiescyapp.MeteoStation;
 import pl.findevent.domain.Event;
 import pl.findevent.domain.User;
 
@@ -31,7 +33,7 @@ public class EventsDaoBean implements EventsDao {
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
         eventList = entityManager.createQuery("FROM Event order by id desc").getResultList();
-entityManager.close();
+        entityManager.close();
         return eventList;
     }
 
@@ -56,11 +58,25 @@ entityManager.close();
 
     }
 
-
+    @Override
     public void remove(int id) {
 
-
     }
+
+//    @Override
+//    public  List<MeteoStation> getMeteoCollection() {
+ //       MeteoDataWriter writer = new MeteoDataWriter();
+ //       List<MeteoStation> meteoStation1 = writer.MeteoCollection(writer.jsonWriter());
+//       return meteoStation1;
+//    }
+
+ //   @Override
+ //   public MeteoStation getWheatherFormCity(String city) {
+  //      MeteoDataWriter writer = new MeteoDataWriter();
+ //       MeteoStation meteoStation2 = writer.getWeatherByCity(city);
+ //       return meteoStation2;
+ //   }
+
 
     public EventsDaoBean() {
         // required for JPA

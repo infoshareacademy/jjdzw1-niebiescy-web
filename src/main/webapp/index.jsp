@@ -69,6 +69,12 @@
 							<div class="image image1"></div>
 						</div>
 						<div class="col-lg-6">
+
+
+							<div>Temperature: ${listOdMeteoStation.get(0).getTemperature}</div>
+
+
+
 							<div>Start Date: ${eventLoop.getStartDate()}</div>
 							<h2>Event no. ${eventLoop.getId()}</h2>
 							<div>Name: ${eventLoop.getName()}</div>

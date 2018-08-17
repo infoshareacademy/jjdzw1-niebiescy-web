@@ -52,7 +52,7 @@ class UsersDaoBeanTest {
 
         user =  usersDaoBean.read(100);
 
-        assertEquals("UserLogin", user.getLogin());
+        assertEquals("desskone", user.getLogin());
 
 
     }
