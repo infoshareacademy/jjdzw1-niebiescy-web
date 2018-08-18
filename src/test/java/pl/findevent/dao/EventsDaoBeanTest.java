@@ -3,10 +3,7 @@
     import org.junit.jupiter.api.Test;
     import pl.findevent.domain.Event;
 
-    import java.text.DateFormat;
-    import java.util.Date;
-
-class EventDAOTest {
+    class EventsDaoBeanTest {
 
     @Test
     void save() {
@@ -14,7 +11,7 @@ class EventDAOTest {
         // given
 
         Event event = new Event();
-        EventDAO eventDAO = new EventDAO();
+        EventsDaoBean eventsDaoBean = new EventsDaoBean();
 
         //when
 

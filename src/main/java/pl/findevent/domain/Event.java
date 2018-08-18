@@ -15,7 +15,7 @@ public class Event {
     @Column(name = "id_event")
     private int id;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
     @Column(name = "description")
@@ -41,6 +41,12 @@ public class Event {
 
     @Column(name = "tickets")
     private int tickets;
+
+    @Column(name = "category")
+    private int category;
+
+    @Column(name = "promote")
+    private boolean promote;
 
 
     public Event() {
@@ -125,5 +131,21 @@ public class Event {
 
     public void setTickets(int tickets) {
         this.tickets = tickets;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
+    public boolean isPromote() {
+        return promote;
+    }
+
+    public void setPromote(boolean promote) {
+        this.promote = promote;
     }
 }
