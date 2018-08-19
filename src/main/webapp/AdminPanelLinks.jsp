@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<a href="AddUser.jsp">Add user</a><br>
+<a href="user.jsp">Add user</a><br>
 <a href="AddEvent.jsp">Add event</a><br>
 <a href="ListAllEventsAdminServlet">List of all events</a><br>
 <a href="ListAllEventsMainPageServlet">Main Page</a><br>
