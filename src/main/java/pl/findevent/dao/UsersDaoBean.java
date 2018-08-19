@@ -9,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Stateless
 public class UsersDaoBean implements UsersDao {
@@ -23,7 +24,7 @@ public class UsersDaoBean implements UsersDao {
     public void setUserList(List<User> userList) {
         this.userList = userList;
     }
-
+    Logger logger = Logger.getLogger(getClass().getName());
 
     @Override
     public List<User> getUsersListFromDB() {
@@ -39,9 +40,13 @@ public class UsersDaoBean implements UsersDao {
     public void saveUserToDb(User user) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
+        logger.info("tr begin");
         transaction.begin();
+        logger.info("insert");
         entityManager.persist(user);
+        logger.info("commit");
         transaction.commit();
+        logger.info("close");
         entityManager.close();
     }
 

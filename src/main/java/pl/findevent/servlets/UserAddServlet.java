@@ -1,6 +1,7 @@
 package pl.findevent.servlets;
 
 
+import pl.findevent.dao.UsersDao;
 import pl.findevent.dao.UsersDaoBean;
 import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
@@ -15,13 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-@WebServlet("/UserAdd")
+@WebServlet("/UserAddServlet")
 class UserAddServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
 
-  //  @Inject
-  //  UsersDaoBean usersDaoBean;
+    @Inject
+    UsersDao usersDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -55,7 +56,7 @@ class UserAddServlet extends HttpServlet {
             isactiveTranslate = false;
         }
 
-        UsersDaoBean usersDaoBean = new UsersDaoBean();
+      //  UsersDaoBean usersDaoBean = new UsersDaoBean();
 
         User user = new User();
         user.setLogin(login);
@@ -67,9 +68,9 @@ class UserAddServlet extends HttpServlet {
         user.setUserType(UserType.valueOf(type));
         user.setIsActive(isactiveTranslate);
 
-        usersDaoBean.saveUserToDb(user);
+        usersDao.saveUserToDb(user);
         logger.info("Dodano usera:".concat(login));
-
+        System.out.println("User: "+login);
 
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
         rd.forward(req, resp);
