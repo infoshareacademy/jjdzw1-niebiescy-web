@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS users
     CONSTRAINT PK_User PRIMARY KEY (id_user)
 );
 
-CREATE TABLE IF NOT EXISTS events
+CREATE TABLE IF NOT EXISTS niebiescy.events
 (
   id_event int NOT NULL AUTO_INCREMENT,
   name varchar(255) NOT NULL,
@@ -28,8 +28,11 @@ CREATE TABLE IF NOT EXISTS events
   organizer int not null,
   price double not null,
   tickets int not null,
+  category int not null,
+  promote BOOLEAN DEFAULT 0 not null,
   constraint PK_Event primary key (id_event)
 );
+
 
 commit;
 
