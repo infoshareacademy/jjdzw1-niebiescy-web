@@ -1,4 +1,5 @@
-<%@include file="header.jsp"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@include file="header.jsp" %>
 
 
         <div class="page-title">
@@ -43,12 +44,12 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <form class="form-wrapper">
-                                    <h4>Fromularz:</h4>
-                                        <input type="text" class="form-control" placeholder="Nazwa" required>
-                                        <input type="text" class="form-control" placeholder="Email" required>
-                                        <input type="text" class="form-control" placeholder="Telefon">
-                                        <input type="text" class="form-control" placeholder="Temat">
-                                        <textarea class="form-control" placeholder="Wpisz wiadomość"></textarea>
+                                    <h4>Formularz:</h4>
+                                        <input type="text" class="form-control" name="name" placeholder="Nazwa" required>
+                                        <input type="text" class="form-control" name="email" placeholder="Email" required>
+                                        <input type="text" class="form-control" name="phone"    placeholder="Telefon">
+                                        <input type="text" class="form-control" name="subject" placeholder="Temat">
+                                        <textarea class="form-control" name="content" placeholder="Wpisz wiadomość"></textarea>
                                         <button type="submit" class="btn btn-primary">Wyślij <i class="fa fa-envelope-open-o"></i></button>
                                     </form>
                                 </div>

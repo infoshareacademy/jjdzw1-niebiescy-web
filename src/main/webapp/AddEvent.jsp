@@ -11,30 +11,26 @@
 
 </head>
 <body>
-Add new user<br/><br/>
+Add new event<br/><br/>
 
-<form method="post" action="/UserAddServlet">
+<form method="post" action="/EventAddServlet">
 
-    Login: <input type="text" name="login"/><br/><br/>
-    Password: <input type="password" name="password"/><br/><br/>
     Name: <input type="text" name="name"/><br/><br/>
-    Surname: <input type="text" name="surname"/><br/><br/>
-    Email: <input type="email" name="email"/><br/><br/>
-    Phone: <input type="text" name="phone"/><br/><br/>
-    Type of user:
-    <select name="type">
-        <option>NORMAL</option>
-        <option>BUSINESS</option>
-        <option>ADMIN</option>
-        <br/><br/>
-    </select>
-    Active user?:
-    <select name="isactive">
+    Description: <input type="text" name="description"/><br/><br/>
+    Start date: <input type="date" name="start_date"/><br/><br/>
+    Finish date: <input type="date" name="finish_date"/><br/><br/>
+    Address: <input type="text" name="address"/><br/><br/>
+    Google maps: <input type="text" name="google_maps"/><br/><br/>
+    Organizer: <input type="number" name="organizer"/><br/><br/>
+    Price: <input type="number" name="price"/><br/><br/>
+    Tickets: <input type="number" name="tickets"/><br/><br/>
+    Category: <input type="number" name="category"/><br/><br/>
+    Promote?:
+    <select name="promote">
         <option>YES</option>
         <option>NO</option>
-
     </select> <br/><br/>
-    <input type="submit" name="save" value="Add user"/><br/><br/>
+    <input type="submit" name="save" value="Add event"/><br/><br/>
 </form>
 
 

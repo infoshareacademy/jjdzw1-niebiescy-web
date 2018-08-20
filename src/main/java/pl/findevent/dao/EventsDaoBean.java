@@ -1,5 +1,6 @@
 package pl.findevent.dao;
 
+import pl.findevent.domain.Event;
 import pl.findevent.domain.User;
 
 import javax.ejb.Stateless;
@@ -9,59 +10,59 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 @Stateless
-public class UsersDaoBean implements UsersDao {
+public class EventsDaoBean implements EventsDao {
 
-    private List<User> userList = new ArrayList<>();
+    private List<Event> eventList = new ArrayList<>();
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("primary");
 
-    public List<User> getUserList() {
-        return userList;
+    public List<Event> getEvents() {
+        return eventList;
     }
 
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
+    public void setEvents(List<Event> events) {
+        this.eventList = events;
     }
-
-    Logger logger = Logger.getLogger(getClass().getName());
 
     @Override
-    public List<User> getUsersListFromDB() {
+    public List<Event> getEventsListFromDB() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
-        userList = entityManager.createQuery("FROM User ").getResultList();
-
-        return userList;
+        eventList = entityManager.createQuery("FROM Event order by id desc").getResultList();
+entityManager.close();
+        return eventList;
     }
 
     @Override
-    public void saveUserToDb(User user) {
+    public void saveEventToDb(Event event) {
+
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
-        entityManager.persist(user);
+        entityManager.persist(event);
         transaction.commit();
         entityManager.close();
+
     }
 
     @Override
-    public User read(int id) {
+    public Event read(int id) {
+
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        User user = entityManager.find(User.class, id);
-        return user;
+        Event event = entityManager.find(Event.class, id);
+        return event;
 
     }
 
-    @Override
+
     public void remove(int id) {
 
+
     }
 
-    public UsersDaoBean() {
+    public EventsDaoBean() {
         // required for JPA
     }
-
 }
