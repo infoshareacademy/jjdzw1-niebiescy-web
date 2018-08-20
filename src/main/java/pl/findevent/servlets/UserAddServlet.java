@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-@WebServlet("/UserAddServlet")
+@WebServlet("/UserAdd")
 class UserAddServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
@@ -27,13 +27,16 @@ class UserAddServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        RequestDispatcher rd = req.getRequestDispatcher("/user-add.html");
+        req.setCharacterEncoding("UTF-8");
+        RequestDispatcher rd = req.getRequestDispatcher("/user.jsp");
         rd.forward(req, resp);
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        req.setCharacterEncoding("UTF-8");
 
         String login = req.getParameter("login");
         String password = req.getParameter("password");
@@ -63,7 +66,12 @@ class UserAddServlet extends HttpServlet {
         user.setUserType(UserType.valueOf(type));
         user.setIsActive(isactiveTranslate);
 
+
         usersDao.saveUserToDb(user);
+        logger.info("Dodano usera:".concat(login));
+
+        
+
 
 
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
