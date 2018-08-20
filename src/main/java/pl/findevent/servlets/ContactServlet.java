@@ -38,10 +38,9 @@ class ContactServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
 
         String name = req.getParameter("name");
-        String subject = req.getParameter("subject");
-        String surname = req.getParameter("surname");
         String email = req.getParameter("email");
         String phone = req.getParameter("phone");
+        String subject = req.getParameter("subject");
         String content = req.getParameter("content");
 
 
