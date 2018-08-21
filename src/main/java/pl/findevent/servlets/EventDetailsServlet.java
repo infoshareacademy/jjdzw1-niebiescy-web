@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import pl.findevent.domain.Event;
+
 @WebServlet("/EventDetails")
 class EventDetailsServlet extends HttpServlet {
 
@@ -26,15 +28,22 @@ class EventDetailsServlet extends HttpServlet {
 
         req.setCharacterEncoding("UTF-8");
 
-        String redirect = null;
-        String eventID = req.getAttribute("eventid").toString();
+        String redirect;
+        String eventID = req.getParameter("id");
 
         if ((eventID == null) || (eventID == "")) {
             redirect = "/index.jsp";
-        } else {
-            redirect = "/EventDetails.jsp";
+            RequestDispatcher rd = req.getRequestDispatcher(redirect);
+            rd.forward(req, resp);
+            return;
         }
 
+
+        Event event = eventsDao.read(Integer.parseInt(eventID));
+
+        req.setAttribute("event", event);
+
+        redirect = "/EventDetails.jsp";
 
         RequestDispatcher rd = req.getRequestDispatcher(redirect);
         rd.forward(req, resp);

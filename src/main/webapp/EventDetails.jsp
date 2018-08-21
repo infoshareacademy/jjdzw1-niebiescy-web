@@ -9,7 +9,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <h2>Page Standard</h2>
+                        <h2>Event name: ${event.getName()}</h2>
                     </div><!-- end col -->
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <ol class="breadcrumb">
@@ -28,15 +28,23 @@
                         <div class="page-wrapper">
 
                             <div class="pp">
-                                <p>In lobortis pharetra mattis. Morbi nec nibh iaculis, <a href="#">bibendum augue a</a>, ultrices nulla. Nunc velit ante, lacinia id tincidunt eget, faucibus nec nisl. In mauris purus, bibendum et gravida dignissim, venenatis commodo lacus. Duis consectetur quis nisi nec accumsan. Pellentesque enim velit, ut tempor turpis. Mauris felis neque, egestas in lobortis et,iaculis at nunc ac, rhoncus sagittis ipsum. </p>
+                                <strong>Event description:<br> </strong>${event.getDescription()}<br><br>
+                            <!-- end pp -->
 
-                                <h3><strong>Maecenas non convallis quam, eu sodales justo. Pellentesque quis lectus elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></h3>
-
-                                <p>Donec nec metus sed leo sollicitudin ornare sed consequat neque. Aliquam iaculis neque quis dui venenatis, eget posuere felis viverra. Ut sit amet feugiat elit, nec elementum velit. Sed eu nisl convallis, efficitur turpis eu, euismod nunc. Proin neque enim, malesuada non lobortis nec, facilisis et lectus. Ie consectetur. Nam eget neque ac ex fringilla dignissim eu ac est. Nunc et nisl vel odio posuere. </p>
-                            </div><!-- end pp -->
+                            <strong>Event start date: </strong> ${event.getStartDate()}<br>
+                            <strong>Event finish date: </strong> ${event.getFinishDate()}<br>
+                            <strong>Event address: </strong> ${event.getAddress()}<br>
+                            <strong>Event googlemaps: </strong> ${event.getGoogleMaps()}<br>
+                            <strong>Event organizer: </strong> ${event.getOrganizer()}<br>
+                            <strong>Event price: </strong> ${event.getPrice()}<br>
+                            <strong>Event ticekts: </strong> ${event.getTickets()}<br>
+                            <strong>Event category: </strong> ${event.getCategory()}<br>
+                            <strong>Event promote: </strong> ${event.isPromote()}<br>
 
                             <img src="upload/menu_06.jpg" alt="" class="img-fluid img-fullwidth">
 
+                            </div>
+<!--
                             <div class="pp">
                                 <h3><strong>Nam non velit est. Sed lobortis arcu vitae nunc molestie consectetur. Nam eget neque ac ex fringilla dignissim eu ac est. Nunc et nisl vel odio posuere. </strong></h3>
 
@@ -62,7 +70,7 @@
                                 <p>Aliquam eget maximus odio. Aliquam varius nisl ut leo fermentum, id fringilla magna tempus. Curabitur quis bibendum lorem, ut suscipit tellus. Morbi id dictum justo, et massa nunc. Mauris laoreet, neque et varius malesuada, justo neque consequat dolor, sit amet semper dui ligula commodo enim. Duis mauris magna, euismod in ante sed, laoreet faucibus elit. Nam euismod vulputate lorem, nec tincidunt lacus volutpat sit amet. In libero eros, dignissim vitae quam sed, maximus consectetur justo. Donec id orci eget odio convallis pellentesque. Quisque mi ex, pretium in eros at, viverra imperdiet magna. Donec eu arcu vitae erat consectetur pretium. Proin varius massa justo, quis aliquet urna cras amet.  </p>
 
                                 <p>Vivamus non condimentum orci. Pellentesque venenatis nibh sit amet est vehicula lobortis. Cras eget aliquet eros. Nunc lectus elit, suscipit at nunc sed, finibus imperdiet ipsum. Maecenas dapibus neque sodales nulla finibus volutpat. Integer pulvinar massa vitae ultrices posuere. Proin ut tempor turpis. Mauris felis neque, egestas in lobortis et, sodales non ante. Ut vestibulum libero quis luctus tempus. Nullam eget dignissim massa. Vivamus id condimentum orci. Nunc ac sem urna. Aliquam et hendrerit nisl massa nunc. </p>
-
+-->
                             </div><!-- end pp -->
                         </div><!-- end page-wrapper -->
                     </div><!-- end col -->
