@@ -9,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Stateless
 public class UsersDaoBean implements UsersDao {
@@ -24,6 +25,7 @@ public class UsersDaoBean implements UsersDao {
         this.userList = userList;
     }
 
+    Logger logger = Logger.getLogger(getClass().getName());
 
     @Override
     public List<User> getUsersListFromDB() {

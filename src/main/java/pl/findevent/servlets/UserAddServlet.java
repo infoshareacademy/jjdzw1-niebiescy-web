@@ -2,7 +2,6 @@ package pl.findevent.servlets;
 
 
 import pl.findevent.dao.UsersDao;
-import pl.findevent.dao.UsersDaoBean;
 import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
 
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-@WebServlet("/UserAdd")
+@WebServlet("/UserAddServlet")
 class UserAddServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
@@ -47,14 +46,29 @@ class UserAddServlet extends HttpServlet {
         String type = req.getParameter("type");
         String isactive = req.getParameter("isactive");
 
+        boolean uniqueLogin = usersDao.getUsersListFromDB()
+                .stream()
+                .anyMatch(t -> t.getLogin().equals(login));
+
+        logger.info("Login: " + login + " exists?: " + uniqueLogin);
+
+        if (uniqueLogin) {
+            logger.info("Login: " + login + " already exists in database. Cannot create account with duplicate login.");
+            logger.info("Re-direct to main page");
+            RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+            rd.forward(req, resp);
+            return;
+        }
+
+
         boolean isactiveTranslate;
 
         if (isactive.equals("YES")) {
             isactiveTranslate = true;
-        }
-        else {
+        } else {
             isactiveTranslate = false;
         }
+
 
         User user = new User();
         user.setLogin(login);
@@ -66,13 +80,8 @@ class UserAddServlet extends HttpServlet {
         user.setUserType(UserType.valueOf(type));
         user.setIsActive(isactiveTranslate);
 
-
         usersDao.saveUserToDb(user);
-        logger.info("Dodano usera:".concat(login));
-
-        
-
-
+        logger.info("User: " + login + " successfully added to database");
 
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
         rd.forward(req, resp);

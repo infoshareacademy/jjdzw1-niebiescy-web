@@ -56,15 +56,25 @@
 
 
                         <div class="col-lg-6">
-                            <form class="form-wrapper" method="post" action="/UserAdd">
-                                <h4>Załóż konto:</h4>
+                            <form class="form-wrapper" method="post" action="/UserAddServlet">
+                                <h4>Create new account:</h4>
                                 <input type="text" class="form-control" name="login" placeholder="login" required>
-                                <input type="text" class="form-control" name="password" placeholder="hasło" required>
-                                <input type="text" class="form-control" name="name" placeholder="imię" required>
-                                <input type="text" class="form-control" name="surname" placeholder="nazwisko" required>
-                                <input type="text" class="form-control" name="email" placeholder="email" required>
-                                <input type="text" class="form-control" name="phone" placeholder="telefon">
-                                <button type="submit" class="btn btn-primary">Załóż konto <i
+                                <input type="password" class="form-control" name="password" placeholder="password" required>
+                                <input type="text" class="form-control" name="name" placeholder="name" required>
+                                <input type="text" class="form-control" name="surname" placeholder="surname" required>
+                                <input type="email" class="form-control" name="email" placeholder="email" required>
+                                <input type="tel" class="form-control" name="phone" placeholder="phone">
+                                <select class="form-control" name="type">
+                                    <option>NORMAL</option>
+                                    <option>BUSINESS</option>
+                                    <option>ADMIN</option>
+                                </select>
+                                <select class="form-control" name="isactive">
+                                    <option>YES</option>
+                                    <option>NO</option>
+
+                                </select>
+                                <button type="submit" name="save" class="btn btn-primary">Create my account <i
                                         class="fa fa-envelope-open-o"></i></button>
                             </form>
                         </div>
