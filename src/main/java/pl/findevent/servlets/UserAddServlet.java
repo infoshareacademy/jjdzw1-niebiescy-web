@@ -49,7 +49,9 @@ class UserAddServlet extends HttpServlet {
         if (usersDao.isUniqueLogin(login)) {
             logger.info("Login: " + login + " already exists in database. Cannot create account with duplicate login.");
             logger.info("Re-direct to main page");
-            RequestDispatcher rd = req.getRequestDispatcher("user.jsp");
+            req.setAttribute("errorTitle", "Cannot create user account");
+            req.setAttribute("errorDecscription", "Login already exists. Please enter another login");
+            RequestDispatcher rd = req.getRequestDispatcher("error.jsp");
             rd.forward(req, resp);
             return;
         }

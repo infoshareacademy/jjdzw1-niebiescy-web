@@ -92,10 +92,9 @@
                 <div class="col-lg-4 hidden-md-down">
                     <div class="topmenu text-center">
                         <ul class="list-inline">
-                            <li class="list-inline-item"><a href="/addevent"><i class="fa fa-star"></i>Add Event</a>
+                            <li class="list-inline-item"><a href="/addevent"><i class="fa fa-star"></i>Dodaj event</a>
                             </li>
-                            <li class="list-inline-item"><a href="/EventDetails?id=1"><i class="fa fa-bolt"></i>Event
-                                Details</a></li>
+                            <li class="list-inline-item"><a href="/EventDetails?id=1"><i class="fa fa-bolt"></i>Szczegóły eventu</a></li>
                             <li class="list-inline-item"><a href="user.jsp"><i class="fa fa-user-circle-o"></i> Write
                                 for us</a></li>
                         </ul><!-- end ul -->

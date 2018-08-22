@@ -56,8 +56,9 @@ class LoginServlet extends HttpServlet {
 
         if (dbUser.isEmpty()) {
             logger.info("No such user: " + login);
-            redirect = "/user.jsp";
-            RequestDispatcher rd = req.getRequestDispatcher(redirect);
+            req.setAttribute("errorTitle", "Cannot login");
+            req.setAttribute("errorDecscription", "No such user");
+            RequestDispatcher rd = req.getRequestDispatcher("error.jsp");
             rd.forward(req, resp);
             return;
         }
@@ -75,8 +76,9 @@ class LoginServlet extends HttpServlet {
 
         } else {
             logger.info("Login failure for user: " + login);
-            redirect = "/user.jsp";
-            RequestDispatcher rd = req.getRequestDispatcher(redirect);
+            req.setAttribute("errorTitle", "Cannot login");
+            req.setAttribute("errorDecscription", "Wrong username or password. Please try again");
+            RequestDispatcher rd = req.getRequestDispatcher("error.jsp");
             rd.forward(req, resp);
             return;
         }
