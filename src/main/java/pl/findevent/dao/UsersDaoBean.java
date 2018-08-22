@@ -69,7 +69,6 @@ public class UsersDaoBean implements UsersDao {
                 .anyMatch(t -> t.getLogin().equals(login));
 
 
-
     }
 
     public UsersDaoBean() {

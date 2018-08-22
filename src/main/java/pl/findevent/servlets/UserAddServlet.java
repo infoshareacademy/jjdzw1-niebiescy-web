@@ -46,9 +46,6 @@ class UserAddServlet extends HttpServlet {
         String type = req.getParameter("type");
 
 
-
-
-
         if (!usersDao.isUniqueLogin(login)) {
             logger.info("Login: " + login + " already exists in database. Cannot create account with duplicate login.");
             logger.info("Re-direct to main page");
@@ -56,9 +53,6 @@ class UserAddServlet extends HttpServlet {
             rd.forward(req, resp);
             return;
         }
-
-
-
 
         User user = new User();
         user.setLogin(login);
