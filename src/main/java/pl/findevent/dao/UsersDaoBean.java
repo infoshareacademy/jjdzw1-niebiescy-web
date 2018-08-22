@@ -60,6 +60,17 @@ public class UsersDaoBean implements UsersDao {
 
     }
 
+
+    @Override
+    public boolean isUniqueLogin(String login) {
+
+        return this.getUsersListFromDB()
+                .stream()
+                .anyMatch(t -> t.getLogin().equals(login));
+
+
+    }
+
     public UsersDaoBean() {
         // required for JPA
     }

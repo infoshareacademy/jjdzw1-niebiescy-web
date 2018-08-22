@@ -22,7 +22,7 @@
                             <h3 class="panel-title">List of all Events</h3>
                         </div>
                         <div class="col col-xs-6 text-right">
-                            <a href="AddEvent.jsp" type="button" class="btn btn-sm btn-primary btn-create">Add new
+                            <a href="addevent.jsp" type="button" class="btn btn-sm btn-primary btn-create">Add new
                                 event</a>
                             <a href="index.jsp" type="button" class="btn btn-sm btn-primary btn-create">Back to main
                                 page</a>
