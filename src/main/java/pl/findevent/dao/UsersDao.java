@@ -14,4 +14,6 @@ public interface UsersDao {
     User read(int id);
 
     void remove(int id);
+
+    boolean isUniqueLogin(String login);
 }
