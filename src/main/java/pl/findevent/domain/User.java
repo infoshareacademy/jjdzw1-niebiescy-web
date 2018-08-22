@@ -10,7 +10,7 @@ public class User {
 
     @Id
     @Column(name = "id_user", unique = true, nullable = false)
-    private int id;
+    private Integer id;
 
     @Column(name = "login", nullable = false)
     private String login;
@@ -35,20 +35,18 @@ public class User {
     private UserType userType;
 
     @Column(name = "isactive", nullable = false)
-    private boolean isActive;
+    private Boolean isActive;
 
 
     public User() {
     }
 
-
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int userId) {
-        this.id = userId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLogin() {
@@ -71,35 +69,35 @@ public class User {
         return name;
     }
 
-    public void setName(String userName) {
-        this.name = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String userSurname) {
-        this.surname = userSurname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String userEmail) {
-        this.email = userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String userPhoneNumber) {
-        this.phoneNumber = userPhoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public Enum<UserType> getUserType() {
+    public UserType getUserType() {
         return userType;
     }
 
@@ -107,11 +105,11 @@ public class User {
         this.userType = userType;
     }
 
-    public boolean getIsActive() {
+    public Boolean getActive() {
         return isActive;
     }
 
-    public void setIsActive(boolean userIsActive) {
-        this.isActive = userIsActive;
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }

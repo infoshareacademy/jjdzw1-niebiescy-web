@@ -44,7 +44,7 @@ class UserAddServlet extends HttpServlet {
         String email = req.getParameter("email");
         String phone = req.getParameter("phone");
         String type = req.getParameter("type");
-        String isactive = req.getParameter("isactive");
+
 
 
 
@@ -59,14 +59,6 @@ class UserAddServlet extends HttpServlet {
 
 
 
-        boolean isactiveTranslate;
-
-        if (isactive.equals("YES")) {
-            isactiveTranslate = true;
-        } else {
-            isactiveTranslate = false;
-        }
-
 
         User user = new User();
         user.setLogin(login);
@@ -76,7 +68,7 @@ class UserAddServlet extends HttpServlet {
         user.setEmail(email);
         user.setPhoneNumber(phone);
         user.setUserType(UserType.valueOf(type));
-        user.setIsActive(isactiveTranslate);
+        user.setActive(true);
 
         usersDao.saveUserToDb(user);
         logger.info("User: " + login + " successfully added to database");
