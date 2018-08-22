@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
@@ -63,8 +64,9 @@ class LoginServlet extends HttpServlet {
 
         if (dbUser.get(0).getLogin().equals(login) && dbUser.get(0).getPassword().equals(password)) {
             logger.info("User " + login + " logged-in successfully");
-
-            req.setAttribute("login", login);
+            HttpSession session = req.getSession();
+            req.getSession().setAttribute("login", login);
+           // req.setAttribute("login", login);
             redirect = "/index.jsp";
             RequestDispatcher rd = req.getRequestDispatcher(redirect);
             rd.forward(req, resp);
