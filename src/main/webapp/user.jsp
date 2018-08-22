@@ -45,7 +45,7 @@
 
 
                         <div class="col-lg-6">
-                            <form class="form-wrapper" method="post" action="/UserLogin">
+                            <form class="form-wrapper" method="post" action="/LoginServlet">
                                 <h4>Zaloguj się:</h4>
                                 <input type="text" class="form-control" name="login" placeholder="login" required>
                                 <input type="text" class="form-control" name="password" placeholder="hasło" required>

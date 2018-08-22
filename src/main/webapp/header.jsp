@@ -501,8 +501,8 @@
                                     </ul>
                                 </li>
                                 <li><a class="dropdown-item" href="blog-author.html">Blog Author</a></li>
-                                <li><a class="dropdown-item" href="user.jsp">Contact Page</a></li>
-                                <li><a class="dropdown-item" href="EventDetails.jsp">Default Page</a></li>
+                                <li><a class="dropdown-item" href="xxx">User</a></li>
+                                <li><a class="dropdown-item" href="EventDetails?id=1">Event Details</a></li>
                                 <li><a class="dropdown-item" href="page-fullwidth.html">Fullwidth Page</a></li>
                                 <li><a class="dropdown-item" href="page-404.html">Not Found Page</a></li>
                                 <li><a class="dropdown-item" href="page-sitemap.html">Sitemap & Archives</a></li>
