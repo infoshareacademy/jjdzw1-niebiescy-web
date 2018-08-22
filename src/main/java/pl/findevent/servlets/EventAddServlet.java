@@ -23,7 +23,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Logger;
 
-@WebServlet("/EventAddServlet")
+@WebServlet("/addevent")
 class EventAddServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
@@ -34,7 +34,7 @@ class EventAddServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        RequestDispatcher rd = req.getRequestDispatcher("/user-add.html");
+        RequestDispatcher rd = req.getRequestDispatcher("addevent.jsp");
         rd.forward(req, resp);
 
     }
