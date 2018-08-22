@@ -46,10 +46,10 @@ class UserAddServlet extends HttpServlet {
         String type = req.getParameter("type");
 
 
-        if (!usersDao.isUniqueLogin(login)) {
+        if (usersDao.isUniqueLogin(login)) {
             logger.info("Login: " + login + " already exists in database. Cannot create account with duplicate login.");
             logger.info("Re-direct to main page");
-            RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("user.jsp");
             rd.forward(req, resp);
             return;
         }

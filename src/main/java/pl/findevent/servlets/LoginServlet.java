@@ -45,31 +45,39 @@ class LoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
-        if ((login == null) || (login == "") || (password == null) || password == "") {
-            redirect = "/index.jsp";
+
+        List<User> dbUser = usersDao
+                .getUsersListFromDB()
+                .stream()
+                .filter(d -> d.getLogin().equals(login))
+                .collect(toList());
+
+
+        if (dbUser.isEmpty()) {
+            logger.info("No such user: " + login);
+            redirect = "/user.jsp";
             RequestDispatcher rd = req.getRequestDispatcher(redirect);
             rd.forward(req, resp);
             return;
         }
 
-        User dbUser = usersDao
-                .getUsersListFromDB()
-                .stream()
-                .filter(d -> d.getLogin().equals(login))
-                .findAny()
-                .get();
-
-
-        if (dbUser.getLogin().equals(login) && dbUser.getPassword().equals(password)) {
+        if (dbUser.get(0).getLogin().equals(login) && dbUser.get(0).getPassword().equals(password)) {
             logger.info("User " + login + " logged-in successfully");
+
+            req.setAttribute("login", login);
+            redirect = "/index.jsp";
+            RequestDispatcher rd = req.getRequestDispatcher(redirect);
+            rd.forward(req, resp);
+            return;
+
+
         } else {
             logger.info("Login failure for user: " + login);
+            redirect = "/user.jsp";
+            RequestDispatcher rd = req.getRequestDispatcher(redirect);
+            rd.forward(req, resp);
+            return;
         }
-
-        redirect = "/user.jsp";
-
-        RequestDispatcher rd = req.getRequestDispatcher(redirect);
-        rd.forward(req, resp);
 
 
     }

@@ -9,6 +9,7 @@ public class User {
 
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id_user", unique = true, nullable = false)
     private Integer id;
 
