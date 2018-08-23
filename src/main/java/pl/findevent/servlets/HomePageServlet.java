@@ -1,6 +1,7 @@
 package pl.findevent.servlets;
 
 
+import pl.findevent.dao.CategoriesDao;
 import pl.findevent.dao.UsersDao;
 
 import javax.inject.Inject;
@@ -21,8 +22,13 @@ class HomePageServlet extends HttpServlet {
     @Inject
     UsersDao usersDao;
 
+    @Inject
+    CategoriesDao categoriesDao;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+
 
         req.setCharacterEncoding("UTF-8");
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
