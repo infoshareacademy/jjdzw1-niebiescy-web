@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
@@ -45,31 +46,42 @@ class LoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
-        if ((login == null) || (login == "") || (password == null) || password == "") {
-            redirect = "/index.jsp";
-            RequestDispatcher rd = req.getRequestDispatcher(redirect);
+
+        List<User> dbUser = usersDao
+                .getUsersListFromDB()
+                .stream()
+                .filter(d -> d.getLogin().equals(login))
+                .collect(toList());
+
+
+        if (dbUser.isEmpty()) {
+            logger.info("No such user: " + login);
+            req.setAttribute("errorTitle", "Cannot login");
+            req.setAttribute("errorDecscription", "No such user");
+            RequestDispatcher rd = req.getRequestDispatcher("error.jsp");
             rd.forward(req, resp);
             return;
         }
 
-        User dbUser = usersDao
-                .getUsersListFromDB()
-                .stream()
-                .filter(d -> d.getLogin().equals(login))
-                .findAny()
-                .get();
-
-
-        if (dbUser.getLogin().equals(login) && dbUser.getPassword().equals(password)) {
+        if (dbUser.get(0).getLogin().equals(login) && dbUser.get(0).getPassword().equals(password)) {
             logger.info("User " + login + " logged-in successfully");
+            HttpSession session = req.getSession();
+            req.getSession().setAttribute("login", login);
+           // req.setAttribute("login", login);
+            redirect = "/index.jsp";
+            RequestDispatcher rd = req.getRequestDispatcher(redirect);
+            rd.forward(req, resp);
+            return;
+
+
         } else {
             logger.info("Login failure for user: " + login);
+            req.setAttribute("errorTitle", "Cannot login");
+            req.setAttribute("errorDecscription", "Wrong username or password. Please try again");
+            RequestDispatcher rd = req.getRequestDispatcher("error.jsp");
+            rd.forward(req, resp);
+            return;
         }
-
-        redirect = "/user.jsp";
-
-        RequestDispatcher rd = req.getRequestDispatcher(redirect);
-        rd.forward(req, resp);
 
 
     }

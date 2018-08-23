@@ -6,9 +6,10 @@
 <body>
 
 <a href="user.jsp">Add user</a><br>
-<a href="addeventjsp">Add event</a><br>
-<a href="ListAllEventsAdminServlet">List of all events</a><br>
-<a href="ListAllEventsMainPageServlet">Main Page</a><br>
+<a href="addevent.jsp">Add event</a><br>
+<a href="ListAllEventsAdminServlet">Manage events</a><br>
+<a href="ListAllUsersAdminServlet">Manage users</a><br>
+<a href="index.jsp">Main Page</a><br>
 
 </body>
 </html>

@@ -36,20 +36,20 @@
 
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form-wrapper" method="post" action="/EventAddServlet">
+                                    <form class="form-wrapper" method="post" action="/addevent">
 
                                         Name: <input type="text"  class="form-control" placeholder="Nazwa" name="name"/>
                                         Description: <input type="text"  class="form-control" placeholder="Opis" name="description" required/>
                                         Start date: <input type="date"  class="form-control" placeholder="Data rozpoczęcia" name="start_date" required/>
-                                        Finish date: <input type="date"  class="form-control" placeholder="Data zakończenia" name="finish_date"/>
-                                        Address: <input type="text" n class="form-control" placeholder="Adres imprezy" name="address"/>
-                                        Google maps: <input type="text"  class="form-control" placeholder="Link do google maps" name="google_maps"/>
-                                        Organizer: <input type="number"  class="form-control" placeholder="" name="organizer"/>
-                                        Price: <input type="number"  class="form-control" placeholder="Cena za wstęp" name="price"/>
-                                        Tickets: <input type="number"  class="form-control" placeholder="ilość biletów" name="tickets"/>
-                                        Category: <input type="number"  class="form-control" placeholder="kategoria" name="category"/>
+                                        Finish date: <input type="date"  class="form-control" placeholder="Data zakończenia" name="finish_date" required/>
+                                        Address: <input type="text" n class="form-control" placeholder="Adres imprezy" name="address" required/>
+                                        Google maps: <input type="text"  class="form-control" placeholder="Link do google maps" name="google_maps" required/>
+                                        Organizer: <input type="number"  class="form-control" placeholder="" name="organizer" required/>
+                                        Price: <input type="number"  class="form-control" placeholder="Cena za wstęp" name="price" required/>
+                                        Tickets: <input type="number"  class="form-control" placeholder="ilość biletów" name="tickets" required/>
+                                        Category: <input type="number"  class="form-control" placeholder="kategoria" name="category" required/>
                                         Promote?:
-                                        <select name="promote" class="form-control" placeholder="promowany?" >
+                                        <select name="promote" class="form-control" placeholder="promowany?" required>
                                             <option>YES</option>
                                             <option>NO</option>
                                         </select>

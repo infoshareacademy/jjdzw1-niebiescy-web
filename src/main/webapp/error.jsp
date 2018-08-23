@@ -36,7 +36,7 @@
                                 <h2>Błąd</h2>
                                 <h3>${errorTitle}</h3>
                                 <p>${errorDecscription}</p>
-                                <a href="/" class="btn btn-primary">Strona agłówna</a>
+                                <a href="index.jsp" class="btn btn-primary">Strona główna</a>
                             </div>
                         </div>
                     </div>

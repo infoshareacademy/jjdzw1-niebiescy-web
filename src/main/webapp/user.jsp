@@ -27,14 +27,13 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <h4>Jeśli masz konto...</h4>
-                            <p>Cloapedia is a personal blog for handcrafted, cameramade photography content, fashion
-                                styles from independent creatives around the world.</p>
+                           <!-- <p>Cloapedia is a personal blog for handcrafted, cameramade photography content, fashion
+                                styles from independent creatives around the world.</p> -->
                         </div>
 
                         <div class="col-lg-6">
                             <h4>Nie masz konta?</h4>
-                            <p>If you’d like to write for us, <a href="#">advertise with us</a> or just say hello, fill
-                                out the form below and we’ll get back to you as soon as possible.</p>
+
                         </div>
 
 
@@ -56,8 +55,8 @@
 
 
                         <div class="col-lg-6">
-                            <form class="form-wrapper" method="post" action="/UserAddServlet">
-                                <h4>Create new account:</h4>
+                            <form class="form-wrapper" method="post" action="/User">
+                                <h4>Załóż konto:</h4>
                                 <input type="text" class="form-control" name="login" placeholder="login" required>
                                 <input type="password" class="form-control" name="password" placeholder="password"
                                        required>
