@@ -8,6 +8,7 @@ import java.util.List;
 @Local
 public interface EventsDao {
 
+    List<Event> getNextFivePromotedEventsFromDB();
     List<Event> getEventsListFromDB ();
     void saveEventToDb (Event event);
     Event read(int id);

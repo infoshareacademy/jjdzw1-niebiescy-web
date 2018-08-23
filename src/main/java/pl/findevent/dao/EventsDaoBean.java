@@ -31,7 +31,20 @@ public class EventsDaoBean implements EventsDao {
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
         eventList = entityManager.createQuery("FROM Event order by id desc").getResultList();
-entityManager.close();
+        entityManager.close();
+        return eventList;
+
+    }
+
+
+    @Override
+    public List<Event> getNextFivePromotedEventsFromDB() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+        eventList = entityManager.createQuery("FROM Event where promote = true order by startDate asc").getResultList();
+        entityManager.close();
+
         return eventList;
     }
 
