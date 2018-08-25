@@ -38,43 +38,10 @@
                                 <div class="col-lg-12">
                                     <blockquote class="blockquote">Please read <a href="#">Licensing & Terms</a> of Use if you are wondering about the license. </strong></blockquote>
                                 </div>
+
+
+
                             </div><!-- end row -->
-
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form class="form-wrapper">
-                                    <h4>Formularz:</h4>
-                                        <input type="text" class="form-control" name="name" placeholder="Nazwa" required>
-                                        <input type="text" class="form-control" name="email" placeholder="Email" required>
-                                        <input type="text" class="form-control" name="phone"    placeholder="Telefon">
-                                        <input type="text" class="form-control" name="subject" placeholder="Temat">
-                                        <textarea class="form-control" name="content" placeholder="Wpisz wiadomość"></textarea>
-                                        <button type="submit" class="btn btn-primary">Wyślij <i class="fa fa-envelope-open-o"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div><!-- end page-wrapper -->
-                    </div><!-- end col -->
-
-                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                        <div class="sidebar">
-                            <div class="widget">
-                                <h2 class="widget-title">Search</h2>
-                                <form class="form-inline search-form">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Search on the site">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                                </form>
-                            </div><!-- end widget -->
-
-
-
-
-
-
-                        </div><!-- end sidebar -->
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container -->
