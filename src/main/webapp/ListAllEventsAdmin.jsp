@@ -93,10 +93,10 @@
 
 
                                     <td align="center">
-                                        <a class="btn btn-default"
+                                        <a
                                            href="EditEventFromDb?type=EditUserFromDb&id=${eventLoop.getId()}"><em
                                                 class="fa fa-pencil"></em></a>
-                                        <a class="btn btn-danger"
+                                        <a
                                            href="DeleteEventFromDbServletGet?id=${eventLoop.getId()}"><em
                                                 class="fa fa-trash"></em></a>
 
