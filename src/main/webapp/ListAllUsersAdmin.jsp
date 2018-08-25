@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="header.jsp" %>
-
 
 <div class="page-title">
     <div class="container">
@@ -17,7 +18,8 @@
             </div><!-- end col -->
         </div><!-- end row -->
     </div><!-- end container -->
-</div><!-- end page-title -->
+</div>
+<!-- end page-title -->
 
 <section class="section">
     <div class="container">
@@ -25,74 +27,74 @@
             <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <div class="page-wrapper">
                     <div class="row">
-
-                    <table class="table table-striped table-bordered table-list">
-                        <thead>
-                        <tr>
-
-                            <th>ID</th>
-                            <th>Login</th>
-                            <th>Name</th>
-                            <th>Surname</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Type</th>
-                            <th>Active</th>
-
-
-                            <th><em class="fa fa-cog"></em></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <c:forEach items="${listOfUsers}" var="userLoop">
+                        <table class="table table-striped table-bordered table-list">
+                            <thead>
                             <tr>
-                                <td>
-                                        ${userLoop.getId()}
-                                </td>
-                                <td>
-                                        ${userLoop.getLogin()}
-                                </td>
-                                <td>
-                                        ${userLoop.getName()}
-                                </td>
-                                <td>
-                                        ${userLoop.getSurname()}
-                                </td>
-                                <td>
-                                        ${userLoop.getEmail()}
-                                </td>
-                                <td>
-                                        ${userLoop.getPhoneNumber()}
-                                </td>
-                                <td>
-                                        ${userLoop.getUserType()}
-                                </td>
-                                <td>
-                                        ${userLoop.getActive()}
-                                </td>
+
+                                <th>ID</th>
+                                <th>Login</th>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Type</th>
+                                <th>Active</th>
 
 
-                                <td align="center">
-                                    <a class="btn btn-default"
-                                       href="EditEventFromDb?type=EditUserFromDb&id=${userLoop.getId()}"><em
-                                            class="fa fa-pencil"></em></a>
-                                    <a class="btn btn-danger"
-                                       href="DeleteEventFromDbServletGet?id=${userLoop.getId()}"><em
-                                            class="fa fa-trash"></em></a>
-
-                                </td>
+                                <th><em class="fa fa-cog"></em></th>
                             </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
 
+                            <c:forEach items="${listOfUsers}" var="userLoop">
+                                <tr>
+                                    <td>
+                                            ${userLoop.getId()}
+                                    </td>
+                                    <td>
+                                            ${userLoop.getLogin()}
+                                    </td>
+                                    <td>
+                                            ${userLoop.getName()}
+                                    </td>
+                                    <td>
+                                            ${userLoop.getSurname()}
+                                    </td>
+                                    <td>
+                                            ${userLoop.getEmail()}
+                                    </td>
+                                    <td>
+                                            ${userLoop.getPhoneNumber()}
+                                    </td>
+                                    <td>
+                                            ${userLoop.getUserType()}
+                                    </td>
+                                    <td>
+                                            ${userLoop.getActive()}
+                                    </td>
+
+
+                                    <td align="center">
+                                        <a class="btn btn-default"
+                                           href="EditEventFromDb?type=EditUserFromDb&id=${userLoop.getId()}"><em
+                                                class="fa fa-pencil"></em></a>
+                                        <a class="btn btn-danger"
+                                           href="DeleteEventFromDbServletGet?id=${userLoop.getId()}"><em
+                                                class="fa fa-trash"></em></a>
+
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div><!-- end row -->
             </div><!-- end col -->
         </div><!-- end row -->
     </div><!-- end container -->
-    </section>
+</section>
 
 
-
-    <%@include file="footer.jsp"%></div>
+<%@include file="footer.jsp" %>
+</div>
