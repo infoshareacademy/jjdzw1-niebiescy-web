@@ -19,11 +19,11 @@ public class EmailToUserBean implements EmailToUser {
         try {
 
             Email email = new SimpleEmail();
-            email.setHostName("smtp.googlemail.com");
+            email.setHostName("mail0.mydevil.net");
             email.setSmtpPort(465);
-            email.setAuthenticator(new DefaultAuthenticator("username", "password"));
+            email.setAuthenticator(new DefaultAuthenticator("marekwitkowski@marekwitkowski.usermd.net", "tutajwpiszhaslo"));
             email.setSSLOnConnect(true);
-            email.setFrom("user@gmail.com");
+            email.setFrom("marekwitkowski@marekwitkowski.usermd.net");
             email.setSubject(subject);
             email.setMsg(content);
             email.addTo(address);

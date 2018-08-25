@@ -27,8 +27,6 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <h4>Jeśli masz konto...</h4>
-                           <!-- <p>Cloapedia is a personal blog for handcrafted, cameramade photography content, fashion
-                                styles from independent creatives around the world.</p> -->
                         </div>
 
                         <div class="col-lg-6">

@@ -7,13 +7,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <h2><i class="fa fa-envelope-o"></i> Kontakt</h2>
+                <h2><i class="fa fa-envelope-o"></i> Użytkownicy</h2>
             </div><!-- end col -->
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Start</a></li>
-                    <li class="breadcrumb-item"><a href="#">Strony</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Kontakt</a></li>
+                    <li class="breadcrumb-item"><a href="#">Admninistracja</a></li>
+                    <li class="breadcrumb-item active"><a href="#">Użytkownicy</a></li>
                 </ol>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -24,7 +24,7 @@
 <section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="page-wrapper">
                     <div class="row">
                         <table class="table table-striped table-bordered table-list">
