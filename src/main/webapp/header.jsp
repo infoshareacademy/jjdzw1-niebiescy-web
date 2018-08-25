@@ -70,38 +70,9 @@
     <div class="topbar-section">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 hidden-xs-down">
-                    <div class="topsocial">
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i
-                                class="fa fa-facebook"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i
-                                class="fa fa-youtube"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i
-                                class="fa fa-pinterest"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i
-                                class="fa fa-twitter"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Flickr"><i
-                                class="fa fa-flickr"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i
-                                class="fa fa-instagram"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><i
-                                class="fa fa-google-plus"></i></a>
-                    </div><!-- end social -->
-                </div><!-- end col -->
 
-                <div class="col-lg-4 hidden-md-down">
-                    <div class="topmenu text-center">
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="/addevent"><i class="fa fa-star"></i>Dodaj event</a>
-                            </li>
-                            <li class="list-inline-item"><a href="/EventDetails?id=1"><i class="fa fa-bolt"></i>Szczegóły eventu</a></li>
-                            <li class="list-inline-item"><a href="user.jsp"><i class="fa fa-user-circle-o"></i> Write
-                                for us</a></li>
-                        </ul><!-- end ul -->
-                    </div><!-- end topmenu -->
-                </div><!-- end col -->
 
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="topsearch text-right">
                         <a data-toggle="collapse" href="#collapseExample" aria-expanded="false"
                            aria-controls="collapseExample"><i class="fa fa-search"></i> Szukaj</a>
@@ -545,27 +516,15 @@
                                 <li><a class="dropdown-item" href="ListAllEventsAdminServlet">Eventy</a></li>
                             </ul>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link color-pink-hover" href="blog-category-01.html">Fashion</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link color-red-hover" href="blog-category-02.html">Food</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link color-aqua-hover" href="blog-category-03.html">Lifestyle</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link color-green-hover" href="blog-category-04.html">Travel</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link color-yellow-hover" href="blog-category-05.html"><i
-                                    class="fa fa-play-circle-o"></i> Vlogs</a>
-                        </li>
-                        <li class="nav-item">
-                           <!-- <a class="nav-link color-grey-hover" href="user.jsp"> -->
-                                <c:set var="login" scope="session" value="${login}"/>
-                                <c:if test="${empty login}"><a class="nav-link color-grey-hover" href="user.jsp">Zaloguj się/Dodaj konto</a></c:if>
-                            <c:if test="${not empty login}"><a class="nav-link color-grey-hover" href="AdminPanelLinks.jsp">Witaj: ${login} (moje konto)</a></c:if>
+                            <!-- <a class="nav-link color-grey-hover" href="user.jsp"> -->
+                            <c:set var="login" scope="session" value="${login}"/>
+                            <c:if test="${empty login}"><a class="nav-link color-grey-hover" href="user.jsp">Zaloguj
+                                się/Dodaj konto</a></c:if>
+                            <c:if test="${not empty login}"><a class="nav-link color-grey-hover"
+                                                               href="AdminPanelLinks.jsp">Witaj: ${login} (moje
+                                konto)</a></c:if>
 
                             <!-- <a class="nav-link color-grey-hover" href="/UserAdd">Moje konto</a>-->
                         </li>
