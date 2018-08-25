@@ -2,18 +2,17 @@ package pl.findevent;
 
 import pl.findevent.dao.UsersDaoBean;
 import pl.findevent.domain.User;
+import pl.findevent.utils.EmailToUser;
+import pl.findevent.utils.EmailToUserBean;
 
 public class Main {
 
     public static void main(String[] args) {
 
 
-        UsersDaoBean usersDaoBean = new UsersDaoBean();
+        EmailToUserBean emailToUserBean = new EmailToUserBean();
 
-        User user = new User();
-
-
-        user = usersDaoBean.read(1);
+        emailToUserBean.send("marek.witkowski.priv@gmail.com","Test maila","Treść maila \n testowego :)");
 
 
 
