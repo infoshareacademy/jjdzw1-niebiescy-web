@@ -1,6 +1,9 @@
 package pl.findevent.servlets;
 
 
+import pl.findevent.dao.UsersDao;
+
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,16 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-@WebServlet("/user-delete")
+@WebServlet("/UserDeleteServlet")
 class UserDeleteServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
 
+    @Inject
+    UsersDao usersDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        RequestDispatcher rd = req.getRequestDispatcher("/user-delete.html");
+        String id = req.getParameter("id");
+        usersDao.markUserAsInactiveInDb(Integer.parseInt(id));
+logger.info("User usuniety. PRzechodze do stronki ListAllUsersAdmin");
+
+        RequestDispatcher rd = req.getRequestDispatcher("ListAllUsersAdmin.jsp");
         rd.forward(req,resp);
     }
 

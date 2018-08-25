@@ -13,7 +13,6 @@ public interface UsersDao {
 
     User read(int id);
 
-    void remove(int id);
-
     boolean isUniqueLogin(String login);
+    void markUserAsInactiveInDb(int id);
 }
