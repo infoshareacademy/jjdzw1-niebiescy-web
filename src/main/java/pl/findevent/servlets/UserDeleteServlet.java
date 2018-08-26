@@ -2,6 +2,7 @@ package pl.findevent.servlets;
 
 
 import pl.findevent.dao.UsersDao;
+import pl.findevent.domain.User;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -25,14 +26,22 @@ class UserDeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String id = req.getParameter("id");
-        usersDao.markUserAsInactiveInDb(Integer.parseInt(id));
-logger.info("User usuniety. PRzechodze do stronki ListAllUsersAdmin");
 
-        RequestDispatcher rd = req.getRequestDispatcher("ListAllUsersAdmin.jsp");
-        rd.forward(req,resp);
+        User user = usersDao.read(Integer.parseInt(id));
+
+        if (user.getActive()) {
+            usersDao.markUserAsInactiveInDb(Integer.parseInt(id));
+            logger.info("User login: " + user.getLogin() + " marked as inactive in DB.");
+        } else {
+            usersDao.markUserAsActiveInDb(Integer.parseInt(id));
+            logger.info("User login: " + user.getLogin() + " marked as active in DB.");
+        }
+
+        RequestDispatcher rd = req.getRequestDispatcher("ListAllUsersAdminServlet");
+        rd.forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)  {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
     }
 }

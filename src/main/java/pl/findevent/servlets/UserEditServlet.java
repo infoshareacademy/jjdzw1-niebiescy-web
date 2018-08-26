@@ -7,11 +7,13 @@ import pl.findevent.domain.UserType;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.logging.Logger;
 
@@ -25,9 +27,22 @@ class UserEditServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         req.setCharacterEncoding("UTF-8");
-        RequestDispatcher rd = req.getRequestDispatcher("/user.jsp");
+        //pobierz i ustaw parametry type z adresu. ustaw ten parametr dla sesji aby widzial go tez post
+        String id = req.getParameter("id");
+        req.setAttribute("id", id);
+        req.getSession().setAttribute("id", id);
+
+        // znajdz usera po id ktore bylo podane w pasku
+        // ten user bedzie wykorzystany aby wyswietlic jego dane w formularzu (value=${user.getName()}
+
+        User user = usersDao.read(Integer.parseInt(id));
+        // aby formularz widział usera, rowniez dla sesji przy przełączaniu pomiedzy stronami
+
+        req.setAttribute("user", user);
+        req.getSession().setAttribute("user", user);
+
+        RequestDispatcher rd = req.getRequestDispatcher("editUser.jsp");
         rd.forward(req, resp);
 
     }
@@ -37,39 +52,25 @@ class UserEditServlet extends HttpServlet {
 
         req.setCharacterEncoding("UTF-8");
 
+        HttpSession session = req.getSession();
+
+        String idUser = String.valueOf(req.getSession().getAttribute("id"));
+        logger.info("Id w post to: "+idUser);
         String login = req.getParameter("login");
-        String password = req.getParameter("password");
-        String name = req.getParameter("name");
-        String surname = req.getParameter("surname");
-        String email = req.getParameter("email");
-        String phone = req.getParameter("phone");
-        String type = req.getParameter("type");
+        req.getSession().setAttribute("login", login);
 
 
-        if (usersDao.isUniqueLogin(login)) {
-            logger.info("Login: " + login + " already exists in database. Cannot create account with duplicate login.");
-            logger.info("Re-direct to main page");
-            req.setAttribute("errorTitle", "Cannot create user account");
-            req.setAttribute("errorDecscription", "Login already exists. Please enter another login");
-            RequestDispatcher rd = req.getRequestDispatcher("error.jsp");
-            rd.forward(req, resp);
-            return;
-        }
+        User user = usersDao.read(Integer.parseInt(idUser));
+        user.setLogin((String) req.getSession().getAttribute("login"));
 
-        User user = new User();
-        user.setLogin(login);
-        user.setPassword(password);
-        user.setName(name);
-        user.setSurname(surname);
-        user.setEmail(email);
-        user.setPhoneNumber(phone);
-        user.setUserType(UserType.valueOf(type));
-        user.setActive(true);
-
-        usersDao.saveUserToDb(user);
-        logger.info("User: " + login + " successfully added to database");
+       // usersDao.saveUserToDb(user);
+        logger.info("User: " + login + " successfully updated");
+        logger.info("przekierowanie");
 
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+        logger.info("usuniecie sesij");
+        session.invalidate();
+        logger.info("po usunieciu");
         rd.forward(req, resp);
 
 
