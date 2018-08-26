@@ -4,6 +4,7 @@ package pl.findevent.servlets;
 import pl.findevent.dao.UsersDao;
 import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
+import pl.findevent.utils.EmailToUser;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -22,6 +23,9 @@ class UserAddServlet extends HttpServlet {
 
     @Inject
     UsersDao usersDao;
+
+    @Inject
+    EmailToUser emailToUser;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -68,6 +72,9 @@ class UserAddServlet extends HttpServlet {
 
         usersDao.saveUserToDb(user);
         logger.info("User: " + login + " successfully added to database");
+
+        emailToUser.send(user.getEmail(), "EventFinder - potwierdzenie założenia konta", "EventFinder - potwierdznie założenia konta\tŻyczymy dobrej zabawy!");
+
 
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
         rd.forward(req, resp);

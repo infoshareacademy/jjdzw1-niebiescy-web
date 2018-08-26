@@ -68,7 +68,7 @@ class UserEditServlet extends HttpServlet {
         logger.info("przekierowanie");
 
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
-        logger.info("usuniecie sesij");
+        logger.info("usuniecie sesji");
         session.invalidate();
         logger.info("po usunieciu");
         rd.forward(req, resp);
