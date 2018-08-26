@@ -76,11 +76,16 @@
 
                                     <td align="center">
                                         <a
-                                           href="EditEventFromDb?type=EditUserFromDb&id=${userLoop.getId()}"><em
+                                           href="UserEditServlet?id=${userLoop.getId()}"><em
                                                 class="fa fa-pencil"></em></a>
-                                        <a
-                                           href="DeleteEventFromDbServletGet?id=${userLoop.getId()}"><em
-                                                class="fa fa-trash"></em></a>
+                                        <c:set var="active" scope="session" value="${userLoop.getActive()}"/>
+                                        <c:if test="${active}">
+                                        <a href="UserDeleteServlet?id=${userLoop.getId()}"><em class="fa fa-trash"></em></a>
+                                        </c:if>
+                                        <c:if test="${!active}">
+                                        <a href="UserDeleteServlet?id=${userLoop.getId()}"><em class="fa fa-plus"></em></a>
+                                        </c:if>
+
 
                                     </td>
                                 </tr>

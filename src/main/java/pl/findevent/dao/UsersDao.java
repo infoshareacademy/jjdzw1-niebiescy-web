@@ -9,11 +9,16 @@ import java.util.List;
 public interface UsersDao {
 
     List<User> getUsersListFromDB();
+
     void saveUserToDb(User user);
 
     User read(int id);
 
-    void remove(int id);
-
     boolean isUniqueLogin(String login);
+
+    void markUserAsInactiveInDb(int id);
+
+    void markUserAsActiveInDb(int id);
+
+    void modifyUserDb(User user);
 }

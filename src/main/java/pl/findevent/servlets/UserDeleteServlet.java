@@ -1,6 +1,10 @@
 package pl.findevent.servlets;
 
 
+import pl.findevent.dao.UsersDao;
+import pl.findevent.domain.User;
+
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +14,34 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-@WebServlet("/user-delete")
+@WebServlet("/UserDeleteServlet")
 class UserDeleteServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
 
+    @Inject
+    UsersDao usersDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        RequestDispatcher rd = req.getRequestDispatcher("/user-delete.html");
-        rd.forward(req,resp);
+        String id = req.getParameter("id");
+
+        User user = usersDao.read(Integer.parseInt(id));
+
+        if (user.getActive()) {
+            usersDao.markUserAsInactiveInDb(Integer.parseInt(id));
+            logger.info("User login: " + user.getLogin() + " marked as inactive in DB.");
+        } else {
+            usersDao.markUserAsActiveInDb(Integer.parseInt(id));
+            logger.info("User login: " + user.getLogin() + " marked as active in DB.");
+        }
+
+        RequestDispatcher rd = req.getRequestDispatcher("ListAllUsersAdminServlet");
+        rd.forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)  {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
     }
 }
