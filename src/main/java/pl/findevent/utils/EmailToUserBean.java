@@ -24,7 +24,7 @@ public class EmailToUserBean implements EmailToUser {
             Email email = new SimpleEmail();
             email.setHostName("mail0.mydevil.net");
             email.setSmtpPort(465);
-            email.setAuthenticator(new DefaultAuthenticator("marekwitkowski@marekwitkowski.usermd.net", "odpzl5cR47qv20DUCrQe"));
+            email.setAuthenticator(new DefaultAuthenticator("marekwitkowski@marekwitkowski.usermd.net", "haslo"));
             email.setSSLOnConnect(true);
             email.setFrom("marekwitkowski@marekwitkowski.usermd.net");
             email.setSubject(subject);
