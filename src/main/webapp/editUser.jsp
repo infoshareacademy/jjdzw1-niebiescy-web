@@ -54,8 +54,8 @@
                                 </select>
 
 
-                                <button type="submit" name="save" class="btn btn-primary">Załóż konto <i
-                                        class="fa fa-envelope-open-o"></i></button>
+                                <button type="submit" name="save" class="btn btn-primary">Zaktualizuj <i
+                                        class="fa fa-save"></i></button>
                             </form>
                         </div>
                     </div>
