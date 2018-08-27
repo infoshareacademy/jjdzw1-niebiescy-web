@@ -55,22 +55,38 @@ class UserEditServlet extends HttpServlet {
         HttpSession session = req.getSession();
 
         String idUser = String.valueOf(req.getSession().getAttribute("id"));
-        logger.info("Id w post to: "+idUser);
-        String login = req.getParameter("login");
-        req.getSession().setAttribute("login", login);
+
+        // get info about what user entered and assign to variable
+        String name = req.getParameter("name");
+        String surname = req.getParameter("surname");
+        String email = req.getParameter("email");
+        String phone = req.getParameter("phone");
+        String type = req.getParameter("type");
+
+        // set session attribute for user's parameters, i.e. assign login to login
+        req.getSession().setAttribute("name", name);
+        req.getSession().setAttribute("surname", surname);
+        req.getSession().setAttribute("email", email);
+        req.getSession().setAttribute("phone", phone);
+        req.getSession().setAttribute("type", type);
 
 
         User user = usersDao.read(Integer.parseInt(idUser));
-        user.setLogin((String) req.getSession().getAttribute("login"));
+        user.setName((String) req.getSession().getAttribute("name"));
+        user.setSurname((String) req.getSession().getAttribute("surname"));
+        user.setEmail((String) req.getSession().getAttribute("email"));
+        user.setPhoneNumber((String) req.getSession().getAttribute("phone"));
+        user.setUserType(UserType.valueOf((String) req.getSession().getAttribute("type")));
 
-       // usersDao.saveUserToDb(user);
-        logger.info("User: " + login + " successfully updated");
-        logger.info("przekierowanie");
+        usersDao.modifyUserDb(user);
+        logger.info("User id: " + idUser + " successfully updated");
+        logger.info("New name: " + name + " | New Surname: " + surname + " | New email: " + email + " | New Phone: " + phone
+                + " | New type: " + type);
+        session.invalidate();
 
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
-        logger.info("usuniecie sesji");
-        session.invalidate();
-        logger.info("po usunieciu");
+        // redirect to another servlet, i.e. /ListAllUsersAdminServlet
+        resp.sendRedirect(req.getContextPath() + "/ListAllUsersAdminServlet");
         rd.forward(req, resp);
 
 

@@ -1,6 +1,7 @@
 package pl.findevent.dao;
 
 import pl.findevent.domain.Event;
+import pl.findevent.domain.User;
 
 import javax.ejb.Local;
 import java.util.List;
@@ -13,4 +14,5 @@ public interface EventsDao {
     void saveEventToDb (Event event);
     Event read(int id);
     public void remove(int id);
+    void modifyEventDb(Event event);
 }
