@@ -69,6 +69,15 @@ public class EventsDaoBean implements EventsDao {
 
     }
 
+    @Override
+    public void modifyEventDb(Event event) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+        entityManager.merge(event);
+        entityTransaction.commit();
+        entityManager.close();
+    }
 
     public void remove(int id) {
 
