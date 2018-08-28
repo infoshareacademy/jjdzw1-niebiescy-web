@@ -47,6 +47,17 @@ class EventEditServlet extends HttpServlet {
         req.setAttribute("event", event);
         req.getSession().setAttribute("event", event);
 
+        // format date (event.getStartDate(), event.getFinishDate()) to String in format yyyy-MM-dd
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String startDate = format.format(event.getStartDate());
+        String finishDate = format.format(event.getFinishDate());
+
+        //set up start_date and finish_date to forward to editEvent.jsp as e.g. ${start_date}
+        req.setAttribute("start_date", startDate);
+        req.setAttribute("finish_date", finishDate);
+        req.getSession().setAttribute("start_date", startDate);
+        req.getSession().setAttribute("finish_date", finishDate);
+
         RequestDispatcher rd = req.getRequestDispatcher("editEvent.jsp");
         rd.forward(req, resp);
 
@@ -110,7 +121,6 @@ class EventEditServlet extends HttpServlet {
         req.getSession().setAttribute("promoteTranslate", promoteTranslate);
 
 
-
         Event event = eventsDao.read(Integer.parseInt(idEvent));
         event.setName((String) req.getSession().getAttribute("name"));
         event.setDescription((String) req.getSession().getAttribute("description"));
@@ -119,23 +129,21 @@ class EventEditServlet extends HttpServlet {
         event.setAddress((String) req.getSession().getAttribute("address"));
         event.setGoogleMaps((String) req.getSession().getAttribute("google_maps"));
         event.setOrganizer(Integer.parseInt((String) req.getSession().getAttribute(("organizer"))));
-        event.setPrice(Double.valueOf(Integer.parseInt((String) req.getSession().getAttribute("tickets"))));
         event.setTickets(Integer.parseInt((String) req.getSession().getAttribute("tickets")));
         event.setCategory(Integer.valueOf((String) req.getSession().getAttribute("category")));
         event.setPromote((Boolean) req.getSession().getAttribute("promoteTranslate"));
 
-
         eventsDao.modifyEventDb(event);
         logger.info("Event id: " + idEvent + " successfully updated");
-      //  logger.info("New name: " + name + " | New Surname: " + surname + " | New email: " + email + " | New Phone: " + phone
-      //          + " | New type: " + type);
+        logger.info("New name: " + name + " | New description: " + description + " | New startDate: " + start_date
+                + " | New finishDate: " + finishDate
+                + " | New Address: " + address + " | New google_maps: " + google_maps + " | New organizer: " + organizer
+                + " | New tickets: " + tickets + " | New category: " + category + " | New isPromoted: " + promoteTranslate);
         session.invalidate();
 
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
         // redirect to another servlet, i.e. /ListAllUsersAdminServlet
         resp.sendRedirect(req.getContextPath() + "/ListAllEventsAdminServlet");
         rd.forward(req, resp);
-
-
     }
 }

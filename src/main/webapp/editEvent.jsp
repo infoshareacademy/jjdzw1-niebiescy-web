@@ -44,10 +44,10 @@
                                                     value="${event.getDescription()}" required>
                                 Start Date: <input type="date" class="form-control" name="start_date"
                                                    placeholder="Data rozpoczęcia"
-                                                   value="${event.getStartDate()}" required>
+                                                   value="${start_date}" required>
                                 Finish Date: <input type="date" class="form-control" name="finish_date"
                                                     placeholder="Data zakończeniae"
-                                                    value="${event.getFinishDate()}" required>
+                                                    value="${finish_date}" required>
                                 Address: <input type="text" class="form-control" name="address"
                                                 placeholder="Adres imprezy"
                                                 value="${event.getAddress()}">
