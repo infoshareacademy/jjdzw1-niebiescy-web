@@ -4,6 +4,7 @@ package pl.findevent.servlets;
 import pl.findevent.dao.UsersDao;
 import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
+import pl.findevent.utils.EmailToUser;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -21,7 +22,7 @@ class ContactServlet extends HttpServlet {
     Logger logger = Logger.getLogger(getClass().getName());
 
     @Inject
-    UsersDao usersDao;
+    EmailToUser emailToUser;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,14 +38,15 @@ class ContactServlet extends HttpServlet {
 
         req.setCharacterEncoding("UTF-8");
 
-        String name = req.getParameter("name");
+
         String email = req.getParameter("email");
-        String phone = req.getParameter("phone");
         String subject = req.getParameter("subject");
         String content = req.getParameter("content");
 
 
 
+
+        emailToUser.send(email,subject,content);
 
 
         logger.info("Przyszła wiadomość od :".concat(email));
