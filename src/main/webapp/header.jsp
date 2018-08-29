@@ -59,8 +59,8 @@
     <div class="collapse top-search" id="collapseExample">
         <div class="card card-block">
             <div class="newsletter-widget text-center">
-                <form class="form-inline">
-                    <input type="text" class="form-control" placeholder="Wpisz, czego szuksz...">
+                <form class="form-inline" method="post" action="/Search">
+                    <input type="text" class="form-control"  name="stringForSearch"  placeholder="Wpisz, czego szuksz...">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                 </form>
             </div><!-- end newsletter -->

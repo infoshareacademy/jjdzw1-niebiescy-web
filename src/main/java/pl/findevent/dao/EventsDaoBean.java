@@ -57,7 +57,6 @@ public class EventsDaoBean implements EventsDao {
         entityManager.persist(event);
         transaction.commit();
         entityManager.close();
-
     }
 
 
