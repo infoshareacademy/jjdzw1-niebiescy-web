@@ -60,6 +60,20 @@ public class EventsDaoBean implements EventsDao {
 
     }
 
+
+    @Override
+    public List<Event> getFindedEventsFromDB(String searchString) {
+
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+        eventList = entityManager.createQuery("FROM Event where name like %searchString% or description like %searchString%").getResultList();
+        entityManager.close();
+
+        return eventList;
+
+    }
+
     @Override
     public Event read(int id) {
 
