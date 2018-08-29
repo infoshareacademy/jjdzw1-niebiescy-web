@@ -536,10 +536,11 @@
                             <!-- <a class="nav-link color-grey-hover" href="/UserAdd">Moje konto</a>-->
                         </li>
 
-
+                        <c:if test="${not empty login}">
                         <li class="nav-item">
                             <a class="nav-link color-grey-hover" href="/LogoutServlet">Wyloguj się</a>
                         </li>
+                        </c:if>
 
                     </ul>
                 </div>
