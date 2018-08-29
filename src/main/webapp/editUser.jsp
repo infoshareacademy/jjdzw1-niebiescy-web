@@ -37,22 +37,25 @@
                         <div class="col-lg-6">
                             <form class="form-wrapper" method="post" action="/UserEditServlet">
                                 <h4>Edit user</h4>
-                                <input type="text" class="form-control" name="login" placeholder="login"
-                                       value="${user.getLogin()}" required>
-
-                                <input type="text" class="form-control" name="name" placeholder="name" value="${user.getName()}" required>
-                                <input type="text" class="form-control" name="surname" placeholder="surname" value="${user.getSurname()}" required>
-                                <input type="email" class="form-control" name="email" placeholder="email" value="${user.getEmail()}" required>
-                                <input type="tel" class="form-control" name="phone" placeholder="phone" value="${user.getPhoneNumber()}" >
-                                <select class="form-control" name="type" value="${user.getUserType()}" >
+                                Login (not-editable): <input type="text" class="form-control" name="login" placeholder="login"
+                                       value="${user.getLogin()}" disabled>
+                                Name: <input type="text" class="form-control" name="name" placeholder="name"
+                                       value="${user.getName()}" required>
+                                Surname: <input type="text" class="form-control" name="surname" placeholder="surname"
+                                       value="${user.getSurname()}" required>
+                                Email: <input type="email" class="form-control" name="email" placeholder="email"
+                                       value="${user.getEmail()}" required>
+                                Phone: <input type="tel" class="form-control" name="phone" placeholder="phone"
+                                       value="${user.getPhoneNumber()}">
+                                Type: <select class="form-control" name="type" value="${user.getUserType()}">
                                     <option>NORMAL</option>
                                     <option>BUSINESS</option>
                                     <option>ADMIN</option>
                                 </select>
 
 
-                                <button type="submit" name="save" class="btn btn-primary">Załóż konto <i
-                                        class="fa fa-envelope-open-o"></i></button>
+                                <button type="submit" name="save" class="btn btn-primary">Zaktualizuj <i
+                                        class="fa fa-save"></i></button>
                             </form>
                         </div>
                     </div>

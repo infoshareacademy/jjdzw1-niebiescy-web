@@ -94,12 +94,12 @@
 
                                     <td align="center">
                                         <a
-                                           href="EditEventFromDb?type=EditUserFromDb&id=${eventLoop.getId()}"><em
+                                                href="EventEditServlet?id=${eventLoop.getId()}"><em
                                                 class="fa fa-pencil"></em></a>
-                                        <a
-                                           href="DeleteEventFromDbServletGet?id=${eventLoop.getId()}"><em
+                                   <!--     <a
+                                                href="DeleteEventFromDbServletGet?id=${eventLoop.getId()}"><em
                                                 class="fa fa-trash"></em></a>
-
+-->
                                     </td>
                                 </tr>
                             </c:forEach>
