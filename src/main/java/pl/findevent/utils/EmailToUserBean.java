@@ -5,8 +5,11 @@ import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
+import javax.ejb.Stateless;
 import java.util.logging.Logger;
 
+
+@Stateless
 public class EmailToUserBean implements EmailToUser {
 
 
@@ -21,7 +24,7 @@ public class EmailToUserBean implements EmailToUser {
             Email email = new SimpleEmail();
             email.setHostName("mail0.mydevil.net");
             email.setSmtpPort(465);
-            email.setAuthenticator(new DefaultAuthenticator("marekwitkowski@marekwitkowski.usermd.net", "tutajwpiszhaslo"));
+            email.setAuthenticator(new DefaultAuthenticator("marekwitkowski@marekwitkowski.usermd.net", "haslo"));
             email.setSSLOnConnect(true);
             email.setFrom("marekwitkowski@marekwitkowski.usermd.net");
             email.setSubject(subject);
