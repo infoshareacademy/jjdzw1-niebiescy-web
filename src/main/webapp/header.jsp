@@ -108,7 +108,7 @@
                         </li>
                         <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">Categories</a>
+                               aria-haspopup="true" aria-expanded="false">Kategorie</a>
                             <ul class="dropdown-menu megamenu" aria-labelledby="dropdown01">
                                 <li>
                                     <div class="mega-menu-content clearfix">
