@@ -4,61 +4,23 @@
 <%@include file="header.jsp" %>
 
 
-<section class="section first-section">
-    <div class="container-fluid">
-        <div class="masonry-blog clearfix">
-            <div class="left-side">
-                <div class="masonry-box post-media">
-                    <img src="upload/blog_masonry_01.jpg" alt="" class="img-fluid">
-                    <div class="shadoweffect">
-                        <div class="shadow-desc">
-                            <div class="blog-meta">
-                                <span class="bg-aqua"><a href="blog-category-01.html" title="">Lifestyle</a></span>
-                                <h4><a href="single.html" title="">The golden rules you need to know for a positive
-                                    life</a></h4>
-                                <small><a href="single.html" title="">24 July, 2017</a></small>
-                                <small><a href="blog-author.html" title="">by Amanda</a></small>
-                            </div><!-- end meta -->
-                        </div><!-- end shadow-desc -->
-                    </div><!-- end shadow -->
-                </div><!-- end post-media -->
-            </div><!-- end left-side -->
 
-            <div class="center-side">
-                <div class="masonry-box post-media">
-                    <img src="upload/blog_masonry_01.jpg" alt="" class="img-fluid">
-                    <div class="shadoweffect">
-                        <div class="shadow-desc">
-                            <div class="blog-meta">
-                                <span class="bg-aqua"><a href="blog-category-01.html" title="">Lifestyle</a></span>
-                                <h4><a href="single.html" title="">The golden rules you need to know for a positive
-                                    life</a></h4>
-                                <small><a href="single.html" title="">24 July, 2017</a></small>
-                                <small><a href="blog-author.html" title="">by Amanda</a></small>
-                            </div><!-- end meta -->
-                        </div><!-- end shadow-desc -->
-                    </div><!-- end shadow -->
-                </div><!-- end post-media -->
-            </div><!-- end left-side -->
-
-            <div class="right-side hidden-md-down">
-                <div class="masonry-box post-media">
-                    <img src="upload/blog_masonry_05.jpg" alt="" class="img-fluid">
-                    <div class="shadoweffect">
-                        <div class="shadow-desc">
-                            <div class="blog-meta">
-                                <span class="bg-aqua"><a href="blog-category-01.html" title="">Lifestyle</a></span>
-                                <h4><a href="single.html" title="">The rules you need to know for a happy union</a></h4>
-                                <small><a href="single.html" title="">03 July, 2017</a></small>
-                                <small><a href="blog-author.html" title="">by Jessica</a></small>
-                            </div><!-- end meta -->
-                        </div><!-- end shadow-desc -->
-                    </div><!-- end shadow -->
-                </div><!-- end post-media -->
-            </div><!-- end right-side -->
-        </div><!-- end masonry -->
-    </div>
-</section>
+<div class="page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <h2><i class="fa fa-search"></i> Wyszukiwanie - </h2>
+            </div><!-- end col -->
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Start</a></li>
+                    <li class="breadcrumb-item"><a href="#">Strony</a></li>
+                    <li class="breadcrumb-item active"><a href="#">Wyszukiwanie</a></li>
+                </ol>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div>
 
 
 <section class="section">
