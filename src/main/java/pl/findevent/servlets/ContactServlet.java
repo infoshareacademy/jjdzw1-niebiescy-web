@@ -37,6 +37,7 @@ class ContactServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.setCharacterEncoding("UTF-8");
+        RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 
 
         String email = req.getParameter("email");
@@ -51,11 +52,10 @@ class ContactServlet extends HttpServlet {
 
         logger.info("Przyszła wiadomość od :".concat(email));
 
-        
 
 
 
-        RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+
         rd.forward(req, resp);
 
 

@@ -33,14 +33,14 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <form class="form-wrapper" method="post" action="/ContactServlet">
+                            <form class="form-wrapper" method="post" action="/Contact">
                                 <h4>Wiadomość</h4>
                                 Email: <input type="text" class="form-control" name="email" placeholder="email"
                                               required>
                                 Temat: <input type="text" class="form-control" name="subject" placeholder="temat"
                                               required>
-                                Treść: <input type="text" class="form-control" name="content" placeholder="treść wiadomości"
-                                              required>
+                                Treść: <textarea cols="30" rows="10" class="form-control" name="content" placeholder="treść wiadomości"
+                                              required></textarea>
 
 
 
