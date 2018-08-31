@@ -1,9 +1,7 @@
 package pl.findevent.servlets;
 
 
-import pl.findevent.dao.EventsDao;
 import pl.findevent.dao.UsersDao;
-import pl.findevent.domain.Event;
 import pl.findevent.domain.User;
 
 import javax.inject.Inject;
@@ -17,10 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.collectingAndThen;
-import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toList;
 
 @WebServlet("/LoginServlet")

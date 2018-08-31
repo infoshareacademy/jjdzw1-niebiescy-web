@@ -27,21 +27,26 @@
             <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <div class="page-wrapper">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <h4>Who we are</h4>
-                            <p>Cloapedia is a personal blog for handcrafted, cameramade photography content, fashion
-                                styles from independent creatives around the world.</p>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <h4>How we help?</h4>
-                            <p>If you’d like to write for us, <a href="#">advertise with us</a> or just say hello, fill
-                                out the form below and we’ll get back to you as soon as possible.</p>
+                        <div class="col-lg-12">
+                            <h4>Wyślij nam wiadomość</h4>
+                            <p>Jeśli masz jakieś pytania, problemy albo propozycje - wyślij nam wiadomość. Na pewno odpowiemy!</p>
                         </div>
 
                         <div class="col-lg-12">
-                            <blockquote class="blockquote">Please read <a href="#">Licensing & Terms</a> of Use if you
-                                are wondering about the license. </strong></blockquote>
+                            <form class="form-wrapper" method="post" action="/Contact">
+                                <h4>Wiadomość</h4>
+                                Email: <input type="text" class="form-control" name="email" placeholder="email"
+                                              required>
+                                Temat: <input type="text" class="form-control" name="subject" placeholder="temat"
+                                              required>
+                                Treść: <textarea cols="30" rows="10" class="form-control" name="content" placeholder="treść wiadomości"
+                                              required></textarea>
+
+
+
+                                <button type="submit" name="save" class="btn btn-primary">Wyślij wiadomość <i
+                                        class="fa fa-send"></i></button>
+                            </form>
                         </div>
 
 

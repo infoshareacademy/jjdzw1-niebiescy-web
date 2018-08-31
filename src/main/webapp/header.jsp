@@ -59,8 +59,8 @@
     <div class="collapse top-search" id="collapseExample">
         <div class="card card-block">
             <div class="newsletter-widget text-center">
-                <form class="form-inline">
-                    <input type="text" class="form-control" placeholder="Wpisz, czego szuksz...">
+                <form class="form-inline" method="get" action="/Search">
+                    <input type="text" class="form-control"  name="stringForSearch"  placeholder="Wpisz, czego szuksz...">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                 </form>
             </div><!-- end newsletter -->
@@ -508,6 +508,8 @@
                                 </li>
                             </ul>
                         </li>
+
+
                         <li class="nav-item dropdown has-submenu">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">Administracja</a>
@@ -516,6 +518,11 @@
                                 <li><a class="dropdown-item" href="ListAllEventsAdminServlet">Eventy</a></li>
                             </ul>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link color-grey-hover" href="/Contact">Kontakt</a>
+                        </li>
+
 
                         <li class="nav-item">
                             <!-- <a class="nav-link color-grey-hover" href="user.jsp"> -->
@@ -529,10 +536,11 @@
                             <!-- <a class="nav-link color-grey-hover" href="/UserAdd">Moje konto</a>-->
                         </li>
 
-
+                        <c:if test="${not empty login}">
                         <li class="nav-item">
                             <a class="nav-link color-grey-hover" href="/LogoutServlet">Wyloguj się</a>
                         </li>
+                        </c:if>
 
                     </ul>
                 </div>
