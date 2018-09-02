@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-@WebServlet("/Test")
+@WebServlet("")
 class HomePageServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
