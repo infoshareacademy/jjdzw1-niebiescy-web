@@ -4,6 +4,7 @@ package pl.findevent.servlets;
 import pl.findevent.dao.EventsDao;
 import pl.findevent.dao.UsersDao;
 import pl.findevent.domain.Event;
+import pl.findevent.domain.EventCategory;
 import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
 
@@ -130,7 +131,7 @@ class EventEditServlet extends HttpServlet {
         event.setGoogleMaps((String) req.getSession().getAttribute("google_maps"));
         event.setOrganizer(Integer.parseInt((String) req.getSession().getAttribute(("organizer"))));
         event.setTickets(Integer.parseInt((String) req.getSession().getAttribute("tickets")));
-        event.setCategory(Integer.valueOf((String) req.getSession().getAttribute("category")));
+        event.setCategory(EventCategory.valueOf((String) req.getSession().getAttribute("category")));
         event.setPromote((Boolean) req.getSession().getAttribute("promoteTranslate"));
 
         eventsDao.modifyEventDb(event);
