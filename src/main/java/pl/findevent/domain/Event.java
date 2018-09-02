@@ -1,9 +1,6 @@
 package pl.findevent.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -12,8 +9,9 @@ import java.util.Date;
 public class Event {
 
     @Id
-    @Column(name = "id_event")
-    private int id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id_event",  unique = true, nullable = false)
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -43,7 +41,8 @@ public class Event {
     private int tickets;
 
     @Column(name = "category")
-    private Integer category;
+    @Enumerated(EnumType.STRING)
+    private EventCategory category;
 
     @Column(name = "promote")
     private Boolean promote;
@@ -53,11 +52,11 @@ public class Event {
 
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -133,11 +132,11 @@ public class Event {
         this.tickets = tickets;
     }
 
-    public Integer getCategory() {
+    public EventCategory getCategory() {
         return category;
     }
 
-    public void setCategory(Integer category) {
+    public void setCategory(EventCategory category) {
         this.category = category;
     }
 

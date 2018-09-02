@@ -5,6 +5,7 @@ import pl.findevent.dao.EventsDao;
 import pl.findevent.dao.EventsDaoBean;
 import pl.findevent.dao.UsersDaoBean;
 import pl.findevent.domain.Event;
+import pl.findevent.domain.EventCategory;
 import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
 
@@ -94,7 +95,7 @@ class EventAddServlet extends HttpServlet {
         event.setOrganizer(Integer.parseInt(organizer));
         event.setPrice(Double.valueOf(price));
         event.setTickets(Integer.parseInt(tickets));
-        event.setCategory(Integer.parseInt(category));
+        event.setCategory(EventCategory.valueOf(category));
         event.setPromote(promoteTranslate);
 
         eventsDao.saveEventToDb(event);

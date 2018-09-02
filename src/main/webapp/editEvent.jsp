@@ -63,14 +63,25 @@
                                 Tickets: <input type="number" class="form-control" name="tickets"
                                                 placeholder="ilość biletów"
                                                 value="${event.getTickets()}" required>
-                                Category: <input type="number" class="form-control" name="category"
-                                                 placeholder="kategoria"
-                                                 value="${event.getCategory()}" required>
 
 
-                                Promote: <select class="form-control" name="promote" value="${event.isPromote()}">
+
+                                Category: <select class="form-control" name="category" value="${event.getCategory()}">
+                                <option>MUSIC</option>
+                                <option>SPORT</option>
+                                <option>TRAVEL</option>
+                                <option>IT</option>
+                                <option>FASHION</option>
+                                <option>LIFESTYLE</option>
+                                <option>FOOD</option>
+                                <option>HEALTH</option>
+                                <option>ENTERTAIMENT</option>
+                            </select>
+
+                                Promote?: <select class="form-control" name="promote" value="${event.isPromote()}">
                                 <option>YES</option>
                                 <option>NO</option>
+
                             </select>
 
 
