@@ -9,8 +9,9 @@ import java.util.Date;
 public class Event {
 
     @Id
-    @Column(name = "id_event")
-    private int id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id_event",  unique = true, nullable = false)
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -51,11 +52,11 @@ public class Event {
 
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

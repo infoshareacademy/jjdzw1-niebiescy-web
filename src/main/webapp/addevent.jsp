@@ -56,8 +56,20 @@
                                               name="price" required/>
                                 Tickets: <input type="number" class="form-control" placeholder="ilość biletów"
                                                 name="tickets" required/>
-                                Category: <input type="number" class="form-control" placeholder="kategoria"
-                                                 name="category" required/>
+
+
+                                Category: <select class="form-control" name="category" placeholder="kategoria" required>
+                                <option>MUSIC</option>
+                                <option>SPORT</option>
+                                <option>TRAVEL</option>
+                                <option>IT</option>
+                                <option>FASHION</option>
+                                <option>LIFESTYLE</option>
+                                <option>FOOD</option>
+                                <option>HEALTH</option>
+                                <option>ENTERTAIMENT</option>
+                            </select>
+
                                 Promote?:
                                 <select name="promote" class="form-control" placeholder="promowany?" required>
                                     <option>YES</option>
