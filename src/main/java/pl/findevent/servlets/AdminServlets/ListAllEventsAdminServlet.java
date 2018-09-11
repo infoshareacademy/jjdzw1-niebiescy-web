@@ -1,10 +1,8 @@
-package pl.findevent.servlets;
+package pl.findevent.servlets.AdminServlets;
 
 
 import pl.findevent.dao.EventsDao;
-import pl.findevent.dao.UsersDao;
 import pl.findevent.domain.Event;
-import pl.findevent.domain.User;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -16,13 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/ListAllUsersAdminServlet")
+@WebServlet("/ListAllEventsAdminServlet")
 
 
-public class ListAllUsersAdminServlet extends HttpServlet {
+public class ListAllEventsAdminServlet extends HttpServlet {
 
     @Inject
-    UsersDao usersDao;
+    EventsDao eventsDao;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -31,13 +29,15 @@ public class ListAllUsersAdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-        List<User> listOfUsers = usersDao.getUsersListFromDB();
-        request.setAttribute("listOfUsers", listOfUsers);
-        RequestDispatcher rd = request.getRequestDispatcher("ListAllUsersAdmin.jsp");
+        List<Event> listOfEvents = eventsDao.getEventsListFromDB();
+        System.out.println("Pierwszy adres: "+listOfEvents.get(1).getAddress());
+     //   System.out.println("Age: "+listOfUsers.get(1).getAge());
+        request.setAttribute("listOfEvents", listOfEvents);
+        RequestDispatcher rd = request.getRequestDispatcher("ListAllEventsAdmin.jsp");
         rd.forward(request, response);
 
     }
 
-    public ListAllUsersAdminServlet() {
+    public ListAllEventsAdminServlet() {
     }
 }

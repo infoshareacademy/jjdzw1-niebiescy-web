@@ -1,9 +1,8 @@
-package pl.findevent.servlets;
+package pl.findevent.servlets.WebLogicServlets;
 
 
-import pl.findevent.dao.EventsDao;
-import pl.findevent.domain.Event;
-import pl.findevent.utils.EmailToUser;
+import pl.findevent.dao.CategoriesDao;
+import pl.findevent.dao.UsersDao;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -12,29 +11,27 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 import java.util.logging.Logger;
 
-@WebServlet("/Search")
-class SearchServlet extends HttpServlet {
+@WebServlet("")
+class HomePageServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
 
     @Inject
-    EventsDao eventsDao;
+    UsersDao usersDao;
+
+    @Inject
+    CategoriesDao categoriesDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
+
         req.setCharacterEncoding("UTF-8");
-
-
-        req.getSession().setAttribute("stringForSearch", req.getParameter("stringForSearch").toString());
-
-        RequestDispatcher rd = req.getRequestDispatcher("search.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
         rd.forward(req, resp);
 
     }
@@ -42,10 +39,8 @@ class SearchServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
         req.setCharacterEncoding("UTF-8");
-        RequestDispatcher rd = req.getRequestDispatcher("search.jsp");
-
+   RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
         rd.forward(req, resp);
 
 
