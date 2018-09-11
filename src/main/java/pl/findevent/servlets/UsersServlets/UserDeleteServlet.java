@@ -1,4 +1,4 @@
-package pl.findevent.servlets;
+package pl.findevent.servlets.UsersServlets;
 
 
 import pl.findevent.dao.UsersDao;

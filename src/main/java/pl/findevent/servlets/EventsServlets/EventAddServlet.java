@@ -1,13 +1,9 @@
-package pl.findevent.servlets;
+package pl.findevent.servlets.EventsServlets;
 
 
 import pl.findevent.dao.EventsDao;
-import pl.findevent.dao.EventsDaoBean;
-import pl.findevent.dao.UsersDaoBean;
 import pl.findevent.domain.Event;
 import pl.findevent.domain.EventCategory;
-import pl.findevent.domain.User;
-import pl.findevent.domain.UserType;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -21,7 +17,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import java.util.logging.Logger;
 
 @WebServlet("/addevent")

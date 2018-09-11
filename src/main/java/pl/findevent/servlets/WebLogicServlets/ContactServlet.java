@@ -1,8 +1,10 @@
-package pl.findevent.servlets;
+package pl.findevent.servlets.WebLogicServlets;
 
 
-import pl.findevent.dao.CategoriesDao;
 import pl.findevent.dao.UsersDao;
+import pl.findevent.domain.User;
+import pl.findevent.domain.UserType;
+import pl.findevent.utils.EmailToUser;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -14,24 +16,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-@WebServlet("")
-class HomePageServlet extends HttpServlet {
+@WebServlet("/Contact")
+class ContactServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
 
     @Inject
-    UsersDao usersDao;
-
-    @Inject
-    CategoriesDao categoriesDao;
+    EmailToUser emailToUser;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
-
         req.setCharacterEncoding("UTF-8");
-        RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("/contact.jsp");
         rd.forward(req, resp);
 
     }
@@ -40,7 +37,25 @@ class HomePageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.setCharacterEncoding("UTF-8");
-   RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+
+
+        String email = req.getParameter("email");
+        String subject = req.getParameter("subject");
+        String content = req.getParameter("content");
+
+
+
+
+        emailToUser.send(email,subject,content);
+
+
+        logger.info("Przyszła wiadomość od :".concat(email));
+
+
+
+
+
         rd.forward(req, resp);
 
 
