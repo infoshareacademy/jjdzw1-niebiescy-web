@@ -12,7 +12,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/index.jsp">Start</a></li>
                     <li class="breadcrumb-item"><a href="#">Strony</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Dodaj event</a></li>
+                    <li class="breadcrumb-item active"><a href="#">Dodaj wydarzenie</a></li>
                 </ol>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -75,8 +75,28 @@
                                     <option>YES</option>
                                     <option>NO</option>
                                 </select>
+
+
+                                <div class="input-group image-preview">
+                                    <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                                        <span class="input-group-btn">
+                                            <!-- image-preview-clear button -->
+                                            <button type="button" class="btn btn-primary image-preview-clear" style="display:none;">
+                                                <span class="glyphicon glyphicon-remove"></span> Wyczyść
+                                            </button>
+                                                                <!-- image-preview-input -->
+                                            <div class="btn btn-dark image-preview-input">
+                                                <span class="glyphicon glyphicon-folder-open"></span>
+                                                <span class="image-preview-input-title">Wybierz</span>
+                                                <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                                            </div>
+                                        </span>
+                                </div>
+
+
                                 <button type="submit" class="btn btn-primary">Dodaj event <i
                                         class="fa fa-envelope-open-o"></i></button>
+
                             </form>
 
 
@@ -96,7 +116,6 @@
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                         </form>
                     </div><!-- end widget -->
-
 
                 </div><!-- end sidebar -->
             </div><!-- end col -->
