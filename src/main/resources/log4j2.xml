@@ -2,7 +2,6 @@
 <Configuration name="EventFinder">
     <Appenders>
 
-
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout
                     pattern="%highlight{%d{HH:mm:ss.SSS} [%t] | %-10marker | %-5level: %c{1} [%line] - %msg%n%throwable}{FATAL=white, ERROR=red, WARN=yellow, INFO=black, DEBUG=green, TRACE=blue}"
@@ -14,7 +13,21 @@
                     pattern="%d{HH:mm:ss.SSS} [%t] | %-10marker | %-5level: %c{1} [%line] - %msg%n%throwable"/>
         </File>
 
+        <RollingFile name="RollingFileAppender" fileName="logs/App.log"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout
+                    pattern="%d{HH:mm:ss.SSS} [%t] | %-10marker | %-5level: %c{1} [%line] - %msg%n%throwable"/>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+
+        </RollingFile>
+
     </Appenders>
+
     <Loggers>
         <Logger name="org.hibernate" level="info" additivity="false">
             <AppenderRef ref="Console"/>

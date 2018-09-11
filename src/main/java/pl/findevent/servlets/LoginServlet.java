@@ -1,6 +1,8 @@
 package pl.findevent.servlets;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.findevent.dao.UsersDao;
 import pl.findevent.domain.User;
 
@@ -14,22 +16,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Logger;
 
 import static java.util.stream.Collectors.toList;
 
 @WebServlet("/LoginServlet")
 class LoginServlet extends HttpServlet {
 
-    Logger logger = Logger.getLogger(getClass().getName());
+    private static final Logger logger = LoggerFactory.getLogger(LoginServlet.class);
 
     @Inject
     UsersDao usersDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
     }
 
     @Override
