@@ -1,10 +1,8 @@
-package pl.findevent.servlets.UsersServlets;
-
+package pl.findevent.servlets.usersservlets;
 
 import pl.findevent.dao.UsersDao;
 import pl.findevent.domain.User;
 import pl.findevent.domain.UserType;
-import pl.findevent.utils.EmailToUser;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -17,30 +15,33 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 @WebServlet("/User")
-class UserAddServlet extends HttpServlet {
-
-    Logger logger = Logger.getLogger(getClass().getName());
-
+class UserAddServlet extends HttpServlet
+{
+    
+    final Logger logger = Logger.getLogger(getClass().getName());
+    
     @Inject
     UsersDao usersDao;
-
- //   @Inject
- //   EmailToUser emailToUser;
-
+    
+    //   @Inject
+    //   EmailToUser emailToUser;
+    
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        
         req.setCharacterEncoding("UTF-8");
         RequestDispatcher rd = req.getRequestDispatcher("/user.jsp");
         rd.forward(req, resp);
-
+    
     }
-
+    
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        
         req.setCharacterEncoding("UTF-8");
-
+        
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String name = req.getParameter("name");
@@ -48,9 +49,9 @@ class UserAddServlet extends HttpServlet {
         String email = req.getParameter("email");
         String phone = req.getParameter("phone");
         String type = req.getParameter("type");
-
-
-        if (usersDao.isUniqueLogin(login)) {
+        
+        if(usersDao.isUniqueLogin(login))
+        {
             logger.info("Login: " + login + " already exists in database. Cannot create account with duplicate login.");
             logger.info("Re-direct to main page");
             req.setAttribute("errorTitle", "Cannot create user account");
@@ -59,7 +60,7 @@ class UserAddServlet extends HttpServlet {
             rd.forward(req, resp);
             return;
         }
-
+        
         User user = new User();
         user.setLogin(login);
         user.setPassword(password);
@@ -69,16 +70,14 @@ class UserAddServlet extends HttpServlet {
         user.setPhoneNumber(phone);
         user.setUserType(UserType.valueOf(type));
         user.setActive(true);
-
+        
         usersDao.saveUserToDb(user);
         logger.info("User: " + login + " successfully added to database");
-
-     //   emailToUser.send(user.getEmail(), "EventFinder - potwierdzenie założenia konta", "EventFinder - potwierdznie założenia konta\tŻyczymy dobrej zabawy!");
-
-
+        
+        //   emailToUser.send(user.getEmail(), "EventFinder - potwierdzenie założenia konta", "EventFinder - potwierdznie założenia konta\tŻyczymy dobrej zabawy!");
+        
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
         rd.forward(req, resp);
-
-
+        
     }
 }
