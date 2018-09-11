@@ -78,17 +78,19 @@
 
 
                                 <div class="input-group image-preview">
-                                    <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-                                        <span class="input-group-append">
+                                    <input type="text" class="form-control image-preview-filename" disabled="disabled">
+                                    <!-- don't give a name === doesn't send on POST/GET -->
+                                    <span class="input-group-append">
                                             <!-- image-preview-clear button -->
-                                            <button type="button" class="btn btn-primary image-preview-clear" style="display:none;">
+                                            <button type="button" class="btn btn-info image-preview-clear" style="display:none;">
                                                 <span class="glyphicon glyphicon-remove"></span> Wyczyść
                                             </button>
-                                            <!-- image-preview-input -->
-                                            <div type="button" class="btn btn-primary image-preview-input">
+                                        <!-- image-preview-input -->
+                                            <div type="button" class="btn btn-default image-preview-input">
                                                 <span class="glyphicon glyphicon-folder-open"></span>
                                                 <span class="image-preview-input-title">Wybierz</span>
-                                                <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                                                <input type="file" accept="image/png, image/jpeg, image/gif"
+                                                       name="input-file-preview"/> <!-- rename it -->
                                             </div>
                                         </span>
                                 </div>
