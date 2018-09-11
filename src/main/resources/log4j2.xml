@@ -9,8 +9,9 @@
                     disableAnsi="false"/>
         </Console>
 
-        <File name="MonitoringDataDownloader" fileName="log/app.log" append="false">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] | %-18marker | %-5level %logger [%line] - %msg%n%throwable"/>
+        <File name="File" fileName="logs/Hibernate.log">
+            <PatternLayout
+                    pattern="%d{HH:mm:ss.SSS} [%t] | %-10marker | %-5level: %c{1} [%line] - %msg%n%throwable"/>
         </File>
 
     </Appenders>
