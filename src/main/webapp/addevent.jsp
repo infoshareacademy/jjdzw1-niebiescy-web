@@ -37,7 +37,7 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <form class="form-wrapper" method="post" action="/addevent">
+                            <form class="form-wrapper" method="post" action="/addevent" enctype="multipart/form-data">
 
                                 Name: <input type="text" class="form-control" placeholder="Nazwa" name="name"/>
                                 Description: <input type="text" class="form-control" placeholder="Opis"
@@ -78,7 +78,7 @@
 
 
                                 <div class="input-group image-preview">
-                                    <input type="text" class="form-control image-preview-filename" disabled="disabled">
+                                    <input type="text" class="form-control image-preview-filename" disabled="disabled" placeholder="Wybierz zdjęcie...">
                                     <!-- don't give a name === doesn't send on POST/GET -->
                                     <span class="input-group-append">
                                             <!-- image-preview-clear button -->
@@ -90,7 +90,7 @@
                                                 <span class="glyphicon glyphicon-folder-open"></span>
                                                 <span class="image-preview-input-title">Wybierz</span>
                                                 <input type="file" accept="image/png, image/jpeg, image/gif"
-                                                       name="input-file-preview"/> <!-- rename it -->
+                                                       name="file" id="file"/> <!-- rename it -->
                                             </div>
                                         </span>
                                 </div>
