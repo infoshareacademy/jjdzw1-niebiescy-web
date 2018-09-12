@@ -37,7 +37,7 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <form class="form-wrapper" method="post" action="/addevent" enctype="multipart/form-data">
+                            <form class="form-wrapper" method="post" action="/addevent" enctype="multipart/form-data" name="uploadForm">
 
                                 Name: <input type="text" class="form-control" placeholder="Nazwa" name="name"/>
                                 Description: <input type="text" class="form-control" placeholder="Opis"
