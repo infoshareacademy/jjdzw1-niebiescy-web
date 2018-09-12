@@ -1,9 +1,7 @@
-package pl.findevent.servlets.AdminServlets;
+package pl.findevent.servlets.adminservlets;
 
 
-import pl.findevent.dao.EventsDao;
 import pl.findevent.dao.UsersDao;
-import pl.findevent.domain.Event;
 import pl.findevent.domain.User;
 
 import javax.inject.Inject;

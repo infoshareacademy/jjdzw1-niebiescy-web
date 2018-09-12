@@ -1,7 +1,7 @@
-package pl.findevent.servlets.EventsServlets;
-
+package pl.findevent.servlets.eventsservlets;
 
 import pl.findevent.dao.EventsDao;
+import pl.findevent.domain.Event;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -13,50 +13,49 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import pl.findevent.domain.Event;
-
 @WebServlet("/EventDetails")
-class EventDetailsServlet extends HttpServlet {
-
-    Logger logger = Logger.getLogger(getClass().getName());
-
+class EventDetailsServlet extends HttpServlet
+{
+    
+    final Logger logger = Logger.getLogger(getClass().getName());
+    
     @Inject
     EventsDao eventsDao;
-
+    
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        
         req.setCharacterEncoding("UTF-8");
-
+        
         String redirect;
         String eventID = req.getParameter("id");
-
-        if ((eventID == null) || (eventID == "")) {
+        
+        if((eventID == null) || (eventID == ""))
+        {
             redirect = "/index.jsp";
             RequestDispatcher rd = req.getRequestDispatcher(redirect);
             rd.forward(req, resp);
             return;
         }
-
-
+        
         Event event = eventsDao.read(Integer.parseInt(eventID));
-
+        
         req.setAttribute("event", event);
-
+        
         redirect = "/EventDetails.jsp";
-
+        
         RequestDispatcher rd = req.getRequestDispatcher(redirect);
         rd.forward(req, resp);
-
+        
     }
-
+    
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
         rd.forward(req, resp);
-
-
+        
     }
 }

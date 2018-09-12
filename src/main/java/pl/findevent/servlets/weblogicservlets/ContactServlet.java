@@ -1,9 +1,5 @@
-package pl.findevent.servlets.WebLogicServlets;
+package pl.findevent.servlets.weblogicservlets;
 
-
-import pl.findevent.dao.UsersDao;
-import pl.findevent.domain.User;
-import pl.findevent.domain.UserType;
 import pl.findevent.utils.EmailToUser;
 
 import javax.inject.Inject;
@@ -18,8 +14,8 @@ import java.util.logging.Logger;
 
 @WebServlet("/Contact")
 class ContactServlet extends HttpServlet {
-
-    Logger logger = Logger.getLogger(getClass().getName());
+    
+    final Logger logger = Logger.getLogger(getClass().getName());
 
     @Inject
     EmailToUser emailToUser;
@@ -48,9 +44,8 @@ class ContactServlet extends HttpServlet {
 
 
         emailToUser.send(email,subject,content);
-
-
-        logger.info("Przyszła wiadomość od :".concat(email));
+    
+        logger.info("Przyszła wiadomość od : {0}");
 
 
 
