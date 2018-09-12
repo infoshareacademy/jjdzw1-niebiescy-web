@@ -1,5 +1,4 @@
-package pl.findevent.servlets.EventsServlets;
-
+package pl.findevent.servlets.eventsservlets;
 
 import pl.findevent.dao.EventsDao;
 import pl.findevent.domain.Event;
@@ -20,85 +19,95 @@ import java.util.Date;
 import java.util.logging.Logger;
 
 @WebServlet("/addevent")
-class EventAddServlet extends HttpServlet {
-
-    Logger logger = Logger.getLogger(getClass().getName());
-
+class EventAddServlet extends HttpServlet
+{
+    
+    final Logger logger = Logger.getLogger(getClass().getName());
+    
     @Inject
     EventsDao eventsDao;
-
+    
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        
         RequestDispatcher rd = req.getRequestDispatcher("addevent.jsp");
         rd.forward(req, resp);
-
+        
     }
-
+    
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        
         String name = req.getParameter("name");
         String description = req.getParameter("description");
         String start_date = req.getParameter("start_date");
         String finish_date = req.getParameter("finish_date");
         String address = req.getParameter("address");
-        String google_maps = req.getParameter("google_maps");
+        String googleMaps = req.getParameter("google_maps");
         String organizer = req.getParameter("organizer");
         String price = req.getParameter("price");
         String tickets = req.getParameter("tickets");
         String category = req.getParameter("category");
         String promote = req.getParameter("promote");
-
-        System.out.println("Start date podana: " + start_date);
-        System.out.println("Finish date podana: " + finish_date);
-
+        
+        logger.info("Start date podana: " + start_date);
+        logger.info("Finish date podana: " + finish_date);
+        
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = null;
         Date finishDate = null;
-        try {
+        try
+        {
             startDate = format.parse(start_date);
-        } catch (ParseException e) {
+        }
+        catch(ParseException e)
+        {
             e.printStackTrace();
         }
-        try {
+        try
+        {
             finishDate = format.parse(finish_date);
-        } catch (ParseException e) {
+        }
+        catch(ParseException e)
+        {
             e.printStackTrace();
         }
-
-        System.out.println("Start date nowa: " + startDate);
-        System.out.println("Finish date nowa: " + finishDate);
-
+        
+        logger.info("Start date nowa: " + startDate);
+        logger.info("Finish date nowa: " + finishDate);
+        
         boolean promoteTranslate;
-
-        if (promote.equals("YES")) {
+        
+        if(promote.equals("YES"))
+        {
             promoteTranslate = true;
-        } else {
+        }
+        else
+        {
             promoteTranslate = false;
         }
-
+        
         //  EventsDaoBean eventsDao = new EventsDaoBean();
-
+        
         Event event = new Event();
         event.setName(name);
         event.setDescription(description);
         event.setStartDate(startDate);
         event.setFinishDate(finishDate);
         event.setAddress(address);
-        event.setGoogleMaps(google_maps);
+        event.setGoogleMaps(googleMaps);
         event.setOrganizer(Integer.parseInt(organizer));
         event.setPrice(Double.valueOf(price));
         event.setTickets(Integer.parseInt(tickets));
         event.setCategory(EventCategory.valueOf(category));
         event.setPromote(promoteTranslate);
-
+        
         eventsDao.saveEventToDb(event);
-
-
+        
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
         rd.forward(req, resp);
-
-
+        
     }
 }

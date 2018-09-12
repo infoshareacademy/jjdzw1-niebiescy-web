@@ -8,19 +8,19 @@ import org.apache.commons.mail.SimpleEmail;
 import javax.ejb.Stateless;
 import java.util.logging.Logger;
 
-
 @Stateless
-public class EmailToUserBean implements EmailToUser {
-
-
+public class EmailToUserBean implements EmailToUser
+{
+    
     Logger logger = Logger.getLogger(getClass().getName());
-
+    
     @Override
-    public void send(String address, String subject, String content)   {
-
-
-        try {
-
+    public void send(String address, String subject, String content)
+    {
+        
+        try
+        {
+            
             Email email = new SimpleEmail();
             email.setHostName("mail0.mydevil.net");
             email.setSmtpPort(465);
@@ -31,16 +31,14 @@ public class EmailToUserBean implements EmailToUser {
             email.setMsg(content);
             email.addTo(address);
             email.send();
-
-        } catch (EmailException e) {
-
-            logger.warning("Nie udało się wysłać maila:".concat(address));
-
-
-
+            
         }
-
-
-
+        catch(EmailException e)
+        {
+            
+            logger.warning("Nie udało się wysłać maila:".concat(address));
+            
+        }
+        
     }
 }
