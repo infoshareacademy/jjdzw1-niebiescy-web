@@ -39,22 +39,22 @@
                         <div class="col-lg-12">
                             <form class="form-wrapper" method="post" action="/addevent">
 
-                                Name: <input type="text" class="form-control" placeholder="Nazwa" name="name"/>
-                                Description: <input type="text" class="form-control" placeholder="Opis"
+                                Nazwa eventu: <input type="text" class="form-control" placeholder="Nazwa" name="name"/>
+                                Opis eventu: <input type="text" class="form-control" placeholder="Opis"
                                                     name="description" required/>
-                                Start date: <input type="date" class="form-control" placeholder="Data rozpoczęcia"
+                                Początek: <input type="date" class="form-control" placeholder="Data rozpoczęcia"
                                                    name="start_date" required/>
-                                Finish date: <input type="date" class="form-control" placeholder="Data zakończenia"
+                                Koniec: <input type="date" class="form-control" placeholder="Data zakończenia"
                                                     name="finish_date" required/>
-                                Address: <input type="text" n class="form-control" placeholder="Adres imprezy"
+                                Adres: <input type="text" n class="form-control" placeholder="Adres imprezy"
                                                 name="address" required/>
                                 Google maps: <input type="text" class="form-control" placeholder="Link do google maps"
                                                     name="google_maps" required/>
-                                Organizer: <input type="number" class="form-control" placeholder="" name="organizer"
+                                Organizator: <input type="number" class="form-control" placeholder="" name="organizator"
                                                   required/>
-                                Price: <input type="number" class="form-control" placeholder="Cena za wstęp"
+                                Cena za wstęp: <input type="number" class="form-control" placeholder="Cena za wstęp"
                                               name="price" required/>
-                                Tickets: <input type="number" class="form-control" placeholder="ilość biletów"
+                                Ilość biletów: <input type="number" class="form-control" placeholder="ilość biletów"
                                                 name="tickets" required/>
 
 

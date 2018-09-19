@@ -34,17 +34,17 @@
                             <tr>
 
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Description</th>
+                                <th>Nazwa</th>
+                                <th>Opis imprezy</th>
                                 <th>Start Date</th>
                                 <th>Finish Date</th>
-                                <th>Address</th>
+                                <th>Adres</th>
                                 <th>Google maps</th>
-                                <th>Organizer</th>
-                                <th>Price</th>
-                                <th>Ticekts</th>
-                                <th>Category</th>
-                                <th>Promote</th>
+                                <th>Organizator</th>
+                                <th>Cena za bilet</th>
+                                <th>Ilość biletów</th>
+                                <th>Kategoria</th>
+                                <th>Promocja</th>
 
 
                                 <th><em class="fa fa-cog"></em></th>
