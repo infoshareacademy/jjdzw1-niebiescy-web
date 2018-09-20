@@ -30,7 +30,6 @@ public class ListAllEventsAdminServlet extends HttpServlet
         
         response.setContentType("text/html;charset=UTF-8");
         List<Event> listOfEvents = eventsDao.getEventsListFromDB();
-        logger.info("Pierwszy adres: " + listOfEvents.get(1).getAddress());
         request.setAttribute("listOfEvents", listOfEvents);
         RequestDispatcher rd = request.getRequestDispatcher("ListAllEventsAdmin.jsp");
         rd.forward(request, response);

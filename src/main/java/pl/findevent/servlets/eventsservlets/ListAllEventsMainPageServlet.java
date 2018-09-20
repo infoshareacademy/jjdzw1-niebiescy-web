@@ -30,7 +30,6 @@ public class ListAllEventsMainPageServlet extends HttpServlet
         
         response.setContentType("text/html;charset=UTF-8");
         List<Event> listOfEventsMainPage = eventsDao.getEventsListFromDB();
-        logger.info("Pierwszy adres: " + listOfEventsMainPage.get(1).getAddress());
         request.setAttribute("listOfEventsMainPage", listOfEventsMainPage);
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);
