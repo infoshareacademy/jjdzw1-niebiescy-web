@@ -112,7 +112,7 @@ class EventAddServlet extends HttpServlet {
         File file;
         try {
             file = imageUpload.uploadImageFile(filePart);
-            event.setImageURL("/images/" + file.getName());
+            event.setImageURL("/UserPhotos/" + file.getName());
         } catch (UserImageNotFoundException userImageNotFound) {
             logger.log(Level.SEVERE, userImageNotFound.getMessage());
         }

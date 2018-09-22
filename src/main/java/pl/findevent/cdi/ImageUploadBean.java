@@ -14,7 +14,7 @@ import java.util.Properties;
 @RequestScoped
 public class ImageUploadBean implements ImageUpload {
 
-    private static final String SETTINGS_FILE = "properties/imageSettings.properties";
+    private static final String SETTINGS_FILE = "imageSettings.properties";
 
     @Override
     public File uploadImageFile(Part filePart) throws IOException, UserImageNotFoundException {
