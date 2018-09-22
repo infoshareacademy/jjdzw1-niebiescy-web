@@ -3,6 +3,7 @@ package pl.findevent.servlets.eventsservlets;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import pl.findevent.Exception.UserImageNotFoundException;
 import pl.findevent.cdi.ImageUpload;
 import pl.findevent.dao.EventsDao;
 import pl.findevent.domain.Event;
@@ -26,6 +27,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @WebServlet("/addevent")
@@ -61,19 +63,6 @@ class EventAddServlet extends HttpServlet {
         String tickets = req.getParameter("tickets");
         String category = req.getParameter("category");
         String promote = req.getParameter("promote");
-
-
-        Part filePart = req.getPart("image");
-        File file;
-        try {
-            file = imageUpload.uploadImageFile(filePart);
-            user.setImageURL("/images/" + file.getName());
-        } catch (UserImageNotFoundException userImageNotFound) {
-            logger.log(Level.SEVERE, userImageNotFound.getMessage());
-        }
-
-
-
 
 
         logger.info("Start date podana: " + start_date);
@@ -118,6 +107,15 @@ class EventAddServlet extends HttpServlet {
         event.setTickets(Integer.parseInt(tickets));
         event.setCategory(EventCategory.valueOf(category));
         event.setPromote(promoteTranslate);
+
+        Part filePart = req.getPart("image");
+        File file;
+        try {
+            file = imageUpload.uploadImageFile(filePart);
+            event.setImageURL("/images/" + file.getName());
+        } catch (UserImageNotFoundException userImageNotFound) {
+            logger.log(Level.SEVERE, userImageNotFound.getMessage());
+        }
 
         eventsDao.saveEventToDb(event);
 

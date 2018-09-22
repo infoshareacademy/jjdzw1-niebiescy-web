@@ -47,6 +47,9 @@ public class Event {
     @Column(name = "promote")
     private Boolean promote;
 
+    @Column(name = "imageURL")
+    private String imageURL;
+
 
     public Event() {
 
@@ -146,5 +149,17 @@ public class Event {
 
     public void setPromote(Boolean promote) {
         this.promote = promote;
+    }
+
+    public Boolean getPromote() {
+        return promote;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }
