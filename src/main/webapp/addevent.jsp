@@ -90,7 +90,7 @@
                                                 <span class="glyphicon glyphicon-folder-open"></span>
                                                 <span class="image-preview-input-title">Wybierz</span>
                                                 <input type="file" accept="image/png, image/jpeg, image/gif"
-                                                       name="file" id="file"/> <!-- rename it -->
+                                                       name="image" id="file"/> <!-- rename it -->
                                             </div>
                                         </span>
                                 </div>

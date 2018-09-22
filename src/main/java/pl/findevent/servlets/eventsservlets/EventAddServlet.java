@@ -3,6 +3,7 @@ package pl.findevent.servlets.eventsservlets;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import pl.findevent.cdi.ImageUpload;
 import pl.findevent.dao.EventsDao;
 import pl.findevent.domain.Event;
 import pl.findevent.domain.EventCategory;
@@ -28,16 +29,16 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @WebServlet("/addevent")
-@MultipartConfig(maxFileSize = 16177215)
-        //max 16 MB
+@MultipartConfig
 class EventAddServlet extends HttpServlet {
 
     final Logger logger = Logger.getLogger(getClass().getName());
-    private final String UPLOAD_DIRECTORY = "/home/marcin/InfoShare/jjdzw1-niebiescy-web/src/main/resources/Images";
 
     @Inject
     EventsDao eventsDao;
 
+    @Inject
+    ImageUpload imageUpload;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -62,30 +63,16 @@ class EventAddServlet extends HttpServlet {
         String promote = req.getParameter("promote");
 
 
-
-//process only if its multipart content
-        if (ServletFileUpload.isMultipartContent(req)) {
-            try {
-                List<FileItem> multiparts = new ServletFileUpload(
-                        new DiskFileItemFactory()).parseRequest(req);
-
-                for (FileItem item : multiparts) {
-                    if (!item.isFormField()) {
-                        String fileName = new File(item.getName()).getName();
-                        item.write(new File(UPLOAD_DIRECTORY + File.separator + fileName));
-                    }
-                }
-
-                //File uploaded successfully
-                req.setAttribute("message", "File Uploaded Successfully");
-            } catch (Exception ex) {
-                req.setAttribute("message", "File Upload Failed due to " + ex);
-            }
-
-        } else {
-            req.setAttribute("message",
-                    "Sorry this Servlet only handles file upload request");
+        Part filePart = req.getPart("image");
+        File file;
+        try {
+            file = imageUpload.uploadImageFile(filePart);
+            user.setImageURL("/images/" + file.getName());
+        } catch (UserImageNotFoundException userImageNotFound) {
+            logger.log(Level.SEVERE, userImageNotFound.getMessage());
         }
+
+
 
 
 
