@@ -14,4 +14,6 @@ public class CategoriesDaoBean implements CategoriesDao {
 
         return Arrays.asList(EventCategory.values());
     }
+
+
 }

@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS events
   tickets int not null,
   category VARCHAR(2000) not null,
   promote BOOLEAN DEFAULT 0 not null,
+  image longblob,
   constraint PK_Event primary key (id_event)
 );
 

@@ -12,7 +12,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/index.jsp">Start</a></li>
                     <li class="breadcrumb-item"><a href="#">Strony</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Dodaj event</a></li>
+                    <li class="breadcrumb-item active"><a href="#">Dodaj wydarzenie</a></li>
                 </ol>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -37,7 +37,7 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <form class="form-wrapper" method="post" action="/addevent">
+                            <form class="form-wrapper" method="post" action="/addevent" enctype="multipart/form-data" name="uploadForm">
 
                                 Name: <input type="text" class="form-control" placeholder="Nazwa" name="name"/>
                                 Description: <input type="text" class="form-control" placeholder="Opis"
@@ -75,8 +75,30 @@
                                     <option>YES</option>
                                     <option>NO</option>
                                 </select>
+
+
+                                <div class="input-group image-preview">
+                                    <input type="text" class="form-control image-preview-filename" disabled="disabled" placeholder="Wybierz zdjęcie...">
+                                    <!-- don't give a name === doesn't send on POST/GET -->
+                                    <span class="input-group-append">
+                                            <!-- image-preview-clear button -->
+                                            <button type="button" class="btn btn-info image-preview-clear" style="display:none;">
+                                                <span class="glyphicon glyphicon-remove"></span> Wyczyść
+                                            </button>
+                                        <!-- image-preview-input -->
+                                            <div type="button" class="btn btn-default image-preview-input">
+                                                <span class="glyphicon glyphicon-folder-open"></span>
+                                                <span class="image-preview-input-title">Wybierz</span>
+                                                <input type="file" accept="image/png, image/jpeg, image/gif"
+                                                       name="image" id="file"/> <!-- rename it -->
+                                            </div>
+                                        </span>
+                                </div>
+
+
                                 <button type="submit" class="btn btn-primary">Dodaj event <i
                                         class="fa fa-envelope-open-o"></i></button>
+
                             </form>
 
 
@@ -96,7 +118,6 @@
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                         </form>
                     </div><!-- end widget -->
-
 
                 </div><!-- end sidebar -->
             </div><!-- end col -->
