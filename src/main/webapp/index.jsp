@@ -9,7 +9,7 @@
         <div class="masonry-blog clearfix">
             <div class="left-side">
                 <div class="masonry-box post-media">
-                    <img src="upload/blog_masonry_01.jpg" alt="" class="img-fluid">
+                    <img src="upload/blog_square_12.jpg" alt="" class="img-fluid mainPageImage" >
                     <div class="shadoweffect">
                         <div class="shadow-desc">
                             <div class="blog-meta">
@@ -26,7 +26,7 @@
 
             <div class="center-side">
                 <div class="masonry-box post-media">
-                    <img src="upload/blog_masonry_01.jpg" alt="" class="img-fluid">
+                    <img src="UserPhotos/070-bartazeklipiec2-68542.jpg" alt="" class="img-fluid mainPageImage" >
                     <div class="shadoweffect">
                         <div class="shadow-desc">
                             <div class="blog-meta">
@@ -43,7 +43,8 @@
 
             <div class="right-side hidden-md-down">
                 <div class="masonry-box post-media">
-                    <img src="upload/blog_masonry_05.jpg" alt="" class="img-fluid">
+                    <img src="UserPhotos/070-bartazeklipiec2-68542.jpg" alt="" class="img-fluid" style="height: 400px;
+object-fit: cover;">
                     <div class="shadoweffect">
                         <div class="shadow-desc">
                             <div class="blog-meta">
