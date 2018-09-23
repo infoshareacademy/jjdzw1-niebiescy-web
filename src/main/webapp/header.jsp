@@ -104,7 +104,7 @@
                 <div class="collapse navbar-collapse justify-content-md-center" id="cloapediamenu">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link color-pink-hover" href="index.jsp">Start</a>
+                            <a class="nav-link color-pink-hover" href="/ListAllEventsMainPageServlet">Start</a>
                         </li>
                         <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
