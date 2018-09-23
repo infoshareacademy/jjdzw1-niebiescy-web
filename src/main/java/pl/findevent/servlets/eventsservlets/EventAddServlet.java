@@ -4,6 +4,7 @@ import pl.findevent.dao.EventsDao;
 import pl.findevent.domain.Event;
 import pl.findevent.domain.EventCategory;
 
+import javax.faces.application.Application;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -103,7 +104,24 @@ class EventAddServlet extends HttpServlet
         event.setTickets(Integer.parseInt(tickets));
         event.setCategory(EventCategory.valueOf(category));
         event.setPromote(promoteTranslate);
+<<<<<<< Updated upstream
         
+=======
+
+        Part filePart = req.getPart("image");
+        File file;
+        try {
+            String userPhotosPath;
+    
+            userPhotosPath  = Application.class.getClassLoader().getResource("/UserPhotos").getPath();
+            
+            file = imageUpload.uploadImageFile(filePart);
+            event.setImageURL(userPhotosPath + file.getName());
+        } catch (UserImageNotFoundException userImageNotFound) {
+            logger.log(Level.SEVERE, userImageNotFound.getMessage());
+        }
+
+>>>>>>> Stashed changes
         eventsDao.saveEventToDb(event);
         
         RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
