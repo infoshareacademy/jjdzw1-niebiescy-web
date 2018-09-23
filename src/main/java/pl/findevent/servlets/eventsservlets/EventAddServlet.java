@@ -109,16 +109,15 @@ class EventAddServlet extends HttpServlet {
         event.setCategory(EventCategory.valueOf(category));
         event.setPromote(promoteTranslate);
 
-        
 
         Part filePart = req.getPart("image");
         File file;
         try {
 
             String userPhotosPath;
-    
-            userPhotosPath  = Application.class.getClassLoader().getResource("/UserPhotos").getPath();
-            
+
+            userPhotosPath = Application.class.getClassLoader().getResource("/UserPhotos").getPath();
+
             file = imageUpload.uploadImageFile(filePart);
             event.setImageURL(userPhotosPath + file.getName());
 
