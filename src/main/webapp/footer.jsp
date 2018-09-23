@@ -157,6 +157,7 @@
 <script src="js/tether.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/LoadImage.js"></script>
 
 </body>
 </html>
