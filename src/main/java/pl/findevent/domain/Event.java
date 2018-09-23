@@ -1,7 +1,6 @@
 package pl.findevent.domain;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -32,13 +31,13 @@ public class Event {
     private String googleMaps;
 
     @Column(name = "organizer")
-    private int organizer;
+    private Integer organizer;
 
     @Column(name = "price")
     private Double price;
 
     @Column(name = "tickets")
-    private int tickets;
+    private Integer tickets;
 
     @Column(name = "category")
     @Enumerated(EnumType.STRING)
@@ -111,11 +110,11 @@ public class Event {
         this.googleMaps = googlemaps;
     }
 
-    public int getOrganizer() {
+    public Integer getOrganizer() {
         return organizer;
     }
 
-    public void setOrganizer(int organizer) {
+    public void setOrganizer(Integer organizer) {
         this.organizer = organizer;
     }
 
@@ -127,11 +126,11 @@ public class Event {
         this.price = price;
     }
 
-    public int getTickets() {
+    public Integer getTickets() {
         return tickets;
     }
 
-    public void setTickets(int tickets) {
+    public void setTickets(Integer tickets) {
         this.tickets = tickets;
     }
 

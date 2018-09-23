@@ -1,8 +1,5 @@
 package pl.findevent.servlets.eventsservlets;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import pl.findevent.Exception.UserImageNotFoundException;
 import pl.findevent.cdi.ImageUpload;
 import pl.findevent.dao.EventsDao;
@@ -21,13 +18,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Paths;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -103,28 +98,19 @@ class EventAddServlet extends HttpServlet {
         event.setFinishDate(finishDate);
         event.setAddress(address);
         event.setGoogleMaps(googleMaps);
-        event.setOrganizer(Integer.parseInt(organizer));
+        event.setOrganizer(Integer.valueOf(organizer));
         event.setPrice(Double.valueOf(price));
         event.setTickets(Integer.parseInt(tickets));
         event.setCategory(EventCategory.valueOf(category));
         event.setPromote(promoteTranslate);
 
-        
+
 
         Part filePart = req.getPart("image");
         File file;
         try {
-
-            String userPhotosPath;
-    
-            userPhotosPath  = Application.class.getClassLoader().getResource("/UserPhotos").getPath();
-            
-            file = imageUpload.uploadImageFile(filePart);
-            event.setImageURL(userPhotosPath + file.getName());
-
             file = imageUpload.uploadImageFile(filePart);
             event.setImageURL("/UserPhotos/" + file.getName());
-
         } catch (UserImageNotFoundException userImageNotFound) {
             logger.log(Level.SEVERE, userImageNotFound.getMessage());
         }
