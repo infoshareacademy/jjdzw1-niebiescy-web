@@ -33,12 +33,12 @@
 
                                 <th>ID</th>
                                 <th>Login</th>
-                                <th>Name</th>
-                                <th>Surname</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Type</th>
-                                <th>Active</th>
+                                <th>Imię</th>
+                                <th>Nazwisko</th>
+                                <th>E-mail</th>
+                                <th>Telefon</th>
+                                <th>Typ użytkownika</th>
+                                <th>Czy aktywny?</th>
 
 
                                 <th><em class="fa fa-cog"></em></th>
