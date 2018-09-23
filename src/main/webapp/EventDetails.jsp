@@ -31,7 +31,7 @@
 
                     <div class="pp">
 
-                        <img src="upload/menu_06.jpg" alt="" class="img-fluid img-fullwidth">
+                        <img src="${event.getImageURL()}" alt="" class="img-fluid img-fullwidth">
 
                         <h3><strong>${event.getName()}</strong></h3>
 
