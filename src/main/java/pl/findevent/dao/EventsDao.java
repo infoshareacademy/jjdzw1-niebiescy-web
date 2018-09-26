@@ -14,6 +14,7 @@ public interface EventsDao {
     List<Event> getFindedEventsFromDB(String searchString);
     void saveEventToDb (Event event);
     Event read(int id);
-    public void remove(int id);
     void modifyEventDb(Event event);
+    void markEventAsActiveInDb(int id);
+    void markEventAsInactiveInDb(int id);
 }
