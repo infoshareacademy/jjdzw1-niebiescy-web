@@ -29,15 +29,15 @@
                     <div class="row">
 
 
-                        <table class="table table-striped table-bordered table-list">
+                        <table class="table table-striped table-bordered table-list table-hover">
                             <thead>
                             <tr>
 
                                 <th>ID</th>
                                 <th>Nazwa</th>
                                 <th>Opis imprezy</th>
-                                <th>Start Date</th>
-                                <th>Finish Date</th>
+                                <th>Początek eventu</th>
+                                <th>Koniec eventu</th>
                                 <th>Adres</th>
                                 <th>Google maps</th>
                                 <th>Organizator</th>
@@ -73,7 +73,17 @@
                                             ${eventLoop.getAddress()}
                                     </td>
                                     <td>
-                                            ${eventLoop.getGoogleMaps()}
+                                        <c:set var="googlemaps" scope="session" value="${eventLoop.getGoogleMaps()}"/>
+
+                                        <c:if test="${googlemaps != ''}">
+                                            <a href="${eventLoop.getGoogleMaps()}" target="_blank"><em
+                                                    class="fa fa-map-marker color-green"></em></a>
+                                        </c:if>
+                                        <c:if test="${googlemaps == ''}">
+                                            <em class="fa fa-warning color-red"></em></a>
+                                        </c:if>
+
+
                                     </td>
                                     <td>
                                             ${eventLoop.getOrganizer()}
@@ -93,17 +103,16 @@
 
 
                                     <td align="center">
-                                        <a
-                                                href="EventEditServlet?id=${eventLoop.getId()}"><em
-                                                class="fa fa-pencil"></em></a>
+                                        <a href="EventEditServlet?id=${eventLoop.getId()}"><em
+                                                class="fa fa-pencil color-aqua"></em></a>
                                         <c:set var="active" scope="session" value="${eventLoop.getActive()}"/>
                                         <c:if test="${active}">
                                             <a href="EventDeleteServlet?id=${eventLoop.getId()}"><em
-                                                    class="fa fa-trash"></em></a>
+                                                    class="fa fa-trash color-red"></em></a>
                                         </c:if>
                                         <c:if test="${!active}">
                                             <a href="EventDeleteServlet?id=${eventLoop.getId()}"><em
-                                                    class="fa fa-plus"></em></a>
+                                                    class="fa fa-plus color-green"></em></a>
                                         </c:if>
 
                                     </td>

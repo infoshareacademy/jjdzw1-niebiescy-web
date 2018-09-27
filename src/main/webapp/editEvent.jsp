@@ -53,7 +53,7 @@
                                                 value="${event.getAddress()}">
                                 Google Maps: <input type="text" class="form-control" name="google_maps"
                                                     placeholder="Link do google maps"
-                                                    value="${event.getGoogleMaps()}" required>
+                                                    value="${event.getGoogleMaps()}" >
                                 Organizer: <input type="number" class="form-control" name="organizer"
                                                   placeholder=""
                                                   value="${event.getOrganizer()}" required>
