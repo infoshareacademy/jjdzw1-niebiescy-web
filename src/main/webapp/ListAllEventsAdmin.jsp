@@ -96,10 +96,16 @@
                                         <a
                                                 href="EventEditServlet?id=${eventLoop.getId()}"><em
                                                 class="fa fa-pencil"></em></a>
-                                   <!--     <a
-                                                href="DeleteEventFromDbServletGet?id=${eventLoop.getId()}"><em
-                                                class="fa fa-trash"></em></a>
--->
+                                        <c:set var="active" scope="session" value="${eventLoop.getActive()}"/>
+                                        <c:if test="${active}">
+                                            <a href="EventDeleteServlet?id=${eventLoop.getId()}"><em
+                                                    class="fa fa-trash"></em></a>
+                                        </c:if>
+                                        <c:if test="${!active}">
+                                            <a href="EventDeleteServlet?id=${eventLoop.getId()}"><em
+                                                    class="fa fa-plus"></em></a>
+                                        </c:if>
+
                                     </td>
                                 </tr>
                             </c:forEach>

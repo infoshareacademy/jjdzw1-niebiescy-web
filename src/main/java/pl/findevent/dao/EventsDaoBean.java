@@ -1,7 +1,6 @@
 package pl.findevent.dao;
 
 import pl.findevent.domain.Event;
-import pl.findevent.domain.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -10,20 +9,21 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Stateless
 public class EventsDaoBean implements EventsDao {
 
     private List<Event> eventList = new ArrayList<>();
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("primary");
-
     public List<Event> getEvents() {
         return eventList;
     }
-
     public void setEvents(List<Event> events) {
         this.eventList = events;
     }
+    final Logger logger = Logger.getLogger(getClass().getName());
+    final String SPACE = " ";
 
     @Override
     public List<Event> getEventsListFromDB() {
@@ -92,8 +92,34 @@ public class EventsDaoBean implements EventsDao {
         entityManager.close();
     }
 
-    public void remove(int id) {
+    @Override
+    public void markEventAsActiveInDb(int id) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+        Event event = read(id);
+        logger.info("Event id: "+id+SPACE+"current status: "+event.getActive());
+        logger.info("Setting up as active...");
+        event.setActive(true);
+        entityManager.merge(event);
+        entityTransaction.commit();
+        entityManager.close();
+        logger.info("Event id "+id+SPACE+"current status: "+event.getActive());
+    }
 
+    @Override
+    public void markEventAsInactiveInDb(int id) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+        Event event = read(id);
+        logger.info("Event id: "+id+SPACE+"current status: "+event.getActive());
+        logger.info("Setting up as inactive...");
+        event.setActive(false);
+        entityManager.merge(event);
+        entityTransaction.commit();
+        entityManager.close();
+        logger.info("Event id "+id+SPACE+"current status: "+event.getActive());
 
     }
 

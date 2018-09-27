@@ -8,8 +8,8 @@ import java.util.Date;
 public class Event {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "id_event",  unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_event", unique = true, nullable = false)
     private Integer id;
 
     @Column(name = "name")
@@ -48,6 +48,9 @@ public class Event {
 
     @Column(name = "imageURL")
     private String imageURL;
+
+    @Column(name = "isactive", nullable = false)
+    private Boolean isActive;
 
 
     public Event() {
@@ -160,5 +163,13 @@ public class Event {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }
