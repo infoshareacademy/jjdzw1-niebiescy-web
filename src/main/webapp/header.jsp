@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<c:set var="login" scope="session" value="${login}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -510,6 +512,8 @@
                         </li>
 
 
+                        <c:if test="${not empty login}">
+
                         <li class="nav-item dropdown has-submenu">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">Administracja</a>
@@ -520,14 +524,16 @@
                             </ul>
                         </li>
 
+                        </c:if>
+
                         <li class="nav-item">
-                            <a class="nav-link color-grey-hover" href="/Contact">Kontakt</a>
+                            <a class="nav-link color-grey-hover" href="/contact">Kontakt</a>
                         </li>
 
 
                         <li class="nav-item">
-                            <!-- <a class="nav-link color-grey-hover" href="user.jsp"> -->
-                            <c:set var="login" scope="session" value="${login}"/>
+
+
                             <c:if test="${empty login}"><a class="nav-link color-grey-hover" href="user.jsp">Zaloguj
                                 się/Dodaj konto</a></c:if>
                             <c:if test="${not empty login}"><a class="nav-link color-grey-hover"
