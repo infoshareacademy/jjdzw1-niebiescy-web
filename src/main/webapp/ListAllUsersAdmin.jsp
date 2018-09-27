@@ -61,7 +61,7 @@
                                             ${userLoop.getSurname()}
                                     </td>
                                     <td>
-                                            ${userLoop.getEmail()}
+                                        <a href="mailto:${userLoop.getEmail()}">${userLoop.getEmail()}</a>
                                     </td>
                                     <td>
                                             ${userLoop.getPhoneNumber()}
@@ -77,13 +77,13 @@
                                     <td align="center">
                                         <a
                                            href="UserEditServlet?id=${userLoop.getId()}"><em
-                                                class="fa fa-pencil"></em></a>
+                                                class="fa fa-pencil color-aqua"></em></a>
                                         <c:set var="active" scope="session" value="${userLoop.getActive()}"/>
                                         <c:if test="${active}">
-                                        <a href="UserDeleteServlet?id=${userLoop.getId()}"><em class="fa fa-trash"></em></a>
+                                        <a href="UserDeleteServlet?id=${userLoop.getId()}"><em class="fa fa-trash color-green"></em></a>
                                         </c:if>
                                         <c:if test="${!active}">
-                                        <a href="UserDeleteServlet?id=${userLoop.getId()}"><em class="fa fa-plus"></em></a>
+                                        <a href="UserDeleteServlet?id=${userLoop.getId()}"><em class="fa fa-plus color-red"></em></a>
                                         </c:if>
 
 
