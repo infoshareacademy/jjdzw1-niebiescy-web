@@ -1,8 +1,5 @@
 package pl.findevent.servlets.weblogicservlets;
 
-import pl.findevent.dao.UsersDao;
-
-import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,19 +15,19 @@ class ErrorPageServlet extends HttpServlet
     
     final Logger logger = Logger.getLogger(getClass().getName());
     
-    @Inject
-    UsersDao usersDao;
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         
-        req.setAttribute("errorTitle", "Błąd - tytuł");
-        req.setAttribute("errorDecscription", "Błąd - opis");
+        req.setAttribute("errorTitle", "Błąd - 404");
+        req.setAttribute("errorDecscription", "Błąd - nie ma takiej strony.");
         
         req.setCharacterEncoding("UTF-8");
         RequestDispatcher rd = req.getRequestDispatcher("/error.jsp");
         rd.forward(req, resp);
+        
+        logger.warning("--== Błędny adres - 404 ==--");
         
     }
     
