@@ -1,6 +1,7 @@
 package pl.findevent.servlets.weblogicservlets;
 
 import pl.findevent.dao.EventsDao;
+import pl.findevent.domain.Event;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 @WebServlet("/Search")
@@ -26,7 +29,12 @@ class SearchServlet extends HttpServlet
     {
         
         req.setCharacterEncoding("UTF-8");
+    
+        List<Event> eventsFromSearch = new ArrayList<>();
         
+        eventsFromSearch = eventsDao.getFindedEventsFromDB(req.getParameter("stringForSearch"));
+        
+        req.getSession().setAttribute("eventsFromSearch", eventsFromSearch);
         req.getSession().setAttribute("stringForSearch", req.getParameter("stringForSearch"));
         
         RequestDispatcher rd = req.getRequestDispatcher("search.jsp");
