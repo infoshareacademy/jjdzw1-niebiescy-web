@@ -2,6 +2,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <c:set var="login" scope="session" value="${login}"/>
+<c:set var="loggedUser" scope="session" value="${id}"/>
+<c:set var="loggedUserType" scope="session" value="${userType}"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +64,7 @@
         <div class="card card-block">
             <div class="newsletter-widget text-center">
                 <form class="form-inline" method="get" action="/Search">
-                    <input type="text" class="form-control"  name="stringForSearch"  placeholder="Wpisz, czego szuksz...">
+                    <input type="text" class="form-control" name="stringForSearch" placeholder="Wpisz, czego szuksz...">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                 </form>
             </div><!-- end newsletter -->
@@ -512,17 +514,30 @@
                         </li>
 
 
-                        <c:if test="${not empty login}">
+                        <c:if test="${(not empty login) and (loggedUserType == 'ADMIN')}">
 
-                        <li class="nav-item dropdown has-submenu">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">Administracja</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown02">
-                                <li><a class="dropdown-item" href="/addevent">Dodaj event</a></li>
-                                <li><a class="dropdown-item" href="ListAllUsersAdminServlet">Użytkownicy</a></li>
-                                <li><a class="dropdown-item" href="ListAllEventsAdminServlet">Eventy</a></li>
-                            </ul>
-                        </li>
+                            <li class="nav-item dropdown has-submenu">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">Administracja</a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown02">
+                                    <li><a class="dropdown-item" href="/addevent">Dodaj event</a></li>
+                                    <li><a class="dropdown-item" href="ListAllUsersAdminServlet">Użytkownicy</a></li>
+                                    <li><a class="dropdown-item" href="ListAllEventsAdminServlet">Eventy</a></li>
+                                </ul>
+                            </li>
+
+                        </c:if>
+
+                        <c:if test="${(not empty login) and (loggedUserType == 'BUSINESS')}">
+
+                            <li class="nav-item dropdown has-submenu">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">Administracja</a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown02">
+                                    <li><a class="dropdown-item" href="/addevent">Dodaj event</a></li>
+                                    <li><a class="dropdown-item" href="ListAllEventsAdminServlet">Eventy</a></li>
+                                </ul>
+                            </li>
 
                         </c:if>
 
@@ -537,16 +552,17 @@
                             <c:if test="${empty login}"><a class="nav-link color-grey-hover" href="user.jsp">Zaloguj
                                 się/Dodaj konto</a></c:if>
                             <c:if test="${not empty login}"><a class="nav-link color-grey-hover"
-                                                               href="AdminPanelLinks.jsp">Witaj: ${login} (moje
+                                                               href="/UserDetails?id=${loggedUser}">Witaj: ${login}
+                                (moje
                                 konto)</a></c:if>
 
                             <!-- <a class="nav-link color-grey-hover" href="/UserAdd">Moje konto</a>-->
                         </li>
 
                         <c:if test="${not empty login}">
-                        <li class="nav-item">
-                            <a class="nav-link color-grey-hover" href="/LogoutServlet">Wyloguj się</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link color-grey-hover" href="/LogoutServlet">Wyloguj się</a>
+                            </li>
                         </c:if>
 
                     </ul>
