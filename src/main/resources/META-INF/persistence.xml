@@ -10,6 +10,7 @@
 
         <class>pl.findevent.domain.User</class>
         <class>pl.findevent.domain.Event</class>
+        <class>pl.findevent.domain.NewsLetter</class>
 
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" />

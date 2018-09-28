@@ -45,7 +45,7 @@ class ContactServlet extends HttpServlet {
 
         emailToUser.send(email,subject,content);
     
-        logger.info("Przyszła wiadomość od : {0}");
+        logger.info("Przyszła wiadomość od : ".concat(email));
 
 
 
