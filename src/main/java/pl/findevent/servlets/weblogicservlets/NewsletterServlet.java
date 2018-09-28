@@ -1,7 +1,6 @@
 package pl.findevent.servlets.weblogicservlets;
 
-import pl.findevent.dao.EventsDao;
-import pl.findevent.domain.Event;
+import pl.findevent.dao.NewsLetterDao;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -11,33 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 
-@WebServlet("/Search")
-class SearchServlet extends HttpServlet
+@WebServlet("/Newsletter")
+public class NewsletterServlet extends HttpServlet
+
 {
-    
     final Logger logger = Logger.getLogger(getClass().getName());
     
     @Inject
-    EventsDao eventsDao;
+    NewsLetterDao newsLetterDao;
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         
         req.setCharacterEncoding("UTF-8");
-    
-        List<Event> eventsFromSearch = new ArrayList<>();
-        
-        eventsFromSearch = eventsDao.getFindedEventsFromDB(req.getParameter("stringForSearch"));
-        
-        req.getSession().setAttribute("eventsFromSearch", eventsFromSearch);
-        req.getSession().setAttribute("stringForSearch", req.getParameter("stringForSearch"));
-        
-        RequestDispatcher rd = req.getRequestDispatcher("search.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("/newsletter.jsp");
         rd.forward(req, resp);
         
     }
@@ -47,7 +36,13 @@ class SearchServlet extends HttpServlet
     {
         
         req.setCharacterEncoding("UTF-8");
-        RequestDispatcher rd = req.getRequestDispatcher("search.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("/newsletter.jsp");
+        
+        String content = req.getParameter("email");
+        
+        newsLetterDao.addAddressToDatabase(content);
+        
+        logger.info("Nowy wpis do newslettera od : ".concat(content));
         
         rd.forward(req, resp);
         
