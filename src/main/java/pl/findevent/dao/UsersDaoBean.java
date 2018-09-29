@@ -9,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 @Stateless
@@ -109,6 +110,17 @@ public class UsersDaoBean implements UsersDao {
                 .stream()
                 .anyMatch(t -> t.getLogin().equals(login));
 
+
+    }
+
+    @Override
+    public Optional<User> getUserByLogin(String login) {
+
+        Optional<User> user = this.getUsersListFromDB()
+                .stream()
+                .filter(d -> d.getLogin().equals(login))
+                .findFirst();
+        return user;
 
     }
 

@@ -4,6 +4,7 @@ import pl.findevent.domain.User;
 
 import javax.ejb.Local;
 import java.util.List;
+import java.util.Optional;
 
 @Local
 public interface UsersDao {
@@ -21,4 +22,6 @@ public interface UsersDao {
     void markUserAsActiveInDb(int id);
 
     void modifyUserDb(User user);
+
+    Optional<User> getUserByLogin(String login);
 }
