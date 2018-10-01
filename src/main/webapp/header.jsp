@@ -118,7 +118,7 @@
                                     <div class="mega-menu-content clearfix">
                                         <div class="tab">
                                             <button class="tablinks active" onclick="openCategory(event, 'cat01')">
-                                                Beauty
+                                                Beauty1
                                             </button>
                                             <button class="tablinks" onclick="openCategory(event, 'cat02')">Fashion
                                             </button>
@@ -129,6 +129,14 @@
                                             </button>
                                             <button class="tablinks" onclick="openCategory(event, 'cat05')">Recipes
                                             </button>
+                                            <button class="tablinks" onclick="openCategory(event, 'cat05')">GG
+                                            </button>
+                                            <!--FIXME-->
+                                            <c:forEach items="${listOfCategories}" var="categoriesLoop">
+                                                <button class="tablinks"
+                                                        onclick="openCategory(event, 'cat05')">${categoriesLoop.get(0).getName().toString()}
+                                                </button>
+                                            </c:forEach>
                                         </div>
 
                                         <div class="tab-details clearfix">

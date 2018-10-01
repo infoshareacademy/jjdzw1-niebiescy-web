@@ -50,11 +50,11 @@
                                                 name="address" required/>
                                 Google maps: <input type="text" class="form-control" placeholder="Link do google maps"
                                                     name="google_maps" required/>
-                                Organizator: <input type="number" class="form-control" placeholder="" name="organizer"
+                                Organizator: <input type="number" min="1" step="1" class="form-control" placeholder="" name="organizer"
                                                   required/>
-                                Cena za wstęp: <input type="number" class="form-control" placeholder="Cena za wstęp"
+                                Cena za wstęp: <input type="number" min="0.01" step="0.01" class="form-control" placeholder="Cena za wstęp w PLN"
                                               name="price" required/>
-                                Ilość biletów: <input type="number" class="form-control" placeholder="ilość biletów"
+                                Ilość biletów: <input type="number" min="1" step="1" class="form-control" placeholder="ilość biletów"
                                                 name="tickets" required/>
 
 

@@ -45,7 +45,8 @@
                             <form class="form-wrapper" method="post" action="/LoginServlet">
                                 <h4>Zaloguj się:</h4>
                                 <input type="text" class="form-control" name="login" placeholder="login" required>
-                                <input type="text" class="form-control" name="password" placeholder="hasło" required>
+                                <input type="password" class="form-control" name="password" placeholder="hasło"
+                                       required>
                                 <button type="submit" class="btn btn-primary">Zaloguj się <i
                                         class="fa fa-envelope-open-o"></i></button>
                             </form>

@@ -36,34 +36,34 @@
 
                         <div class="col-lg-6">
                             <form class="form-wrapper" method="post" action="/EventEditServlet">
-                                <h4>Edit event</h4>
-                                Name: <input type="text" class="form-control" name="name" placeholder="Nazwa"
-                                             value="${event.getName()}" required>
-                                Description: <input type="text" class="form-control" name="description"
+                                <h4>Edycja Eventu</h4>
+                                Nazwa eventu: <input type="text" class="form-control" name="name" placeholder="Nazwa"
+                                                     value="${event.getName()}" required>
+                                Opis eventu: <input type="text" class="form-control" name="description"
                                                     placeholder="Opis"
                                                     value="${event.getDescription()}" required>
-                                Start Date: <input type="date" class="form-control" name="start_date"
-                                                   placeholder="Data rozpoczęcia"
-                                                   value="${start_date}" required>
-                                Finish Date: <input type="date" class="form-control" name="finish_date"
-                                                    placeholder="Data zakończeniae"
-                                                    value="${finish_date}" required>
-                                Address: <input type="text" class="form-control" name="address"
-                                                placeholder="Adres imprezy"
-                                                value="${event.getAddress()}">
+                                Początek: <input type="date" class="form-control" name="start_date"
+                                                 placeholder="Data rozpoczęcia"
+                                                 value="${start_date}" required>
+                                Koniec: <input type="date" class="form-control" name="finish_date"
+                                               placeholder="Data zakończeniae"
+                                               value="${finish_date}" required>
+                                Adres: <input type="text" class="form-control" name="address"
+                                              placeholder="Adres imprezy"
+                                              value="${event.getAddress()}">
                                 Google Maps: <input type="text" class="form-control" name="google_maps"
                                                     placeholder="Link do google maps"
-                                                    value="${event.getGoogleMaps()}" >
-                                Organizer: <input type="number" class="form-control" name="organizer"
-                                                  placeholder=""
-                                                  value="${event.getOrganizer()}" required>
-                                Price: <input type="number" class="form-control" name="price"
-                                              placeholder="Cena za wstęp"
-                                              value="${event.getPrice()}" required>
-                                Tickets: <input type="number" class="form-control" name="tickets"
-                                                placeholder="ilość biletów"
-                                                value="${event.getTickets()}" required>
-
+                                                    value="${event.getGoogleMaps()}">
+                                Organizator: <input type="number" min="1" step="1" class="form-control" name="organizer"
+                                                    placeholder=""
+                                                    value="${event.getOrganizer()}" required>
+                                Cena za wstęp: <input type="number" min="0.01" step="0.01" class="form-control"
+                                                      name="price"
+                                                      placeholder="Cena za wstęp w PLN"
+                                                      value="${event.getPrice()}" required>
+                                Ilość biletów: <input type="number" min="1" step="1" class="form-control" name="tickets"
+                                                      placeholder="ilość biletów"
+                                                      value="${event.getTickets()}" required>
 
 
                                 Category: <select class="form-control" name="category" value="${event.getCategory()}">

@@ -1,7 +1,10 @@
 package pl.findevent.servlets.adminservlets;
 
+import pl.findevent.dao.CategoriesDao;
+import pl.findevent.dao.CategoriesDaoBean;
 import pl.findevent.dao.EventsDao;
 import pl.findevent.domain.Event;
+import pl.findevent.domain.EventCategory;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -23,6 +26,7 @@ public class ListAllEventsAdminServlet extends HttpServlet
     
     @Inject
     EventsDao eventsDao;
+
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
