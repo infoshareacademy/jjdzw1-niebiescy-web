@@ -3,10 +3,7 @@ package pl.findevent.dao;
 import pl.findevent.domain.Event;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -16,12 +13,15 @@ public class EventsDaoBean implements EventsDao {
 
     private List<Event> eventList = new ArrayList<>();
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("primary");
+
     public List<Event> getEvents() {
         return eventList;
     }
+
     public void setEvents(List<Event> events) {
         this.eventList = events;
     }
+
     final Logger logger = Logger.getLogger(getClass().getName());
     final String SPACE = " ";
 
@@ -98,13 +98,13 @@ public class EventsDaoBean implements EventsDao {
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
         Event event = read(id);
-        logger.info("Event id: "+id+SPACE+"current status: "+event.getActive());
+        logger.info("Event id: " + id + SPACE + "current status: " + event.getActive());
         logger.info("Setting up as active...");
         event.setActive(true);
         entityManager.merge(event);
         entityTransaction.commit();
         entityManager.close();
-        logger.info("Event id "+id+SPACE+"current status: "+event.getActive());
+        logger.info("Event id " + id + SPACE + "current status: " + event.getActive());
     }
 
     @Override
@@ -113,14 +113,36 @@ public class EventsDaoBean implements EventsDao {
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
         Event event = read(id);
-        logger.info("Event id: "+id+SPACE+"current status: "+event.getActive());
+        logger.info("Event id: " + id + SPACE + "current status: " + event.getActive());
         logger.info("Setting up as inactive...");
         event.setActive(false);
         entityManager.merge(event);
         entityTransaction.commit();
         entityManager.close();
-        logger.info("Event id "+id+SPACE+"current status: "+event.getActive());
+        logger.info("Event id " + id + SPACE + "current status: " + event.getActive());
 
+    }
+
+    @Override
+    public void buyTickets(int userId, int eventId, int numberOfTickets) {
+        logger.info("numberofticketsser: " + numberOfTickets);
+        logger.info("eventIdser: " + eventId);
+        logger.info("userIDser: " + userId);
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+        Query query = entityManager.createNativeQuery("INSERT INTO event_user (id_user, id_event, tickets_number) VALUES (?1, ?2, ?3)");
+        query.setParameter(1, userId);
+        query.setParameter(2, eventId);
+        query.setParameter(3, numberOfTickets);
+        System.out.println(query.toString());
+        System.out.println(query.getParameter(1));
+        System.out.println(query.getParameter(2));
+        System.out.println(query.getParameter(3));
+        query.executeUpdate();
+
+        //eventList = entityManager.createQuery("FROM Event where name like %searchString% or description like %searchString%").getResultList();
+        entityManager.close();
     }
 
     public EventsDaoBean() {

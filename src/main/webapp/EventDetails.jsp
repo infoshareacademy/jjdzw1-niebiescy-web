@@ -38,7 +38,8 @@
                         <p><strong>${event.getStartDate()} - ${event.getFinishDate()}</strong></p>
 
                         <P><strong>Miejsce:</strong>
-                            <BR>${event.getAddress()} - <a href="${event.getGoogleMaps()}" target="_blank">Mapa dojazdu</a></BR>
+                            <BR>${event.getAddress()} - <a href="${event.getGoogleMaps()}" target="_blank">Mapa
+                                dojazdu</a></BR>
 
                         <P><strong>Organizator:</strong>
                             <BR>${event.getOrganizer()}</BR>
@@ -46,12 +47,15 @@
                         <P><strong>Opis wydarzenia:</strong>
                             <br>${event.getDescription()}</p>
 
-                        <P><strong>Zostało jeszcze ${event.getTickets()} biletów w cenie ${event.getPrice()}/szt.</strong></P>
+                        <P><strong>Zostało jeszcze ${event.getTickets()} biletów w
+                            cenie ${event.getPrice()}/szt.</strong></P>
 
-                        <form class="form-wrapper" method="post" action="/buyticket">
+                        <form class="form-wrapper" method="post" action="/ticketsbuyservlet">
 
-                            Kupuję bilet wstępu na event, sztuk: <input type="number" min="1" max="${event.getTickets()}">
-
+                            Kupuję bilet wstępu na event, sztuk: <input name="numberOfTickets" type="number" min="1"
+                                                                        max="${event.getTickets()}">
+                            <input name="eventId" value="${event.getId()}" type="hidden">
+                            <input name="userID" value=3 type="hidden">
                             <button type="submit" class="btn btn-primary">Kupuję<i
                                     class="fa fa-money"></i></button>
 
