@@ -128,7 +128,7 @@
 
                         <div class="newsletter-widget text-center">
                             <form class="form-inline" action="/Newsletter" method="post" >
-                                <input type="email" class="form-control" placeholder="Wpisz swój adres email" name="email">
+                                <input type="email" required minlength="3" class="form-control" placeholder="Wpisz swój adres email" name="email">
                                 <button type="submit" class="btn btn-primary">Zapisz się <i class="fa fa-envelope-open-o"></i></button>
                             </form>
                         </div><!-- end newsletter -->

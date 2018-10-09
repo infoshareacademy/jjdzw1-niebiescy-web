@@ -550,7 +550,7 @@
                         </c:if>
 
                         <li class="nav-item">
-                            <a class="nav-link color-grey-hover" href="/contact">Kontakt</a>
+                            <a class="nav-link color-grey-hover" href="/Contact">Kontakt</a>
                         </li>
 
 
