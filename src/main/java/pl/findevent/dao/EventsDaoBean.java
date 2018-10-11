@@ -131,17 +131,14 @@ public class EventsDaoBean implements EventsDao {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
-        Query query = entityManager.createNativeQuery("INSERT INTO event_user (id_user, id_event, tickets_number) VALUES (?1, ?2, ?3)");
+        Query query = entityManager.createNativeQuery("INSERT INTO event_user (id_user, id_event, tickets_number) VALUES (?, ?, ?)");
         query.setParameter(1, userId);
         query.setParameter(2, eventId);
         query.setParameter(3, numberOfTickets);
-        System.out.println(query.toString());
-        System.out.println(query.getParameter(1));
-        System.out.println(query.getParameter(2));
-        System.out.println(query.getParameter(3));
+        //  Query query1 = entityManager.createNativeQuery("select login from users where id_user = 49");
+        //  System.out.println(query1.getResultList().get(0));
         query.executeUpdate();
-
-        //eventList = entityManager.createQuery("FROM Event where name like %searchString% or description like %searchString%").getResultList();
+        entityManager.getTransaction().commit();
         entityManager.close();
     }
 
