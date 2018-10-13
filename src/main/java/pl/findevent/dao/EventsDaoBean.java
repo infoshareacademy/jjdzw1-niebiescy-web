@@ -142,6 +142,20 @@ public class EventsDaoBean implements EventsDao {
         entityManager.close();
     }
 
+    @Override
+    public Object getAvailableTicketsNumbers (int eventId)
+    {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+        Query query = entityManager.createNativeQuery("SELECT tickets_left from numberOfAvailableTickets where id_event=?");
+        query.setParameter(1,eventId);
+        System.out.println(query);
+        Object availableTickets = query.getSingleResult();
+        logger.info("Ilosc ticektow wg bazy to: "+availableTickets);
+        return  availableTickets;
+    }
+
     public EventsDaoBean() {
         // required for JPA
     }
