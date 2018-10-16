@@ -17,4 +17,5 @@ public interface EventsDao {
     void modifyEventDb(Event event);
     void markEventAsActiveInDb(int id);
     void markEventAsInactiveInDb(int id);
+    void buyTickets (int userId, int eventId, int numberOfTickets );
 }
