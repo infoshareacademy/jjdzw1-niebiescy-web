@@ -1,7 +1,6 @@
 package pl.findevent.dao;
 
 import pl.findevent.domain.Event;
-import pl.findevent.domain.User;
 
 import javax.ejb.Local;
 import java.util.List;
@@ -18,4 +17,5 @@ public interface EventsDao {
     void markEventAsActiveInDb(int id);
     void markEventAsInactiveInDb(int id);
     void buyTickets (int userId, int eventId, int numberOfTickets );
+    Object getAvailableTicketsNumbers (int eventId);
 }

@@ -47,7 +47,7 @@
                         <P><strong>Opis wydarzenia:</strong>
                             <br>${event.getDescription()}</p>
 
-                        <P><strong>Zostało jeszcze ${event.getTickets()} biletów w
+                        <P><strong>Zostało jeszcze ${availableTickets} biletów w
                             cenie ${event.getPrice()}/szt.</strong></P>
 
                         <form class="form-wrapper" method="post" action="/ticketsbuyservlet">
