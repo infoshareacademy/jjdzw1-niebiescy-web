@@ -48,17 +48,22 @@ class TicketsBuyServlet extends HttpServlet {
         String eventId = req.getParameter("eventId");
         String userID = req.getParameter("userID");
 
+
         logger.info("numberofticketsstring: "+numberOfTickets);
         logger.info("eventIdSring: "+eventId);
-        logger.info("userIDString: "+eventId);
+        logger.info("userIDString: "+userID);
+
 
         Integer numberOfTicketsInt = Integer.parseInt(numberOfTickets);
         Integer eventIdInt = Integer.parseInt(eventId);
         Integer userIdInt = Integer.parseInt(userID);
 
+
         logger.info("numberofticketsint: "+numberOfTicketsInt);
         logger.info("eventIdint: "+eventIdInt);
         logger.info("userIDint: "+userIdInt);
+
+
 
         eventsDao.buyTickets(userIdInt, eventIdInt, numberOfTicketsInt);
 

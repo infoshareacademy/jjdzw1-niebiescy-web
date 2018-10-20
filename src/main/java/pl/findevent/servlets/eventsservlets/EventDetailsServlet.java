@@ -1,7 +1,9 @@
 package pl.findevent.servlets.eventsservlets;
 
 import pl.findevent.dao.EventsDao;
+import pl.findevent.dao.UsersDao;
 import pl.findevent.domain.Event;
+import pl.findevent.domain.User;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -22,6 +24,7 @@ class EventDetailsServlet extends HttpServlet {
     @Inject
     EventsDao eventsDao;
 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -39,8 +42,9 @@ class EventDetailsServlet extends HttpServlet {
         }
 
         Event event = eventsDao.read(Integer.parseInt(eventID));
-
         req.setAttribute("event", event);
+        Integer userId = (Integer) req.getSession().getAttribute("id");
+        req.setAttribute("userId", userId);
 
         Object availableTickets = eventsDao.getAvailableTicketsNumbers(eventIdGet);
         logger.info("Available tickets for event: " + eventIdGet + " to: " + availableTickets);

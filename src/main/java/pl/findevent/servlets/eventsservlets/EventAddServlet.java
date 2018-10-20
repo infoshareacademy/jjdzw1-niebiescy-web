@@ -103,6 +103,7 @@ class EventAddServlet extends HttpServlet {
         event.setTickets(Integer.parseInt(tickets));
         event.setCategory(EventCategory.valueOf(category));
         event.setPromote(promoteTranslate);
+        event.setActive(true);
 
 
 
