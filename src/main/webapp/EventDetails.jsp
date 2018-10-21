@@ -53,9 +53,10 @@
                         <form class="form-wrapper" method="post" action="/ticketsbuyservlet">
 
                             Kupuję bilet wstępu na event, sztuk: <input name="numberOfTickets" type="number" min="1"
-                                                                        max="${event.getTickets()}">
+                                                                        max="${availableTickets}">
                             <input name="eventId" value="${event.getId()}" type="hidden">
-                            <input name="userID" value=3 type="hidden">
+                            <input name="userID" value="${userId}" type="hidden">
+                            <input name="availableTickets" value=${availableTickets} type="hidden">
                             <button type="submit" class="btn btn-primary">Kupuję<i
                                     class="fa fa-money"></i></button>
 
