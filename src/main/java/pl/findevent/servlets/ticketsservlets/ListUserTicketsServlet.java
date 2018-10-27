@@ -34,9 +34,9 @@ public class ListUserTicketsServlet extends HttpServlet {
         // Get users ticekts from DB
 
         response.setContentType("text/html;charset=UTF-8");
-        List<User> listOfUsers = usersDao.getUsersListFromDB();
-        request.setAttribute("listOfUsers", listOfUsers);
-        RequestDispatcher rd = request.getRequestDispatcher("ListAllUsersAdmin.jsp");
+        List listOfUserTickets = usersDao.getUserTickets(userID);
+        request.setAttribute("listOfUserTickets", listOfUserTickets);
+        RequestDispatcher rd = request.getRequestDispatcher("UserTickets.jsp");
         rd.forward(request, response);
 
     }
